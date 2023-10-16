@@ -18,19 +18,19 @@ public class HealthSystem : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.KeypadMinus))
+        if (Input.GetKeyDown(KeyCode.Minus) || Input.GetKeyDown(KeyCode.KeypadMinus))
         {
             TakeDamage(20);
         }
-        if (Input.GetKeyDown(KeyCode.KeypadPlus))
+        if (Input.GetKeyDown(KeyCode.Equals) || Input.GetKeyDown(KeyCode.KeypadPlus))
         {
            HealHealth(20);
         }
 
         //Pour que la vie n'aille pas en dessous de 0
         if (currentHealth < 0) { currentHealth = 0; }
-        //Pour que la vie n'aille pas au dessus de 100
-        if (currentHealth > maxHealth) { currentHealth = 100; }
+        //Pour que la vie n'aille pas au dessus du MaxHealth
+        if (currentHealth > maxHealth) { currentHealth = maxHealth; }
 
         //Tue le joueur si sa vie atteint 0
         if (currentHealth == 0) { Death(); }
@@ -42,7 +42,7 @@ public class HealthSystem : MonoBehaviour
             TakeDamage(10);
         }
     }
-    void TakeDamage(int damage)
+    public void TakeDamage(int damage)
     {
         currentHealth -= damage;
 
