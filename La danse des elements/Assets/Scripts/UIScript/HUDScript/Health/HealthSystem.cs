@@ -29,8 +29,8 @@ public class HealthSystem : MonoBehaviour
 
         //Pour que la vie n'aille pas en dessous de 0
         if (currentHealth < 0) { currentHealth = 0; }
-        //Pour que la vie n'aille pas au dessus de 100
-        if (currentHealth > maxHealth) { currentHealth = 100; }
+        //Pour que la vie n'aille pas au dessus du MaxHealth
+        if (currentHealth > maxHealth) { currentHealth = maxHealth; }
 
         //Tue le joueur si sa vie atteint 0
         if (currentHealth == 0) { Death(); }
