@@ -751,18 +751,38 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 154166306605053600, guid: ec12a0fe3e6b7e448bcac98cfc0d9a98,
         type: 3}
+      propertyPath: tailleZone
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 154166306605053600, guid: ec12a0fe3e6b7e448bcac98cfc0d9a98,
+        type: 3}
+      propertyPath: vitesseRocher
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 154166306605053600, guid: ec12a0fe3e6b7e448bcac98cfc0d9a98,
+        type: 3}
+      propertyPath: distanceLancer
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 154166306605053600, guid: ec12a0fe3e6b7e448bcac98cfc0d9a98,
+        type: 3}
+      propertyPath: delaiEntreAttaques
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 154166306605053600, guid: ec12a0fe3e6b7e448bcac98cfc0d9a98,
+        type: 3}
       propertyPath: startingRockLaunch
       value: 
       objectReference: {fileID: 1489833847}
     - target: {fileID: 2337536734010477579, guid: ec12a0fe3e6b7e448bcac98cfc0d9a98,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.67
+      value: 1.1
       objectReference: {fileID: 0}
     - target: {fileID: 2337536734010477579, guid: ec12a0fe3e6b7e448bcac98cfc0d9a98,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 2.23
+      value: 1.19
       objectReference: {fileID: 0}
     - target: {fileID: 2964772184312544820, guid: ec12a0fe3e6b7e448bcac98cfc0d9a98,
         type: 3}
