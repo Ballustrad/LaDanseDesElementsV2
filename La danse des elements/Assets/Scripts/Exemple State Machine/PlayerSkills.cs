@@ -23,7 +23,7 @@ public class PlayerSkills : MonoBehaviour
     
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Mouse0)) 
+        if (Input.GetKeyDown(KeyCode.Mouse0) && Time.time - tempsDerniereAttaque >= delaiEntreAttaques) 
         {
             switch (examplePlayer.currentElement) 
             {
@@ -40,6 +40,7 @@ public class PlayerSkills : MonoBehaviour
                     NormalAttackWater();
                     break;
             }
+            tempsDerniereAttaque = Time.time;
         }
     }
     public void NormalAttackFire()
@@ -66,7 +67,7 @@ public class PlayerSkills : MonoBehaviour
         // Ajoute un composant script à l'objet rocher pour gérer l'impact et les dégâts
         RocImpact rocImpact = rocher.GetComponent<RocImpact>();
         rocImpact.degats = degatsImpact;
-        rocImpact.tailleZone = tailleZone;
+        
 
         // Détruit le rocher après un certain temps au cas où il ne frappe pas quelque chose
         Destroy(rocher, 5f);

@@ -10,6 +10,14 @@ namespace KinematicCharacterController.Examples
 {
     public class ExamplePlayer : MonoBehaviour
     {
+        public int playerMaxHealth = 100;
+        public int fireHealth;
+        public int waterHealth;
+        public int windHealth;
+        public int earthHealth;
+        public int playerCurrentHealth;
+
+        public HealthBar playerHealthBar;
         public ExampleCharacterController Character;
         public ExampleCharacterCamera CharacterCamera;
 
@@ -28,7 +36,10 @@ namespace KinematicCharacterController.Examples
         public int currentElement = 1;
         private void Start()
         {
+            playerCurrentHealth = playerMaxHealth;
+            playerHealthBar.SetMaxHealth(playerMaxHealth);
             Cursor.lockState = CursorLockMode.Locked;
+
 
             // Tell camera to follow transform
             CharacterCamera.SetFollowTransform(Character.CameraFollowPoint);
@@ -40,6 +51,13 @@ namespace KinematicCharacterController.Examples
 
         private void Update()
         {
+            if (playerCurrentHealth < 0) { playerCurrentHealth = 0; }
+            //Pour que la vie n'aille pas au dessus de 100
+            if (playerCurrentHealth > playerMaxHealth) { playerCurrentHealth = 100; }
+
+            //Tue le joueur si sa vie atteint 0
+            if (playerCurrentHealth == 0) { Death(); }
+
             if (fireIsOn == true )
             {
                 currentElement = 1;
@@ -103,6 +121,10 @@ namespace KinematicCharacterController.Examples
                 UseConstructionSkill();
             }
             HandleCharacterInput();
+        }
+        private void Death()
+        {
+            this.gameObject.SetActive(false);
         }
 
         private void LateUpdate()
@@ -238,7 +260,19 @@ namespace KinematicCharacterController.Examples
         public float currentEnergyEarth = 3;
         public float currentEnergyWind = 3;
         public float currentEnergy;
+        private void OnTriggerEnter(Collider other)
+        {
+            if (other.CompareTag("Ennemy"))
+            {
+                PlayerTakeDamage(10);
+            }
+        }
+        public void PlayerTakeDamage(int damage)
+        {
+            playerCurrentHealth -= damage;
 
+            playerHealthBar.SetHealth(playerMaxHealth);
+        }
         public void UseConstructionSkill()
         {
             energyBar.gameObject.GetComponent<Slider>().value = currentEnergy - 1;

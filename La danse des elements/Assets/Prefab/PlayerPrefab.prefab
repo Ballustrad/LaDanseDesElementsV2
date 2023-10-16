@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 154166306605053600}
   - component: {fileID: 775328149113696055}
   - component: {fileID: 2260756966960907526}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Player (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -47,6 +47,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 461cd396e3fc7cc4eb9c92bde05c1b9a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerMaxHealth: 100
+  fireHealth: 0
+  waterHealth: 0
+  windHealth: 0
+  earthHealth: 0
+  playerCurrentHealth: 0
+  playerHealthBar: {fileID: 1009711814229366544}
   Character: {fileID: 290087598524358474}
   CharacterCamera: {fileID: 6473101313212409564}
   Fire: {fileID: 7745789628153902750}
@@ -85,12 +92,12 @@ MonoBehaviour:
   examplePlayer: {fileID: 580107678266856013}
   rocherPrefab: {fileID: 1028869995256010623, guid: 2ab53841cf0d57d44bbdb98fc7565e93,
     type: 3}
-  vitesseRocher: 10
-  degatsImpact: 10
-  tailleZone: 2
+  vitesseRocher: 7
+  degatsImpact: 40
+  tailleZone: 50
   delaiEntreAttaques: 1
-  distanceLancer: 5
-  startingRockLaunch: {fileID: 0}
+  distanceLancer: 10
+  startingRockLaunch: {fileID: 2337536734010477579}
 --- !u!114 &775328149113696055
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -234,7 +241,7 @@ GameObject:
   - component: {fileID: 9192674243377632174}
   - component: {fileID: 6627973496160339770}
   - component: {fileID: 6028496929827064508}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Border
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -412,7 +419,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5910677690868601817}
-  m_Layer: 5
+  m_Layer: 7
   m_Name: PauseMenu
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -452,7 +459,7 @@ GameObject:
   - component: {fileID: 139994267366271065}
   - component: {fileID: 6981631372503206614}
   - component: {fileID: 4457676333612435715}
-  m_Layer: 5
+  m_Layer: 7
   m_Name: PauseMenuText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -618,7 +625,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1023373329405808171}
-  m_Layer: 5
+  m_Layer: 7
   m_Name: OptionsMENU
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -657,7 +664,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8111985635916413449}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: PlayerMenuUI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -692,7 +699,7 @@ GameObject:
   - component: {fileID: 560118858674911581}
   - component: {fileID: 7780614510766338829}
   - component: {fileID: 4043824277565362382}
-  m_Layer: 5
+  m_Layer: 7
   m_Name: Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -765,7 +772,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 456188292648042423}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: HUD
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -989,7 +996,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1307612672359202226}
-  m_Layer: 5
+  m_Layer: 7
   m_Name: Menu
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1030,7 +1037,7 @@ GameObject:
   - component: {fileID: 3069380709183764542}
   - component: {fileID: 5211921489472696869}
   - component: {fileID: 9133988535900610947}
-  m_Layer: 5
+  m_Layer: 7
   m_Name: PauseMenuCanvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1195,7 +1202,7 @@ Transform:
   m_GameObject: {fileID: 2313677638735443993}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.75, z: 0.8699999}
+  m_LocalPosition: {x: 0, y: 1.1, z: 1.19}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1210,7 +1217,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 703453884913437265}
-  m_Layer: 5
+  m_Layer: 7
   m_Name: AudiosBoard
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1245,7 +1252,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 444937412938638404}
-  m_Layer: 5
+  m_Layer: 7
   m_Name: LoadMENU
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1391,7 +1398,7 @@ GameObject:
   - component: {fileID: 3726750588276531060}
   - component: {fileID: 7656746714763018118}
   - component: {fileID: 1676121629012554462}
-  m_Layer: 5
+  m_Layer: 7
   m_Name: ReturnMenuButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1615,7 +1622,7 @@ GameObject:
   - component: {fileID: 1901734295340248797}
   - component: {fileID: 8212675893694955273}
   - component: {fileID: 5426677433370339821}
-  m_Layer: 5
+  m_Layer: 7
   m_Name: PauseMenuTitle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1691,7 +1698,7 @@ GameObject:
   - component: {fileID: 5483566954088137422}
   - component: {fileID: 4650313589417896246}
   - component: {fileID: 4012036562459103542}
-  m_Layer: 5
+  m_Layer: 7
   m_Name: Fill
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1769,7 +1776,7 @@ GameObject:
   - component: {fileID: 385255949046302036}
   - component: {fileID: 6473101313212409564}
   - component: {fileID: 8185958089681444480}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: ExampleCamera (1)
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
@@ -1889,7 +1896,7 @@ MonoBehaviour:
   ObstructionCheckRadius: 0.2
   ObstructionLayers:
     serializedVersion: 2
-    m_Bits: 127
+    m_Bits: 63
   ObstructionSharpness: 10000
   IgnoredColliders: []
 --- !u!114 &8185958089681444480
@@ -1947,7 +1954,7 @@ GameObject:
   - component: {fileID: 5566372615619234756}
   - component: {fileID: 3058383161572120893}
   - component: {fileID: 4347871673551289957}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: FireFragmentText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2079,7 +2086,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2977765684412978789}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: UIFragment
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2155,7 +2162,7 @@ GameObject:
   - component: {fileID: 6277620935839433190}
   - component: {fileID: 4712604704284452047}
   - component: {fileID: 3908932941206977052}
-  m_Layer: 5
+  m_Layer: 7
   m_Name: MainMenuPlayButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2426,7 +2433,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3562831760557528869}
-  m_Layer: 5
+  m_Layer: 7
   m_Name: Handle Slide Area
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2462,7 +2469,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2632739965080964930}
-  m_Layer: 5
+  m_Layer: 7
   m_Name: Visuals
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2607,7 +2614,7 @@ GameObject:
   - component: {fileID: 7628276709096319483}
   - component: {fileID: 969278750888512033}
   - component: {fileID: 8249791967397266448}
-  m_Layer: 5
+  m_Layer: 7
   m_Name: LoadMenuButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2797,7 +2804,7 @@ GameObject:
   - component: {fileID: 6062630936967315523}
   - component: {fileID: 2485883834767653832}
   - component: {fileID: 1009711814229366544}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: HealthBarPlayer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2932,7 +2939,7 @@ GameObject:
   - component: {fileID: 2964772184312544820}
   - component: {fileID: 8898068721247109037}
   - component: {fileID: 3043360087794253133}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Fill
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3008,7 +3015,7 @@ GameObject:
   - component: {fileID: 7121246860595055977}
   - component: {fileID: 611358982980504757}
   - component: {fileID: 9106662411377675926}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: PlayerUICanvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3108,7 +3115,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8338453456391697619}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: PlayerPrefab
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3148,7 +3155,7 @@ GameObject:
   - component: {fileID: 1875554057136819825}
   - component: {fileID: 4189373451729883531}
   - component: {fileID: 7321502614634669138}
-  m_Layer: 5
+  m_Layer: 7
   m_Name: MiniBiomePlayButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3541,7 +3548,7 @@ GameObject:
   - component: {fileID: 290087598524358474}
   - component: {fileID: 4673121575537932213}
   - component: {fileID: 9104511372099360852}
-  - component: {fileID: 8732064783643987303}
+  - component: {fileID: 4266484771912986275}
   m_Layer: 7
   m_Name: ExampleCharacter (1)
   m_TagString: Untagged
@@ -3691,7 +3698,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &8732064783643987303
+--- !u!114 &4266484771912986275
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -3700,12 +3707,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 5826774553993698700}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 23a0bf35137e3af4eb85fd40ec543920, type: 3}
+  m_Script: {fileID: 11500000, guid: 1ab6d5d8afbea454b9a677da79c4e7f9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 100
-  currentHealth: 0
-  healthBar: {fileID: 1009711814229366544}
+  uiFragmentText: {fileID: 3319658164410043530}
+  uiFragmentVisible: 0
+  fireFragmentText: {fileID: 4347871673551289957}
+  waterFragmentText: {fileID: 1963126173067066373}
+  windFragmentText: {fileID: 8181681933203918474}
+  rockFragmentText: {fileID: 5083070516260007498}
 --- !u!1 &6027248195813545518
 GameObject:
   m_ObjectHideFlags: 0
@@ -3717,7 +3727,7 @@ GameObject:
   - component: {fileID: 6108903536346263589}
   - component: {fileID: 1794576144654290346}
   - component: {fileID: 3878713922121212292}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: UIFragmentBackground
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3898,7 +3908,7 @@ GameObject:
   - component: {fileID: 5915401345711306427}
   - component: {fileID: 3521227738003819855}
   - component: {fileID: 6868367341587573323}
-  m_Layer: 5
+  m_Layer: 7
   m_Name: QuitGameButton (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4089,7 +4099,7 @@ GameObject:
   - component: {fileID: 2172518775018392635}
   - component: {fileID: 3692524500662495884}
   - component: {fileID: 2220958817845087986}
-  m_Layer: 5
+  m_Layer: 7
   m_Name: ResumeButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4490,7 +4500,7 @@ GameObject:
   - component: {fileID: 3774730328045521722}
   - component: {fileID: 4318220545505802092}
   - component: {fileID: 3216076543511119846}
-  m_Layer: 5
+  m_Layer: 7
   m_Name: PlayerInterface (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4591,7 +4601,7 @@ GameObject:
   - component: {fileID: 5574481949411198141}
   - component: {fileID: 46452821603378884}
   - component: {fileID: 8340691448484985543}
-  m_Layer: 5
+  m_Layer: 7
   m_Name: Handle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4667,7 +4677,7 @@ GameObject:
   - component: {fileID: 6348642291117671490}
   - component: {fileID: 2898683361147408527}
   - component: {fileID: 3951699636768486957}
-  m_Layer: 5
+  m_Layer: 7
   m_Name: ReturnMenuButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4857,7 +4867,7 @@ GameObject:
   - component: {fileID: 3645753729646490451}
   - component: {fileID: 8835607511267257819}
   - component: {fileID: 1963126173067066373}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: WaterFragmentText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5135,7 +5145,7 @@ GameObject:
   - component: {fileID: 1200696783565986397}
   - component: {fileID: 7493604375804549847}
   - component: {fileID: 5083070516260007498}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: RockFragmentText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5351,7 +5361,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7668392811754115841}
-  m_Layer: 5
+  m_Layer: 7
   m_Name: Fill Area
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5528,7 +5538,7 @@ GameObject:
   - component: {fileID: 4472860583383533983}
   - component: {fileID: 3718027176211246042}
   - component: {fileID: 2860766509992095331}
-  m_Layer: 5
+  m_Layer: 7
   m_Name: Panel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5601,7 +5611,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 188291154663022508}
-  m_Layer: 5
+  m_Layer: 7
   m_Name: ControlsBoard
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5720,7 +5730,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5019367071952467428}
-  m_Layer: 5
+  m_Layer: 7
   m_Name: GraphicsBoard
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5757,7 +5767,7 @@ GameObject:
   - component: {fileID: 8116910151794909061}
   - component: {fileID: 1728441005730809381}
   - component: {fileID: 4127056397217094711}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: HeartLogo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5830,7 +5840,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2769931311628818471}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: InteractionPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5861,7 +5871,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5779453584415423982}
-  m_Layer: 5
+  m_Layer: 7
   m_Name: MenuContenu
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6195,7 +6205,7 @@ GameObject:
   m_Component:
   - component: {fileID: 96009933968912957}
   - component: {fileID: 1284692572924037438}
-  m_Layer: 5
+  m_Layer: 7
   m_Name: Energybar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6286,7 +6296,7 @@ GameObject:
   - component: {fileID: 2691540339564366359}
   - component: {fileID: 2178269589287953935}
   - component: {fileID: 8181681933203918474}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: WindFragmentText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
