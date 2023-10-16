@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 758721274797460049}
   - component: {fileID: 3535650565068767900}
   - component: {fileID: 8810078434667214259}
-  m_Layer: 11
+  m_Layer: 10
   m_Name: FragmentPrefab
   m_TagString: Fragment
   m_Icon: {fileID: 0}
@@ -63,7 +63,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 0e7e04bf927d7f84d98077ca21af4eb8, type: 2}
+  - {fileID: 2100000, guid: 35ba6021e604bcd419ac39d994378cbd, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
