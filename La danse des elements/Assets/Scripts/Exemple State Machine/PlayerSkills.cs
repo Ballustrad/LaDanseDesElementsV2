@@ -54,10 +54,10 @@ public class PlayerSkills : MonoBehaviour
     {
         print("attaque de terre");
         // Crée une instance du rocher à la position et rotation du personnage
-        GameObject rocher = Instantiate(rocherPrefab, transform.position, transform.rotation);
+        GameObject rocher = Instantiate(rocherPrefab, startingRockLaunch.position, startingRockLaunch.rotation);
 
         // Obtient la direction dans laquelle le rocher doit être lancé
-        Vector3 directionLancer = transform.forward;
+        Vector3 directionLancer = startingRockLaunch.forward;
         directionLancer.y = 1f; // Soulève légèrement le rocher pour un lancer en cloche
 
         // Applique une force au rocher pour le lancer dans la direction spécifiée avec la vitesse spécifiée

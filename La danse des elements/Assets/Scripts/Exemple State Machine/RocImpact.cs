@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class RocImpact : MonoBehaviour
 {
-    public int degats = 10; // Dégâts infligés à la cible
+    public int degats = 10; // Dégâts infligés à l'ennemi
     public float tailleZone = 2f; // Taille de la zone d'impact
 
     void OnCollisionEnter(Collision collision)
@@ -24,9 +24,9 @@ public class RocImpact : MonoBehaviour
                 // Inflige les dégâts à l'ennemi
                 ennemi.TakeDamage(degats);
             }
-        }
 
-        // Détruit le rocher au moment de l'impact
-        Destroy(gameObject);
+            // Détruit le rocher au contact de l'ennemi
+            Destroy(gameObject);
+        }
     }
 }
