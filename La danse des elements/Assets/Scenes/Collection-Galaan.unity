@@ -269,16 +269,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: RockFragment
       objectReference: {fileID: 0}
-    - target: {fileID: 721184713681027233, guid: 87be39e91d9bb3848bc06b2abf67bca8,
-        type: 3}
-      propertyPath: m_Layer
-      value: 11
-      objectReference: {fileID: 0}
-    - target: {fileID: 758721274797460049, guid: 87be39e91d9bb3848bc06b2abf67bca8,
-        type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: 0e7e04bf927d7f84d98077ca21af4eb8, type: 2}
     - target: {fileID: 7470310251103317103, guid: 87be39e91d9bb3848bc06b2abf67bca8,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -329,16 +319,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8810078434667214259, guid: 87be39e91d9bb3848bc06b2abf67bca8,
-        type: 3}
-      propertyPath: m_UseGravity
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8810078434667214259, guid: 87be39e91d9bb3848bc06b2abf67bca8,
-        type: 3}
-      propertyPath: m_Constraints
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -363,16 +343,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: WaterFragment
       objectReference: {fileID: 0}
-    - target: {fileID: 721184713681027233, guid: 87be39e91d9bb3848bc06b2abf67bca8,
-        type: 3}
-      propertyPath: m_Layer
-      value: 9
-      objectReference: {fileID: 0}
-    - target: {fileID: 758721274797460049, guid: 87be39e91d9bb3848bc06b2abf67bca8,
-        type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: 2d9ec9f9b4cfff64688c5f220ac94c23, type: 2}
     - target: {fileID: 7470310251103317103, guid: 87be39e91d9bb3848bc06b2abf67bca8,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -421,16 +391,6 @@ PrefabInstance:
     - target: {fileID: 7470310251103317103, guid: 87be39e91d9bb3848bc06b2abf67bca8,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8810078434667214259, guid: 87be39e91d9bb3848bc06b2abf67bca8,
-        type: 3}
-      propertyPath: m_UseGravity
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8810078434667214259, guid: 87be39e91d9bb3848bc06b2abf67bca8,
-        type: 3}
-      propertyPath: m_Constraints
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -490,16 +450,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: WindFragment
       objectReference: {fileID: 0}
-    - target: {fileID: 721184713681027233, guid: 87be39e91d9bb3848bc06b2abf67bca8,
-        type: 3}
-      propertyPath: m_Layer
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 758721274797460049, guid: 87be39e91d9bb3848bc06b2abf67bca8,
-        type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: 35ba6021e604bcd419ac39d994378cbd, type: 2}
     - target: {fileID: 7470310251103317103, guid: 87be39e91d9bb3848bc06b2abf67bca8,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -548,16 +498,6 @@ PrefabInstance:
     - target: {fileID: 7470310251103317103, guid: 87be39e91d9bb3848bc06b2abf67bca8,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8810078434667214259, guid: 87be39e91d9bb3848bc06b2abf67bca8,
-        type: 3}
-      propertyPath: m_UseGravity
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8810078434667214259, guid: 87be39e91d9bb3848bc06b2abf67bca8,
-        type: 3}
-      propertyPath: m_Constraints
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -1247,16 +1187,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: WaterFragment
       objectReference: {fileID: 0}
-    - target: {fileID: 721184713681027233, guid: 87be39e91d9bb3848bc06b2abf67bca8,
-        type: 3}
-      propertyPath: m_Layer
-      value: 9
-      objectReference: {fileID: 0}
-    - target: {fileID: 758721274797460049, guid: 87be39e91d9bb3848bc06b2abf67bca8,
-        type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: 2d9ec9f9b4cfff64688c5f220ac94c23, type: 2}
     - target: {fileID: 7470310251103317103, guid: 87be39e91d9bb3848bc06b2abf67bca8,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1305,16 +1235,6 @@ PrefabInstance:
     - target: {fileID: 7470310251103317103, guid: 87be39e91d9bb3848bc06b2abf67bca8,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8810078434667214259, guid: 87be39e91d9bb3848bc06b2abf67bca8,
-        type: 3}
-      propertyPath: m_UseGravity
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8810078434667214259, guid: 87be39e91d9bb3848bc06b2abf67bca8,
-        type: 3}
-      propertyPath: m_Constraints
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -2459,16 +2379,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: FireFragment
       objectReference: {fileID: 0}
-    - target: {fileID: 721184713681027233, guid: 87be39e91d9bb3848bc06b2abf67bca8,
-        type: 3}
-      propertyPath: m_Layer
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 758721274797460049, guid: 87be39e91d9bb3848bc06b2abf67bca8,
-        type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: 518d90baade5318409c84a3470f80238, type: 2}
     - target: {fileID: 7470310251103317103, guid: 87be39e91d9bb3848bc06b2abf67bca8,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2517,16 +2427,6 @@ PrefabInstance:
     - target: {fileID: 7470310251103317103, guid: 87be39e91d9bb3848bc06b2abf67bca8,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8810078434667214259, guid: 87be39e91d9bb3848bc06b2abf67bca8,
-        type: 3}
-      propertyPath: m_UseGravity
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8810078434667214259, guid: 87be39e91d9bb3848bc06b2abf67bca8,
-        type: 3}
-      propertyPath: m_Constraints
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
