@@ -23,7 +23,7 @@ public class PlayerSkills : MonoBehaviour
     
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Mouse0)) 
+        if (Input.GetKeyDown(KeyCode.Mouse0) && Time.time - tempsDerniereAttaque >= delaiEntreAttaques) 
         {
             switch (examplePlayer.currentElement) 
             {
@@ -40,6 +40,7 @@ public class PlayerSkills : MonoBehaviour
                     NormalAttackWater();
                     break;
             }
+            tempsDerniereAttaque = Time.time;
         }
     }
     public void NormalAttackFire()
