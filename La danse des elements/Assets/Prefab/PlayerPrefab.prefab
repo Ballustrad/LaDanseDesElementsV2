@@ -47,6 +47,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 461cd396e3fc7cc4eb9c92bde05c1b9a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerMaxHealth: 100
+  fireHealth: 0
+  waterHealth: 0
+  windHealth: 0
+  earthHealth: 0
+  playerCurrentHealth: 0
+  playerHealthBar: {fileID: 1009711814229366544}
   Character: {fileID: 290087598524358474}
   CharacterCamera: {fileID: 6473101313212409564}
   Fire: {fileID: 7745789628153902750}
@@ -3541,7 +3548,6 @@ GameObject:
   - component: {fileID: 290087598524358474}
   - component: {fileID: 4673121575537932213}
   - component: {fileID: 9104511372099360852}
-  - component: {fileID: 8732064783643987303}
   m_Layer: 7
   m_Name: ExampleCharacter (1)
   m_TagString: Untagged
@@ -3691,21 +3697,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &8732064783643987303
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5826774553993698700}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 23a0bf35137e3af4eb85fd40ec543920, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxHealth: 100
-  currentHealth: 0
-  healthBar: {fileID: 1009711814229366544}
 --- !u!1 &6027248195813545518
 GameObject:
   m_ObjectHideFlags: 0

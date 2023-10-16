@@ -264,10 +264,10 @@ namespace KinematicCharacterController.Examples
         {
             if (other.CompareTag("Ennemy"))
             {
-                TakeDamage(10);
+                PlayerTakeDamage(10);
             }
         }
-        public void TakeDamage(int damage)
+        public void PlayerTakeDamage(int damage)
         {
             playerCurrentHealth -= damage;
 
