@@ -12,7 +12,7 @@ public class PlayerSkills : MonoBehaviour
     public float tailleZone = 2f; // Taille de la zone d'impact
     public float delaiEntreAttaques = 1f; // Délai entre les attaques en secondes
     public float distanceLancer = 5f; // Distance maximale de lancer du rocher
-
+    public Transform startingRockLaunch;
     private float tempsDerniereAttaque; // Temps de la dernière attaque
 
     void Start()
