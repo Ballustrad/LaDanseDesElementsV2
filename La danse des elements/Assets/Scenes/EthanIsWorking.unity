@@ -774,6 +774,11 @@ PrefabInstance:
       propertyPath: startingRockLaunch
       value: 
       objectReference: {fileID: 1489833847}
+    - target: {fileID: 580107678266856013, guid: ec12a0fe3e6b7e448bcac98cfc0d9a98,
+        type: 3}
+      propertyPath: playerHealthBar
+      value: 
+      objectReference: {fileID: 1593389913}
     - target: {fileID: 2337536734010477579, guid: ec12a0fe3e6b7e448bcac98cfc0d9a98,
         type: 3}
       propertyPath: m_LocalPosition.y
@@ -1565,6 +1570,18 @@ Transform:
   - {fileID: 2130337780}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1593389913 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1009711814229366544, guid: ec12a0fe3e6b7e448bcac98cfc0d9a98,
+    type: 3}
+  m_PrefabInstance: {fileID: 283638291}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 15dae88b67ffcfa43a81289b75b68cc9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1735265331
 PrefabInstance:
   m_ObjectHideFlags: 0
