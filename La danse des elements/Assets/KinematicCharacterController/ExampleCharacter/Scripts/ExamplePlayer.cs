@@ -20,6 +20,7 @@ namespace KinematicCharacterController.Examples
         public HealthBar playerHealthBar;
         public ExampleCharacterController Character;
         public ExampleCharacterCamera CharacterCamera;
+       
 
         private const string MouseXInput = "Mouse X";
         private const string MouseYInput = "Mouse Y";
@@ -117,7 +118,7 @@ namespace KinematicCharacterController.Examples
             }
             if (Input.GetKeyDown(KeyCode.F))
             {
-                UseConstructionSkill();
+                PerformSpecialSkill();
             }
             HandleCharacterInput();
         }
@@ -181,6 +182,22 @@ namespace KinematicCharacterController.Examples
             // Apply inputs to character
             Character.SetInputs(ref characterInputs);
         }
+        private void OnTriggerEnter(Collider other)
+        {
+            if (other.CompareTag("Ennemy"))
+            {
+                PlayerTakeDamage(10);
+            }
+        }
+        public void PlayerTakeDamage(int damage)
+        {
+            playerCurrentHealth -= damage;
+
+            playerHealthBar.SetHealth(playerMaxHealth);
+        }
+        
+
+
         public bool fireIsOn = true;
         public bool waterIsOn = false;
         public bool windIsOn = false;
@@ -193,7 +210,6 @@ namespace KinematicCharacterController.Examples
         public GameObject petsWater;
         public GameObject petsWind;
         public GameObject petsEarth;
-        
         
         public void SwapElement()
         {
@@ -252,6 +268,9 @@ namespace KinematicCharacterController.Examples
 
 
         }
+
+
+
         public GameObject energyBar;
         public GameObject backgroundBar;
         public float currentEnergyWater = 3;
@@ -259,39 +278,38 @@ namespace KinematicCharacterController.Examples
         public float currentEnergyEarth = 3;
         public float currentEnergyWind = 3;
         public float currentEnergy;
-        private void OnTriggerEnter(Collider other)
+        public FireBallSkill fireballSkill;
+        public StoneBridgeSkill stoneBridgeSkill;
+        public PropulsionSkill propulsionSkill;
+        public WaterFormSkill waterFormSkill;
+        public void PerformSpecialSkill()
         {
-            if (other.CompareTag("Ennemy"))
+            if (currentEnergy > 0)
             {
-                PlayerTakeDamage(10);
-            }
-        }
-        public void PlayerTakeDamage(int damage)
-        {
-            playerCurrentHealth -= damage;
+                energyBar.gameObject.GetComponent<Slider>().value = currentEnergy - 1;
+                // Sélectionner l'attaque appropriée en fonction de l'élément actuel du joueur
+                switch (currentElement)
+                {
+                    case 1:
+                        currentEnergyFire = energyBar.GetComponent<Slider>().value;
+                        fireballSkill.UseFireball();
+                        break;
+                    case 2:
+                        currentEnergyEarth = energyBar.GetComponent<Slider>().value;
+                        break;
+                    case 3:
+                        currentEnergyWind = energyBar.GetComponent<Slider>().value;
+                        break;
+                    case 4:
+                        currentEnergyWater = energyBar.GetComponent<Slider>().value;
+                        break;
+                    default:
+                        break;
 
-            playerHealthBar.SetHealth(playerMaxHealth);
+                        // Ajoutez d'autres cas pour les autres types d'attaque
+                }
+            }
         }
-        public void UseConstructionSkill()
-        {
-            energyBar.gameObject.GetComponent<Slider>().value = currentEnergy - 1;
-            if(currentElement == 1)
-            {
-                currentEnergyFire = energyBar.GetComponent<Slider>().value;
-            }
-            if (currentElement == 2)
-            {
-                currentEnergyEarth = energyBar.GetComponent<Slider>().value;
-            }
-            if (currentElement == 3)
-            {
-                currentEnergyWind = energyBar.GetComponent<Slider>().value;
-            }
-            if (currentElement == 4)
-            {
-                currentEnergyWater = energyBar.GetComponent<Slider>().value;
-            }
-            Debug.Log("a");
-        }
+      
     }
 }
