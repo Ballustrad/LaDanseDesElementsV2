@@ -1,4 +1,6 @@
 using UnityEngine;
+using UnityEngine.EventSystems;
+using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 
 public class PauseMenu : MonoBehaviour
@@ -20,17 +22,19 @@ public class PauseMenu : MonoBehaviour
     public GameObject controlsBoard;
 
     //Pause - Resume
-    void Update()
+    void LateUpdate()                                                                                 // Updates Every Frame After All Other Updates Have Been Completed.
     {
-        if(Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetKeyDown(KeyCode.Escape))
         {
-            if(gameIsPaused)
+            if (gameIsPaused == true)
             {
                 Resume();
+                gameIsPaused = false;
             }
-            else
+            else if (gameIsPaused == false)
             {
                 Paused();
+                gameIsPaused = true;
             }
         }
     }
@@ -42,7 +46,8 @@ public class PauseMenu : MonoBehaviour
         gameIsPaused = true;
 
         Cursor.visible = true;
-        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.lockState = CursorLockMode.None;
+
 
         Debug.Log("Pause");
     }
