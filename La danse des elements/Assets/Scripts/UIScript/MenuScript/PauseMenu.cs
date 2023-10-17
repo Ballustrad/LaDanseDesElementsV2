@@ -6,6 +6,8 @@ using UnityEngine.SceneManagement;
 public class PauseMenu : MonoBehaviour
 {
     public static bool gameIsPaused = false;
+    public static bool menuContenuCheck = false;
+    public static bool loadMenuCheck = false;
 
     [Header("Scene Management")]
     public string sceneActuelle;
@@ -44,32 +46,47 @@ public class PauseMenu : MonoBehaviour
         }
 
         //Solution de secours (Problème de Curseur)
-        if (Input.GetKeyDown(KeyCode.Backspace)) 
+        if (gameIsPaused == true)
         {
-            LoadMENU();
-        }
-        if (Input.GetKeyDown(KeyCode.UpArrow))
-        {
-            MainMenuPlay();
-        }
-        if (Input.GetKeyDown(KeyCode.DownArrow))
-        {
-            // Vérifier si la scène actuelle est égale à la scène spécifiée
-            if (SceneManager.GetActiveScene().name == sceneActuelle)
+            menuContenuCheck = true;
+            if (menuContenuCheck == true)
             {
-                // Charger la première scène si elles sont identiques
-                SceneManager.LoadScene(sceneAChargerSiIdentique);
+                if (Input.GetKeyDown(KeyCode.Return))
+                {
+                    LoadMENU();
+                    menuContenuCheck = false;
+                    loadMenuCheck = true;
+                }
+                if (Input.GetKeyDown(KeyCode.Delete))
+                {
+                    QuitGame();
+                }
             }
-            else
+
+            if(loadMenuCheck == true)
             {
-                // Charger la deuxième scène si elles sont différentes
-                SceneManager.LoadScene(sceneAChargerSiDifferent);
+                if (Input.GetKeyDown(KeyCode.UpArrow))
+                {
+                    MainMenuPlay();
+                }
+                if (Input.GetKeyDown(KeyCode.DownArrow))
+                {
+                    // Vérifier si la scène actuelle est égale à la scène spécifiée
+                    if (SceneManager.GetActiveScene().name == sceneActuelle)
+                    {
+                        // Charger la première scène si elles sont identiques
+                        SceneManager.LoadScene(sceneAChargerSiIdentique);
+                    }
+                    else
+                    {
+                        // Charger la deuxième scène si elles sont différentes
+                        SceneManager.LoadScene(sceneAChargerSiDifferent);
+                    }
+                }
             }
         }
-        if (Input.GetKeyDown(KeyCode.Delete))
-        {
-            QuitGame();
-        }
+
+        
     }
     void Paused()
     {
