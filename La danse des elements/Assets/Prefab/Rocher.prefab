@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 3835083254407936295}
   - component: {fileID: 77191464163533361}
   - component: {fileID: 4286739862711621880}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Rocher
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -147,4 +147,3 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   degats: 25
-  tailleZone: 100
