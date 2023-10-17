@@ -4,15 +4,18 @@ using UnityEngine;
 
 public class StoneBridgeSkill : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public GameObject stoneBridgePrefab;
+    public float bridgeLength = 7f;
+    public float bridgeDuration = 10f;
+    public Transform stoneBridgeSpawnPoint;
 
-    // Update is called once per frame
-    void Update()
+    public void CreateStoneBridge()
     {
-        
+        // Crée un pont de pierre dans la direction du joueur
+        Vector3 bridgeDirection = stoneBridgeSpawnPoint.forward;
+        Vector3 bridgePosition = stoneBridgeSpawnPoint.position + bridgeDirection * bridgeLength * 0.5f;
+
+        GameObject stoneBridge = Instantiate(stoneBridgePrefab, bridgePosition, Quaternion.LookRotation(bridgeDirection));
+        Destroy(stoneBridge, bridgeDuration);
     }
 }

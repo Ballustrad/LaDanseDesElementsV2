@@ -383,10 +383,12 @@ namespace KinematicCharacterController.Examples
                             currentVelocity += _internalVelocityAdd;
                             _internalVelocityAdd = Vector3.zero;
                         }
+                        magnitudeVelocity = currentVelocity.magnitude;
                         break;
                     }
             }
         }
+        public float magnitudeVelocity;
 
         /// <summary>
         /// (Called by KinematicCharacterMotor during its update cycle)
@@ -503,6 +505,9 @@ namespace KinematicCharacterController.Examples
 
         protected void OnLanded()
         {
+            Drag = 0f;
+            AirAccelerationSpeed = 15f;
+            MaxAirMoveSpeed = 15f;
         }
 
         protected void OnLeaveStableGround()
