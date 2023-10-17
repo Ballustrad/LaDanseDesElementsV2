@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class FireAttack : MonoBehaviour
 {
+    public float cooldown;
+    public float derniereUtilisation;
     public float fireRange = 5f; // Portée du lance-flammes
     public int damagePerSecond = 10; // Dégâts infligés par seconde
     public float flameWidth = 5f; // Largeur du lance-flammes

@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class RockAttack : MonoBehaviour
 {
+    public float cooldown;
+    public float derniereUtilisation;
     public GameObject rockPrefab; // Référence à l'objet rocher à lancer
     public float rockSpeed = 10f; // Vitesse de déplacement du rocher
     public int rockDamage = 10; // Dégâts infligés par le rocher
@@ -15,7 +17,7 @@ public class RockAttack : MonoBehaviour
 
         // Obtient la direction dans laquelle le rocher doit être lancé
         Vector3 directionLancer = startingRockLaunch.forward;
-        directionLancer.y = 1f;
+        directionLancer.y = 0.4f;
 
         // Applique une force au rocher pour le lancer dans la direction spécifiée avec la vitesse spécifiée
         rocher.GetComponent<Rigidbody>().velocity = directionLancer.normalized * rockSpeed;

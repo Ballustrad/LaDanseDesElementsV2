@@ -9,6 +9,7 @@ public class AttackController : MonoBehaviour
     public RockAttack rockAttack; // Script de l'attaque de rocher
     public ExamplePlayer examplePlayer;
     public WaterAttack waterAttack;
+    public WindAttack windAttack;
     private void Start()
     {
         // Initialiser vos références aux scripts d'attaque ici
@@ -20,14 +21,34 @@ public class AttackController : MonoBehaviour
         switch (examplePlayer.currentElement)
         {
             case 1:
-                fireAttack.PerformFireAttack();
+                if (Time.time - fireAttack.derniereUtilisation >= fireAttack.cooldown)
+                {
+                    fireAttack.PerformFireAttack();
+                    fireAttack.derniereUtilisation = Time.time;
+                }
                 break;
             case 2:
-                rockAttack.PerformRockAttack();
+                if (Time.time - rockAttack.derniereUtilisation >= rockAttack.cooldown)
+                {
+                    rockAttack.PerformRockAttack();
+                    rockAttack.derniereUtilisation = Time.time;
+                }
                 break;
-
+            case 3:
+                if (Time.time - windAttack.derniereUtilisation >= windAttack.cooldown)
+                {
+                    windAttack.PerformWindAttack();
+                    windAttack.derniereUtilisation = Time.time;
+                }
+                break;
             case 4:
-                waterAttack.PerformWaterAttack();
+                if (Time.time - waterAttack.derniereUtilisation >= waterAttack.cooldown)
+                {
+                    waterAttack.PerformWaterAttack();
+                    waterAttack.derniereUtilisation = Time.time;
+                }
+                break;
+            default:
                 break;
 
                 // Ajoutez d'autres cas pour les autres types d'attaque
