@@ -7,6 +7,11 @@ public class PauseMenu : MonoBehaviour
 {
     public static bool gameIsPaused = false;
 
+    [Header("Scene Management")]
+    public string sceneActuelle;
+    public string sceneAChargerSiIdentique;
+    public string sceneAChargerSiDifferent;
+
     [Header("MENU")]
     public GameObject pauseMenu;
     public GameObject menuContenu;
@@ -36,6 +41,34 @@ public class PauseMenu : MonoBehaviour
                 Paused();
                 gameIsPaused = true;
             }
+        }
+
+        //Solution de secours (Problème de Curseur)
+        if (Input.GetKeyDown(KeyCode.Backspace)) 
+        {
+            LoadMENU();
+        }
+        if (Input.GetKeyDown(KeyCode.UpArrow))
+        {
+            MainMenuPlay();
+        }
+        if (Input.GetKeyDown(KeyCode.DownArrow))
+        {
+            // Vérifier si la scène actuelle est égale à la scène spécifiée
+            if (SceneManager.GetActiveScene().name == sceneActuelle)
+            {
+                // Charger la première scène si elles sont identiques
+                SceneManager.LoadScene(sceneAChargerSiIdentique);
+            }
+            else
+            {
+                // Charger la deuxième scène si elles sont différentes
+                SceneManager.LoadScene(sceneAChargerSiDifferent);
+            }
+        }
+        if (Input.GetKeyDown(KeyCode.Delete))
+        {
+            QuitGame();
         }
     }
     void Paused()
@@ -67,6 +100,7 @@ public class PauseMenu : MonoBehaviour
         CloseOptions();
     }
 
+
     //MENU
     public void LoadMENU()
     {
@@ -95,14 +129,19 @@ public class PauseMenu : MonoBehaviour
     //LoadMENU
     public void MainMenuPlay()
     {
+        Resume();
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.None;
         SceneManager.LoadScene("Menu-Galaan");
     }
     public void TrainingRoomPlay()
     {
+        Resume();
         SceneManager.LoadScene("Collection-Galaan");
     }
     public void MiniBiomePlay()
     {
+        Resume();
         SceneManager.LoadScene("MiniBiome-Galaan");
     }
     public void CloseLoadMENU()
