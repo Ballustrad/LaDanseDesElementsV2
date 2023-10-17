@@ -8,6 +8,7 @@ public class AttackController : MonoBehaviour
     public FireAttack fireAttack; // Script de l'attaque de lance-flammes
     public RockAttack rockAttack; // Script de l'attaque de rocher
     public ExamplePlayer examplePlayer;
+    public WaterAttack waterAttack;
     private void Start()
     {
         // Initialiser vos références aux scripts d'attaque ici
@@ -24,6 +25,11 @@ public class AttackController : MonoBehaviour
             case 2:
                 rockAttack.PerformRockAttack();
                 break;
+
+            case 4:
+                waterAttack.PerformWaterAttack();
+                break;
+
                 // Ajoutez d'autres cas pour les autres types d'attaque
         }
     }
