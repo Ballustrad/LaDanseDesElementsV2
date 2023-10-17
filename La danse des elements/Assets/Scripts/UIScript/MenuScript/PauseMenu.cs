@@ -154,7 +154,7 @@ public class PauseMenu : MonoBehaviour
     public void TrainingRoomPlay()
     {
         Resume();
-        SceneManager.LoadScene("Collection-Galaan");
+        SceneManager.LoadScene("Training-Room");
     }
     public void MiniBiomePlay()
     {
