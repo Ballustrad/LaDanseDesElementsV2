@@ -30,8 +30,7 @@ namespace KinematicCharacterController.Examples
         public GameObject Fire;
         public GameObject Water;
         public GameObject Wind;
-        public GameObject Earth;
-        
+        public GameObject Earth;        
 
         public int currentElement = 1;
         private void Start()
@@ -108,7 +107,7 @@ namespace KinematicCharacterController.Examples
                     isAvailable = true;
                 }
             }
-            if (Input.GetMouseButtonDown(0))
+            if (Input.GetMouseButtonDown(0) && !PauseMenu.gameIsPaused)
             {
                 Cursor.lockState = CursorLockMode.Locked;
             }
