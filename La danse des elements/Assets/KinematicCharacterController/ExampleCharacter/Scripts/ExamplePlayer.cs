@@ -296,6 +296,7 @@ namespace KinematicCharacterController.Examples
                         break;
                     case 2:
                         currentEnergyEarth = energyBar.GetComponent<Slider>().value;
+                        stoneBridgeSkill.CreateStoneBridge();
                         break;
                     case 3:
                         currentEnergyWind = energyBar.GetComponent<Slider>().value;

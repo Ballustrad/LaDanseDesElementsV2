@@ -248,6 +248,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3b202b3c9e6577d41b6b52db33a1ea22, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  stoneBridgePrefab: {fileID: 651159340684689092, guid: 032f60c5e50c3d04fb27be7b917836b1,
+    type: 3}
+  bridgeLength: 7
+  bridgeDuration: 10
+  stoneBridgeSpawnPoint: {fileID: 562183151873125525}
 --- !u!114 &9064131212421475251
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1086,6 +1091,37 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!1 &1713238698547259976
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 562183151873125525}
+  m_Layer: 7
+  m_Name: BridgeSpawnPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &562183151873125525
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1713238698547259976}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: -0.954, z: 2.266}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4381399828552377963}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1966575619766671656
 GameObject:
   m_ObjectHideFlags: 0
@@ -6152,6 +6188,7 @@ Transform:
   m_Children:
   - {fileID: 2137503299454122217}
   - {fileID: 2337536734010477579}
+  - {fileID: 562183151873125525}
   m_Father: {fileID: 6843500407010419253}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &2295920079418167983
