@@ -61,7 +61,13 @@ public class PauseMenu : MonoBehaviour
                 primaryPauseMenuButton.Select();
             }
         }     
-        if (Input.GetKeyDown(KeyCode.Return) && gameIsPaused == false) { SceneManager.LoadScene(sceneToReload); }
+        if (Input.GetKeyDown(KeyCode.KeypadEnter)) 
+        {
+            if (gameIsPaused == false)
+            {
+                SceneManager.LoadScene(sceneToReload);
+            }
+        }
 
         if (Input.GetKeyDown(KeyCode.F11))
         {
