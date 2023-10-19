@@ -60,6 +60,23 @@ namespace KinematicCharacterController.Examples
             //Tue le joueur si sa vie atteint 0
             if (playerCurrentHealth == 0) { Death(); }
             playerHealthSlider.gameObject.GetComponent<Slider>().value = playerCurrentHealth;
+
+            if (currentEnergyEarth > 3)
+            {
+                currentEnergyEarth = 3;
+            }
+            if ( currentEnergyFire > 3)
+            {
+                currentEnergyFire = 3;
+            }
+            if (currentEnergyWater > 3)
+            {
+                currentEnergyWater = 3;
+            }
+            if (currentEnergyWind > 3)
+            { 
+                currentEnergyWind = 3;
+            }
             if (fireIsOn == true )
             {
                 currentElement = 1;
