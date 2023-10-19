@@ -9,11 +9,14 @@ public class PauseMenu : MonoBehaviour
     public static bool gameIsPaused = false;
     public static bool menuContenuCheck = false;
     public static bool loadMenuCheck = false;
+    public static bool F11 = false;
 
     [Header("Scene Management")]
-    public string sceneActuelle;
-    public string sceneAChargerSiIdentique;
-    public string sceneAChargerSiDifferent;
+    //public string sceneActuelle;
+    //public string sceneAChargerSiIdentique;
+    //public string sceneAChargerSiDifferent;
+    public string sceneToReload;
+
 
     [Header("MENU")]
     public GameObject pauseMenu;
@@ -57,7 +60,19 @@ public class PauseMenu : MonoBehaviour
                 gameIsPaused = true;
                 primaryPauseMenuButton.Select();
             }
-        }        
+        }     
+        if (Input.GetKeyDown(KeyCode.Return) && gameIsPaused == false) { SceneManager.LoadScene(sceneToReload); }
+
+        if (Input.GetKeyDown(KeyCode.F11) && F11 == false)
+        {
+            Screen.fullScreen = false;
+            F11 = true;
+        }
+        else
+        {
+            Screen.fullScreen = true;
+            F11 = false;
+        }
     }
     void Paused()
     {

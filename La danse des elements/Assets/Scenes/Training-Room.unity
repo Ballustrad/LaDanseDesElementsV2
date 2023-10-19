@@ -1610,6 +1610,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9133988535900610947, guid: ec12a0fe3e6b7e448bcac98cfc0d9a98,
         type: 3}
+      propertyPath: sceneToReload
+      value: Training-Room
+      objectReference: {fileID: 0}
+    - target: {fileID: 9133988535900610947, guid: ec12a0fe3e6b7e448bcac98cfc0d9a98,
+        type: 3}
       propertyPath: primaryLoadMenuButton
       value: 
       objectReference: {fileID: 1356026823}
@@ -1937,7 +1942,7 @@ PrefabInstance:
     - target: {fileID: 269496004499003644, guid: 2ba2d50b3fb07b443a6e554b40b225d3,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 986340044979656159, guid: 2ba2d50b3fb07b443a6e554b40b225d3,
         type: 3}
@@ -2007,12 +2012,12 @@ PrefabInstance:
     - target: {fileID: 6910453843676038310, guid: 2ba2d50b3fb07b443a6e554b40b225d3,
         type: 3}
       propertyPath: m_AnchorMax.x
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6910453843676038310, guid: 2ba2d50b3fb07b443a6e554b40b225d3,
         type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2175,7 +2180,7 @@ PrefabInstance:
     - target: {fileID: 269496004499003644, guid: 2ba2d50b3fb07b443a6e554b40b225d3,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 986340044979656159, guid: 2ba2d50b3fb07b443a6e554b40b225d3,
         type: 3}
@@ -2260,12 +2265,12 @@ PrefabInstance:
     - target: {fileID: 6910453843676038310, guid: 2ba2d50b3fb07b443a6e554b40b225d3,
         type: 3}
       propertyPath: m_AnchorMax.x
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6910453843676038310, guid: 2ba2d50b3fb07b443a6e554b40b225d3,
         type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2769,7 +2774,7 @@ MonoBehaviour:
   m_OverrideVoxelSize: 0
   m_VoxelSize: 0.16666667
   m_MinRegionArea: 2
-  m_NavMeshData: {fileID: 23800000, guid: a8a976f75e39b794ca73229613b3bcab, type: 2}
+  m_NavMeshData: {fileID: 23800000, guid: d921ecd8b23bc88498d51ec04226709c, type: 2}
   m_BuildHeightMesh: 0
 --- !u!4 &2021700156
 Transform:
@@ -2926,7 +2931,7 @@ PrefabInstance:
     - target: {fileID: 269496004499003644, guid: 2ba2d50b3fb07b443a6e554b40b225d3,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 986340044979656159, guid: 2ba2d50b3fb07b443a6e554b40b225d3,
         type: 3}
@@ -2991,12 +2996,12 @@ PrefabInstance:
     - target: {fileID: 6910453843676038310, guid: 2ba2d50b3fb07b443a6e554b40b225d3,
         type: 3}
       propertyPath: m_AnchorMax.x
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6910453843676038310, guid: 2ba2d50b3fb07b443a6e554b40b225d3,
         type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
