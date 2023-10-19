@@ -154,10 +154,10 @@ MonoBehaviour:
   maxHealth: 100
   currentHealth: 0
   energyFragments:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 721184713681027233, guid: 91b02a0f52b395340879b7679a776acd, type: 3}
+  - {fileID: 721184713681027233, guid: 49220fa4c60dab244bb0f93eba2cfa73, type: 3}
+  - {fileID: 721184713681027233, guid: 8fd1c15a156724c45a195bda6d9791af, type: 3}
+  - {fileID: 721184713681027233, guid: ce78807d8bba29642a78b0ef325b93f9, type: 3}
   healthBar: {fileID: 8730848738740923584}
 --- !u!114 &713395916252226436
 MonoBehaviour:
