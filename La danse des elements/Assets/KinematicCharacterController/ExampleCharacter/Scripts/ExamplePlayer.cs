@@ -207,7 +207,7 @@ namespace KinematicCharacterController.Examples
         {
             playerCurrentHealth -= damage;
 
-            playerHealthBar.SetHealth(playerMaxHealth);
+            
         }
         
 

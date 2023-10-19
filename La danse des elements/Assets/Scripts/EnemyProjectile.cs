@@ -1,3 +1,4 @@
+using KinematicCharacterController.Examples;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -30,8 +31,8 @@ public class EnemyProjectile : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            Debug.Log("damage " + damage);
-
+           
+            
 
             // Destroy the projectile
             Destroy(gameObject);
