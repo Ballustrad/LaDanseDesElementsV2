@@ -27,7 +27,7 @@ namespace KinematicCharacterController.Examples
         private const string MouseScrollInput = "Mouse ScrollWheel";
         private const string HorizontalInput = "Horizontal";
         private const string VerticalInput = "Vertical";
-
+        public Transform bodyToTP;
         public GameObject Fire;
         public GameObject Water;
         public GameObject Wind;
@@ -51,6 +51,8 @@ namespace KinematicCharacterController.Examples
 
         private void Update()
         {
+            // Détecte la touche d'interaction ici
+            
             if (playerCurrentHealth < 0) { playerCurrentHealth = 0; }
             //Pour que la vie n'aille pas au dessus de 100
             if (playerCurrentHealth > playerMaxHealth) { playerCurrentHealth = 100; }
@@ -87,17 +89,25 @@ namespace KinematicCharacterController.Examples
             {
                 case 1:
                     energyBar.gameObject.GetComponent<Slider>().value = currentEnergyFire; 
-                    backgroundBar.GetComponent<Image>().color = new Color((float).77, 0, 0, 1); break;
+                    backgroundBar.GetComponent<Image>().color = new Color((float).77, 0, 0, 1);
+                    playerHealthBar.fill.GetComponent<Image>().color = new Color((float).77, 0, 0, 1);
+                        break;
 
                 case 2:
                     energyBar.gameObject.GetComponent<Slider>().value = currentEnergyEarth; 
-                    backgroundBar.GetComponent<Image>().color = new Color ((float).17,(float).45, (float).14, 1 ); break;
+                    backgroundBar.GetComponent<Image>().color = new Color ((float).17,(float).45, (float).14, 1 );
+                    playerHealthBar.fill.GetComponent<Image>().color = new Color((float).17, (float).45, (float).14, 1);
+                        break;
                 case 3:
                     energyBar.gameObject.GetComponent<Slider>().value = currentEnergyWind; 
-                    backgroundBar.GetComponent<Image>().color = Color.white; break;
+                    backgroundBar.GetComponent<Image>().color = Color.white;
+                    playerHealthBar.fill.GetComponent<Image>().color = Color.white;
+                    break;
                 case 4:
                     energyBar.gameObject.GetComponent<Slider>().value = currentEnergyWater;
-                    backgroundBar.GetComponent<Image>().color = new Color((float).18, (float).66, 1,1); break;
+                    backgroundBar.GetComponent<Image>().color = new Color((float).18, (float).66, 1,1);
+                    playerHealthBar.fill.GetComponent<Image>().color = new Color((float).18, (float).66, 1, 1);
+                    break;
 
                 default: break; 
             }
@@ -285,7 +295,37 @@ namespace KinematicCharacterController.Examples
         public FireBallSkill fireballSkill;
         public StoneBridgeSkill stoneBridgeSkill;
         public PropulsionSkill propulsionSkill;
+
         public WaterFormSkill waterFormSkill;
+
+        public float interactionDistance = 3f;
+
+       
+
+        void TryInteract()
+        {
+            RaycastHit hit;
+            Ray ray = new Ray(bodyToTP.position, bodyToTP.forward);
+            Debug.DrawRay(ray.origin, ray.direction * interactionDistance, Color.green);
+            // Lance un rayon vers l'avant pour détecter les objets à une certaine distance (interactionDistance)
+            if (Physics.Raycast(ray, out hit, interactionDistance))
+            {
+                TeleportationPlate teleportPlate = hit.collider.GetComponent<TeleportationPlate>();
+
+                // Vérifie si l'objet touché est une plaque de téléportation
+                if (teleportPlate != null)
+                {
+                    Debug.Log("Téléportation détectée !");
+                    // Téléporte le joueur à la destination de la plaque de téléportation
+                    teleportPlate.TeleportPlayer(bodyToTP);
+                    currentEnergyWater = energyBar.GetComponent<Slider>().value;
+                }
+                else
+                {
+                    Debug.Log("Plaque de téléportation non détectée.");
+                }
+            }
+        }
         public void PerformSpecialSkill()
         {
             if (currentEnergy > 0)
@@ -307,7 +347,8 @@ namespace KinematicCharacterController.Examples
                         propulsionSkill.PropelInAir();
                         break;
                     case 4:
-                        currentEnergyWater = energyBar.GetComponent<Slider>().value;
+                        
+                            TryInteract();
                         break;
                     default:
                         break;
