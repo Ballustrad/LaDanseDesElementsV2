@@ -8,7 +8,7 @@ public class RangedEnemy : MonoBehaviour
     public GameObject projectilePrefab;
     public float shootingDistance = 10.0f;
     public float shootingCooldown = 2.0f;
-
+    public Transform target;
     private bool canShoot = true;
     public NavMeshAgent agent;
     public Transform playerTransform;
@@ -53,7 +53,7 @@ public class RangedEnemy : MonoBehaviour
     {
         // Instantiate the projectile and set its direction towards the player
         GameObject projectile = Instantiate(projectilePrefab, transform.position, Quaternion.identity);
-        Vector3 direction = (playerTransform.position - transform.position).normalized + new Vector3(0, 5, 0) ;
+        Vector3 direction = (playerTransform.position - transform.position) + new Vector3(0, 1, 0).normalized;
         projectile.GetComponent<EnemyProjectile>().SetDirection(direction);
        
     }

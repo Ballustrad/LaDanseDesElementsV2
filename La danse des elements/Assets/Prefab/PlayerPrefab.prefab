@@ -65,7 +65,7 @@ MonoBehaviour:
   playerHealthBar: {fileID: 1009711814229366544}
   Character: {fileID: 290087598524358474}
   CharacterCamera: {fileID: 6473101313212409564}
-  bodyToTP: {fileID: 2779377270912340273}
+  bodyToTP: {fileID: 2743536240369994909}
   Fire: {fileID: 7745789628153902750}
   Water: {fileID: 7432234065985432406}
   Wind: {fileID: 5732092823068513431}
@@ -92,6 +92,7 @@ MonoBehaviour:
   propulsionSkill: {fileID: 1827865912364424528}
   waterFormSkill: {fileID: 2190423507645355329}
   interactionDistance: 3
+  tpAuthorized: 0
 --- !u!114 &154166306605053600
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -638,6 +639,37 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!1 &1297707240584117637
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8520064782013947228}
+  m_Layer: 7
+  m_Name: target
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8520064782013947228
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1297707240584117637}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 1.519, z: 0.966}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2779377270912340273}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1653998910348021575
 GameObject:
   m_ObjectHideFlags: 0
@@ -1876,6 +1908,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 3587082160739333138}
+  - {fileID: 8520064782013947228}
   m_Father: {fileID: 8338453456391697619}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!136 &5118345237928332976
