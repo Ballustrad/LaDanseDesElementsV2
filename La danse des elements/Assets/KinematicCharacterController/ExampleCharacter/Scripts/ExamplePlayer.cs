@@ -62,21 +62,25 @@ namespace KinematicCharacterController.Examples
             {
                 currentElement = 1;
                 currentEnergy = currentEnergyFire;
+                playerCurrentHealth = fireHealth;
             }
             if (waterIsOn == true)
             {
                 currentElement = 4;
                 currentEnergy = currentEnergyWater;
+                playerCurrentHealth = waterHealth;
             }
             if (windIsOn == true)
             {
                 currentElement = 3;
                 currentEnergy = currentEnergyWind;
+                playerCurrentHealth = windHealth;
             }
             if (earthIsOn == true)
             {
                 currentElement = 2;
                 currentEnergy = currentEnergyEarth;
+                playerCurrentHealth = earthHealth;
             }
             
             switch (currentElement)
