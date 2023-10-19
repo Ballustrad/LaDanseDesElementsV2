@@ -5,6 +5,7 @@ using KinematicCharacterController;
 using KinematicCharacterController.Examples;
 using UnityEngine.UI;
 using static UnityEngine.Rendering.DebugUI;
+using UnityEngine.Events;
 
 namespace KinematicCharacterController.Examples
 {
@@ -20,7 +21,6 @@ namespace KinematicCharacterController.Examples
         public HealthBar playerHealthBar;
         public ExampleCharacterController Character;
         public ExampleCharacterCamera CharacterCamera;
-       
 
         private const string MouseXInput = "Mouse X";
         private const string MouseYInput = "Mouse Y";
@@ -300,32 +300,10 @@ namespace KinematicCharacterController.Examples
 
         public float interactionDistance = 3f;
 
-       
+        public UnityAction<ExampleCharacterController> OnCharacterTeleport;
+        public bool isBeingTeleportedTo { get; set; }
 
-        void TryInteract()
-        {
-            RaycastHit hit;
-            Ray ray = new Ray(bodyToTP.position, bodyToTP.forward);
-            Debug.DrawRay(ray.origin, ray.direction * interactionDistance, Color.green);
-            // Lance un rayon vers l'avant pour détecter les objets à une certaine distance (interactionDistance)
-            if (Physics.Raycast(ray, out hit, interactionDistance))
-            {
-                TeleportationPlate teleportPlate = hit.collider.GetComponent<TeleportationPlate>();
-
-                // Vérifie si l'objet touché est une plaque de téléportation
-                if (teleportPlate != null)
-                {
-                    Debug.Log("Téléportation détectée !");
-                    // Téléporte le joueur à la destination de la plaque de téléportation
-                    teleportPlate.TeleportPlayer(bodyToTP);
-                    currentEnergyWater = energyBar.GetComponent<Slider>().value;
-                }
-                else
-                {
-                    Debug.Log("Plaque de téléportation non détectée.");
-                }
-            }
-        }
+        public bool tpAuthorized = false;
         public void PerformSpecialSkill()
         {
             if (currentEnergy > 0)
@@ -347,8 +325,8 @@ namespace KinematicCharacterController.Examples
                         propulsionSkill.PropelInAir();
                         break;
                     case 4:
-                        
-                            TryInteract();
+                        currentEnergyWater = energyBar.GetComponent<Slider>().value;
+                        tpAuthorized = true;
                         break;
                     default:
                         break;

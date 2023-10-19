@@ -9,29 +9,34 @@ namespace KinematicCharacterController.Examples
     public class Teleporter : MonoBehaviour
     {
         public Teleporter TeleportTo;
-
+        public ExamplePlayer plauer;
         public UnityAction<ExampleCharacterController> OnCharacterTeleport;
 
         public bool isBeingTeleportedTo { get; set; }
 
         private void OnTriggerEnter(Collider other)
         {
-            if (!isBeingTeleportedTo)
-            {
-                ExampleCharacterController cc = other.GetComponent<ExampleCharacterController>();
-                if (cc)
+            
+            
+                if (!isBeingTeleportedTo && plauer.tpAuthorized == true)
                 {
-                    cc.Motor.SetPositionAndRotation(TeleportTo.transform.position, TeleportTo.transform.rotation);
-
-                    if (OnCharacterTeleport != null)
+                    ExampleCharacterController cc = other.GetComponent<ExampleCharacterController>();
+                    if (cc)
                     {
-                        OnCharacterTeleport(cc);
-                    }
-                    TeleportTo.isBeingTeleportedTo = true;
-                }
-            }
+                        cc.Motor.SetPositionAndRotation(TeleportTo.transform.position, TeleportTo.transform.rotation);
 
-            isBeingTeleportedTo = false;
+                        if (OnCharacterTeleport != null)
+                        {
+                            OnCharacterTeleport(cc);
+                        }
+                        TeleportTo.isBeingTeleportedTo = true;
+                        plauer.tpAuthorized = false;
+                    }
+                }
+
+                isBeingTeleportedTo = false;
+            
+                
         }
     }
 }
