@@ -21,7 +21,7 @@ namespace KinematicCharacterController.Examples
         public HealthBar playerHealthBar;
         public ExampleCharacterController Character;
         public ExampleCharacterCamera CharacterCamera;
-
+        public Slider playerHealthSlider;
         private const string MouseXInput = "Mouse X";
         private const string MouseYInput = "Mouse Y";
         private const string MouseScrollInput = "Mouse ScrollWheel";
@@ -59,30 +59,30 @@ namespace KinematicCharacterController.Examples
 
             //Tue le joueur si sa vie atteint 0
             if (playerCurrentHealth == 0) { Death(); }
-
+            playerHealthSlider.gameObject.GetComponent<Slider>().value = playerCurrentHealth;
             if (fireIsOn == true )
             {
                 currentElement = 1;
                 currentEnergy = currentEnergyFire;
-                playerCurrentHealth = fireHealth;
+                fireHealth = playerCurrentHealth ;
             }
             if (waterIsOn == true)
             {
                 currentElement = 4;
                 currentEnergy = currentEnergyWater;
-                playerCurrentHealth = waterHealth;
+                waterHealth = playerCurrentHealth;
             }
             if (windIsOn == true)
             {
                 currentElement = 3;
                 currentEnergy = currentEnergyWind;
-                playerCurrentHealth = windHealth;
+                windHealth = playerCurrentHealth;
             }
             if (earthIsOn == true)
             {
                 currentElement = 2;
                 currentEnergy = currentEnergyEarth;
-                playerCurrentHealth = earthHealth;
+                earthHealth = playerCurrentHealth;
             }
             
             switch (currentElement)
@@ -200,7 +200,7 @@ namespace KinematicCharacterController.Examples
         {
             if (other.CompareTag("Ennemy"))
             {
-                PlayerTakeDamage(10);
+                PlayerTakeDamage(5);
             }
         }
         public void PlayerTakeDamage(int damage)
@@ -237,6 +237,7 @@ namespace KinematicCharacterController.Examples
                     fireIsOn = false;
                     petsEarth.gameObject.SetActive(true);
                     petsFire.gameObject.SetActive(false);
+                    playerCurrentHealth = earthHealth ;
 
 
                 }
@@ -248,6 +249,7 @@ namespace KinematicCharacterController.Examples
                     fireIsOn = true;
                     petsWater.gameObject.SetActive(false);
                     petsFire.gameObject.SetActive (true);
+                    playerCurrentHealth = fireHealth;   
                 }
                 else if (earthIsOn == true)
                 {
@@ -257,6 +259,7 @@ namespace KinematicCharacterController.Examples
                     windIsOn = true;
                     petsEarth.gameObject.SetActive(false);
                     petsWind.gameObject.SetActive(true);
+                    playerCurrentHealth = windHealth;
 
                 }
                 else if (windIsOn == true)
@@ -267,6 +270,7 @@ namespace KinematicCharacterController.Examples
                     waterIsOn = true;
                     petsWind.gameObject.SetActive(false);
                     petsWater.gameObject.SetActive(true) ;
+                    playerCurrentHealth = waterHealth;
 
                 }
                 lastUsageTime = Time.time;
