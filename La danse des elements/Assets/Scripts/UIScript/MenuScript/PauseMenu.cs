@@ -63,15 +63,18 @@ public class PauseMenu : MonoBehaviour
         }     
         if (Input.GetKeyDown(KeyCode.Return) && gameIsPaused == false) { SceneManager.LoadScene(sceneToReload); }
 
-        if (Input.GetKeyDown(KeyCode.F11) && F11 == false)
+        if (Input.GetKeyDown(KeyCode.F11))
         {
-            Screen.fullScreen = false;
-            F11 = true;
-        }
-        else
-        {
-            Screen.fullScreen = true;
-            F11 = false;
+            if (F11 == false)
+            {
+                Screen.fullScreen = false;
+                F11 = true;
+            }
+            else if (F11 == true)
+            {
+                Screen.fullScreen = true;
+                F11 = false;
+            }
         }
     }
     void Paused()
