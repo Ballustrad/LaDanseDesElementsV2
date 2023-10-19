@@ -53,7 +53,7 @@ public class RangedEnemy : MonoBehaviour
     {
         // Instantiate the projectile and set its direction towards the player
         GameObject projectile = Instantiate(projectilePrefab, transform.position, Quaternion.identity);
-        Vector3 direction = (playerTransform.position - transform.position).normalized;
+        Vector3 direction = (playerTransform.position - transform.position).normalized + new Vector3(0, 5, 0) ;
         projectile.GetComponent<EnemyProjectile>().SetDirection(direction);
        
     }
