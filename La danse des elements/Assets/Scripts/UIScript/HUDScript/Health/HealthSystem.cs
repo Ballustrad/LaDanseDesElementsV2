@@ -7,7 +7,7 @@ public class HealthSystem : MonoBehaviour
 {
     public int maxHealth = 100;
     public int currentHealth;
-
+    public GameObject[] energyFragments;
     public HealthBar healthBar;
 
     private void Start()
@@ -47,7 +47,12 @@ public class HealthSystem : MonoBehaviour
     }
     private void Death()
     {
+        int randomIndex = Random.Range(0, energyFragments.Length);
+
+        // Instancie un fragment d'énergie aléatoire à la position de l'ennemi
+        GameObject energyFragment = Instantiate(energyFragments[randomIndex], transform.position, Quaternion.identity);
         this.gameObject.SetActive(false);
+
     }
     void HealHealth(int damage)
     {
