@@ -1,13 +1,20 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class MainMenu : MonoBehaviour
 {
     [Header("MENU")]
     public GameObject menuContenu;
+    [Space(10)]
+    public Button primaryMainMenuButton;
+    [Space(20)]
 
     [Header("Load MENU")]
     public GameObject loadMENU;
+    [Space(10)]
+    public Button primaryLoadMenuButton;
+    [Space(20)]
 
     [Header("Options MENU")]
     public GameObject optionsMENU;
@@ -15,6 +22,13 @@ public class MainMenu : MonoBehaviour
     public GameObject controlsBoard;
     public GameObject audiosBoard;
     public GameObject graphicsBoard;
+    [Space(20)]
+    public Button primaryOptionsMenuButton;
+    [Space(10)]
+    public Button primaryControlsButton;
+    public Button primaryAudiosButton;
+    public Button primaryGraphicsButton;
+    [Space(20)]
 
     [Header("Extras MENU")]
     public GameObject extrasMENU;
@@ -27,6 +41,7 @@ public class MainMenu : MonoBehaviour
     {
         loadMENU.SetActive(true);
         menuContenu.SetActive(false);
+        primaryLoadMenuButton.Select();
     }
 
 
@@ -73,6 +88,7 @@ public class MainMenu : MonoBehaviour
 
 
         menuContenu.SetActive(true);
+        primaryMainMenuButton.Select();
     }
 
 

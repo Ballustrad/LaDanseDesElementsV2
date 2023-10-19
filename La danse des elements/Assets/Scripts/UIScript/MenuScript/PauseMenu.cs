@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class PauseMenu : MonoBehaviour
 {
@@ -17,9 +18,15 @@ public class PauseMenu : MonoBehaviour
     [Header("MENU")]
     public GameObject pauseMenu;
     public GameObject menuContenu;
+    [Space(10)]
+    public Button primaryPauseMenuButton;
+    [Space(20)]
 
     [Header("Load MENU")]
     public GameObject loadMENU;
+    [Space(10)]
+    public Button primaryLoadMenuButton;
+    [Space(20)]
 
     [Header("Options MENU")]
     public GameObject optionsMENU;
@@ -27,6 +34,12 @@ public class PauseMenu : MonoBehaviour
     public GameObject audiosBoard;
     public GameObject graphicsBoard;
     public GameObject controlsBoard;
+    [Space(20)]
+    public Button primaryOptionsMenuButton;
+    [Space(10)]
+    public Button primaryControlsButton;
+    public Button primaryAudiosButton;
+    public Button primaryGraphicsButton;
 
     //Pause - Resume
     void LateUpdate()                                                                                 // Updates Every Frame After All Other Updates Have Been Completed.
@@ -42,51 +55,9 @@ public class PauseMenu : MonoBehaviour
             {
                 Paused();
                 gameIsPaused = true;
+                primaryPauseMenuButton.Select();
             }
-        }
-
-        //Solution de secours (Problème de Curseur)
-        if (gameIsPaused == true)
-        {
-            menuContenuCheck = true;
-            if (menuContenuCheck == true)
-            {
-                if (Input.GetKeyDown(KeyCode.Return))
-                {
-                    LoadMENU();
-                    menuContenuCheck = false;
-                    loadMenuCheck = true;
-                }
-                if (Input.GetKeyDown(KeyCode.Delete))
-                {
-                    QuitGame();
-                }
-            }
-
-            if(loadMenuCheck == true)
-            {
-                if (Input.GetKeyDown(KeyCode.UpArrow))
-                {
-                    MainMenuPlay();
-                }
-                if (Input.GetKeyDown(KeyCode.DownArrow))
-                {
-                    // Vérifier si la scène actuelle est égale à la scène spécifiée
-                    if (SceneManager.GetActiveScene().name == sceneActuelle)
-                    {
-                        // Charger la première scène si elles sont identiques
-                        SceneManager.LoadScene(sceneAChargerSiIdentique);
-                    }
-                    else
-                    {
-                        // Charger la deuxième scène si elles sont différentes
-                        SceneManager.LoadScene(sceneAChargerSiDifferent);
-                    }
-                }
-            }
-        }
-
-        
+        }        
     }
     void Paused()
     {
@@ -123,6 +94,7 @@ public class PauseMenu : MonoBehaviour
     {
         loadMENU.SetActive(true);
         menuContenu.SetActive(false);
+        primaryLoadMenuButton.Select();
     }
 
 
@@ -167,12 +139,14 @@ public class PauseMenu : MonoBehaviour
 
 
         menuContenu.SetActive(true);
+        primaryPauseMenuButton.Select();
     }
 
     //OptionsMENU
     public void ControlsBoard()
     {
         controlsBoard.SetActive(true);
+        primaryControlsButton.Select();
 
         audiosBoard.SetActive(false);
         graphicsBoard.SetActive(false);
@@ -180,6 +154,7 @@ public class PauseMenu : MonoBehaviour
     public void AudiosBoard()
     {
         audiosBoard.SetActive(true);
+        primaryAudiosButton.Select();
 
         graphicsBoard.SetActive(false);
         controlsBoard.SetActive(false);
@@ -187,6 +162,7 @@ public class PauseMenu : MonoBehaviour
     public void GraphicsBoard()
     {
         graphicsBoard.SetActive(true);
+        primaryGraphicsButton.Select();
 
         audiosBoard.SetActive(false);
         controlsBoard.SetActive(false);
@@ -201,5 +177,6 @@ public class PauseMenu : MonoBehaviour
 
 
         menuContenu.SetActive(true);
+        primaryPauseMenuButton.Select();
     }
 }
