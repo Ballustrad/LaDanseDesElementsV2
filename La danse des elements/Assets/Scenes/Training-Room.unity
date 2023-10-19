@@ -2959,11 +2959,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Ennemy
       objectReference: {fileID: 0}
-    - target: {fileID: 269496004499003644, guid: 2ba2d50b3fb07b443a6e554b40b225d3,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 986340044979656159, guid: 2ba2d50b3fb07b443a6e554b40b225d3,
         type: 3}
       propertyPath: cam
@@ -3029,11 +3024,6 @@ PrefabInstance:
       propertyPath: playerTransform
       value: 
       objectReference: {fileID: 575831171}
-    - target: {fileID: 6456193693087425397, guid: 2ba2d50b3fb07b443a6e554b40b225d3,
-        type: 3}
-      propertyPath: player
-      value: 
-      objectReference: {fileID: 1762918201}
     - target: {fileID: 6910453843676038310, guid: 2ba2d50b3fb07b443a6e554b40b225d3,
         type: 3}
       propertyPath: m_AnchorMax.x
