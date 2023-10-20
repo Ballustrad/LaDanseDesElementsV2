@@ -5,33 +5,34 @@ using KinematicCharacterController;
 using KinematicCharacterController.Examples;
 using UnityEngine.UI;
 using static UnityEngine.Rendering.DebugUI;
+using UnityEngine.Events;
 
 namespace KinematicCharacterController.Examples
 {
     public class ExamplePlayer : MonoBehaviour
     {
+        public GameObject exampleCharacter;
         public int playerMaxHealth = 100;
-        public int fireHealth;
-        public int waterHealth;
-        public int windHealth;
-        public int earthHealth;
+       // public int fireHealth;
+        //public int waterHealth;
+        //public int windHealth;
+       // public int earthHealth;
         public int playerCurrentHealth;
 
         public HealthBar playerHealthBar;
         public ExampleCharacterController Character;
         public ExampleCharacterCamera CharacterCamera;
-
+        public Slider playerHealthSlider;
         private const string MouseXInput = "Mouse X";
         private const string MouseYInput = "Mouse Y";
         private const string MouseScrollInput = "Mouse ScrollWheel";
         private const string HorizontalInput = "Horizontal";
         private const string VerticalInput = "Vertical";
-
+        public Transform bodyToTP;
         public GameObject Fire;
         public GameObject Water;
         public GameObject Wind;
-        public GameObject Earth;
-        
+        public GameObject Earth;        
 
         public int currentElement = 1;
         private void Start()
@@ -51,80 +52,111 @@ namespace KinematicCharacterController.Examples
 
         private void Update()
         {
-            if (playerCurrentHealth < 0) { playerCurrentHealth = 0; }
-            //Pour que la vie n'aille pas au dessus de 100
-            if (playerCurrentHealth > playerMaxHealth) { playerCurrentHealth = 100; }
+                // Détecte la touche d'interaction ici
+                if (playerCurrentHealth < 0) { playerCurrentHealth = 0; }
+                //Pour que la vie n'aille pas au dessus de 100
+                if (playerCurrentHealth > playerMaxHealth) { playerCurrentHealth = 100; }
 
-            //Tue le joueur si sa vie atteint 0
-            if (playerCurrentHealth == 0) { Death(); }
+                //Tue le joueur si sa vie atteint 0
+                if (playerCurrentHealth == 0) { Death(); }
+                playerHealthSlider.gameObject.GetComponent<Slider>().value = playerCurrentHealth;
 
-            if (fireIsOn == true )
-            {
-                currentElement = 1;
-                currentEnergy = currentEnergyFire;
-            }
-            if (waterIsOn == true)
-            {
-                currentElement = 4;
-                currentEnergy = currentEnergyWater;
-            }
-            if (windIsOn == true)
-            {
-                currentElement = 3;
-                currentEnergy = currentEnergyWind;
-            }
-            if (earthIsOn == true)
-            {
-                currentElement = 2;
-                currentEnergy = currentEnergyEarth;
-            }
-            
-            switch (currentElement)
-            {
-                case 1:
-                    energyBar.gameObject.GetComponent<Slider>().value = currentEnergyFire; 
-                    backgroundBar.GetComponent<Image>().color = new Color((float).77, 0, 0, 1); break;
-
-                case 2:
-                    energyBar.gameObject.GetComponent<Slider>().value = currentEnergyEarth; 
-                    backgroundBar.GetComponent<Image>().color = new Color ((float).17,(float).45, (float).14, 1 ); break;
-                case 3:
-                    energyBar.gameObject.GetComponent<Slider>().value = currentEnergyWind; 
-                    backgroundBar.GetComponent<Image>().color = Color.white; break;
-                case 4:
-                    energyBar.gameObject.GetComponent<Slider>().value = currentEnergyWater;
-                    backgroundBar.GetComponent<Image>().color = new Color((float).18, (float).66, 1,1); break;
-
-                default: break; 
-            }
-
-            if (!isAvailable)
-            {
-                float timeSinceLastUsage = Time.time - lastUsageTime;
-
-                // If the elapsed time is greater than or equal to cooldown time, the ability is ready
-                if (timeSinceLastUsage >= cooldownTime)
+                if (currentEnergyEarth > 3)
                 {
-                    isAvailable = true;
+                    currentEnergyEarth = 3;
                 }
+                if (currentEnergyFire > 3)
+                {
+                    currentEnergyFire = 3;
+                }
+                if (currentEnergyWater > 3)
+                {
+                    currentEnergyWater = 3;
+                }
+                if (currentEnergyWind > 3)
+                {
+                    currentEnergyWind = 3;
+                }
+                if (fireIsOn == true)
+                {
+                    currentElement = 1;
+                    currentEnergy = currentEnergyFire;
+                    //fireHealth = playerCurrentHealth;
+                }
+                if (waterIsOn == true)
+                {
+                    currentElement = 4;
+                    currentEnergy = currentEnergyWater;
+                    //waterHealth = playerCurrentHealth;
+                }
+                if (windIsOn == true)
+                {
+                    currentElement = 3;
+                    currentEnergy = currentEnergyWind;
+                    //windHealth = playerCurrentHealth;
+                }
+                if (earthIsOn == true)
+                {
+                    currentElement = 2;
+                    currentEnergy = currentEnergyEarth;
+                   // earthHealth = playerCurrentHealth;
+                }
+
+                switch (currentElement)
+                {
+                    case 1:
+                        energyBar.gameObject.GetComponent<Slider>().value = currentEnergyFire;
+                        backgroundBar.GetComponent<Image>().color = new Color((float).77, 0, 0, 1);
+                        playerHealthBar.fill.GetComponent<Image>().color = new Color((float).77, 0, 0, 1);
+                        break;
+
+                    case 2:
+                        energyBar.gameObject.GetComponent<Slider>().value = currentEnergyEarth;
+                        backgroundBar.GetComponent<Image>().color = new Color((float).17, (float).45, (float).14, 1);
+                        playerHealthBar.fill.GetComponent<Image>().color = new Color((float).17, (float).45, (float).14, 1);
+                        break;
+                    case 3:
+                        energyBar.gameObject.GetComponent<Slider>().value = currentEnergyWind;
+                        backgroundBar.GetComponent<Image>().color = Color.white;
+                        playerHealthBar.fill.GetComponent<Image>().color = Color.white;
+                        break;
+                    case 4:
+                        energyBar.gameObject.GetComponent<Slider>().value = currentEnergyWater;
+                        backgroundBar.GetComponent<Image>().color = new Color((float).18, (float).66, 1, 1);
+                        playerHealthBar.fill.GetComponent<Image>().color = new Color((float).18, (float).66, 1, 1);
+                        break;
+
+                    default: break;
+                }
+
+                if (!isAvailable)
+                {
+                    float timeSinceLastUsage = Time.time - lastUsageTime;
+
+                    // If the elapsed time is greater than or equal to cooldown time, the ability is ready
+                    if (timeSinceLastUsage >= cooldownTime)
+                    {
+                        isAvailable = true;
+                    }
+                }
+                if (Input.GetMouseButtonDown(0) && !PauseMenu.gameIsPaused)
+                {
+                    Cursor.lockState = CursorLockMode.Locked;
+                }
+                if (Input.GetKeyDown(KeyCode.E))
+                {
+                    SwapElement();
+                }
+                if (Input.GetKeyDown(KeyCode.F))
+                {
+                    PerformSpecialSkill();
+                }
+                HandleCharacterInput();
             }
-            if (Input.GetMouseButtonDown(0))
-            {
-                Cursor.lockState = CursorLockMode.Locked;
-            }
-            if (Input.GetKeyDown(KeyCode.E))
-            {
-                SwapElement();
-            }
-            if (Input.GetKeyDown(KeyCode.F))
-            {
-                UseConstructionSkill();
-            }
-            HandleCharacterInput();
-        }
+        
         private void Death()
         {
-            this.gameObject.SetActive(false);
+            exampleCharacter.SetActive(false);
         }
 
         private void LateUpdate()
@@ -182,6 +214,22 @@ namespace KinematicCharacterController.Examples
             // Apply inputs to character
             Character.SetInputs(ref characterInputs);
         }
+        private void OnTriggerEnter(Collider other)
+        {
+            if (other.CompareTag("Ennemy"))
+            {
+                PlayerTakeDamage(5);
+            }
+        }
+        public void PlayerTakeDamage(int damage)
+        {
+            playerCurrentHealth -= damage;
+
+            
+        }
+        
+
+
         public bool fireIsOn = true;
         public bool waterIsOn = false;
         public bool windIsOn = false;
@@ -195,7 +243,6 @@ namespace KinematicCharacterController.Examples
         public GameObject petsWind;
         public GameObject petsEarth;
         
-        
         public void SwapElement()
         {
             if (isAvailable)
@@ -208,6 +255,7 @@ namespace KinematicCharacterController.Examples
                     fireIsOn = false;
                     petsEarth.gameObject.SetActive(true);
                     petsFire.gameObject.SetActive(false);
+                   // playerCurrentHealth = earthHealth ;
 
 
                 }
@@ -219,6 +267,7 @@ namespace KinematicCharacterController.Examples
                     fireIsOn = true;
                     petsWater.gameObject.SetActive(false);
                     petsFire.gameObject.SetActive (true);
+                  //  playerCurrentHealth = fireHealth;   
                 }
                 else if (earthIsOn == true)
                 {
@@ -228,6 +277,7 @@ namespace KinematicCharacterController.Examples
                     windIsOn = true;
                     petsEarth.gameObject.SetActive(false);
                     petsWind.gameObject.SetActive(true);
+                  //  playerCurrentHealth = windHealth;
 
                 }
                 else if (windIsOn == true)
@@ -238,6 +288,7 @@ namespace KinematicCharacterController.Examples
                     waterIsOn = true;
                     petsWind.gameObject.SetActive(false);
                     petsWater.gameObject.SetActive(true) ;
+                   // playerCurrentHealth = waterHealth;
 
                 }
                 lastUsageTime = Time.time;
@@ -253,6 +304,9 @@ namespace KinematicCharacterController.Examples
 
 
         }
+
+
+
         public GameObject energyBar;
         public GameObject backgroundBar;
         public float currentEnergyWater = 3;
@@ -260,39 +314,49 @@ namespace KinematicCharacterController.Examples
         public float currentEnergyEarth = 3;
         public float currentEnergyWind = 3;
         public float currentEnergy;
-        private void OnTriggerEnter(Collider other)
-        {
-            if (other.CompareTag("Ennemy"))
-            {
-                PlayerTakeDamage(10);
-            }
-        }
-        public void PlayerTakeDamage(int damage)
-        {
-            playerCurrentHealth -= damage;
+        public FireBallSkill fireballSkill;
+        public StoneBridgeSkill stoneBridgeSkill;
+        public PropulsionSkill propulsionSkill;
 
-            playerHealthBar.SetHealth(playerMaxHealth);
-        }
-        public void UseConstructionSkill()
+        public WaterFormSkill waterFormSkill;
+
+        public float interactionDistance = 3f;
+
+        public UnityAction<ExampleCharacterController> OnCharacterTeleport;
+        public bool isBeingTeleportedTo { get; set; }
+
+        public bool tpAuthorized = false;
+        public void PerformSpecialSkill()
         {
-            energyBar.gameObject.GetComponent<Slider>().value = currentEnergy - 1;
-            if(currentElement == 1)
+            if (currentEnergy > 0)
             {
-                currentEnergyFire = energyBar.GetComponent<Slider>().value;
+                energyBar.gameObject.GetComponent<Slider>().value = currentEnergy - 1;
+                // Sélectionner l'attaque appropriée en fonction de l'élément actuel du joueur
+                switch (currentElement)
+                {
+                    case 1:
+                        currentEnergyFire = energyBar.GetComponent<Slider>().value;
+                        fireballSkill.UseFireball();
+                        break;
+                    case 2:
+                        currentEnergyEarth = energyBar.GetComponent<Slider>().value;
+                        stoneBridgeSkill.CreateStoneBridge();
+                        break;
+                    case 3:
+                        currentEnergyWind = energyBar.GetComponent<Slider>().value;
+                        propulsionSkill.PropelInAir();
+                        break;
+                    case 4:
+                        currentEnergyWater = energyBar.GetComponent<Slider>().value;
+                        tpAuthorized = true;
+                        break;
+                    default:
+                        break;
+
+                        // Ajoutez d'autres cas pour les autres types d'attaque
+                }
             }
-            if (currentElement == 2)
-            {
-                currentEnergyEarth = energyBar.GetComponent<Slider>().value;
-            }
-            if (currentElement == 3)
-            {
-                currentEnergyWind = energyBar.GetComponent<Slider>().value;
-            }
-            if (currentElement == 4)
-            {
-                currentEnergyWater = energyBar.GetComponent<Slider>().value;
-            }
-            Debug.Log("a");
         }
+      
     }
 }

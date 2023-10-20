@@ -12,12 +12,12 @@ GameObject:
   - component: {fileID: 1214720201911623370}
   - component: {fileID: 5604057302224486747}
   - component: {fileID: 900108528338584635}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Plane
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &4143755829224022661
 Transform:
@@ -29,7 +29,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0.8909927, y: 3.6476612, z: -1.6624316}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 6.532, y: 1, z: 6.5126}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}

@@ -7,7 +7,7 @@ public class HealthSystem : MonoBehaviour
 {
     public int maxHealth = 100;
     public int currentHealth;
-
+    public GameObject[] energyFragments;
     public HealthBar healthBar;
 
     private void Start()
@@ -18,11 +18,15 @@ public class HealthSystem : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Minus) || Input.GetKeyDown(KeyCode.KeypadMinus))
+        if (Input.GetKeyDown(KeyCode.KeypadMinus))
         {
             TakeDamage(20);
         }
-        if (Input.GetKeyDown(KeyCode.Equals) || Input.GetKeyDown(KeyCode.KeypadPlus))
+        if (Input.GetKeyDown(KeyCode.Keypad0))
+        {
+            Death();
+        }
+        if (Input.GetKeyDown(KeyCode.KeypadPlus))
         {
            HealHealth(20);
         }
@@ -35,13 +39,6 @@ public class HealthSystem : MonoBehaviour
         //Tue le joueur si sa vie atteint 0
         if (currentHealth == 0) { Death(); }
     }
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.CompareTag("Ennemy"))
-        {
-            TakeDamage(10);
-        }
-    }
     public void TakeDamage(int damage)
     {
         currentHealth -= damage;
@@ -50,7 +47,12 @@ public class HealthSystem : MonoBehaviour
     }
     private void Death()
     {
-        this.gameObject.SetActive(false);
+        int randomIndex = Random.Range(0, energyFragments.Length);
+
+        // Instancie un fragment d'énergie aléatoire à la position de l'ennemi
+        GameObject energyFragment = Instantiate(energyFragments[randomIndex], transform.position, Quaternion.identity);
+        //this.gameObject.SetActive(false);
+        Destroy(this.gameObject);
     }
     void HealHealth(int damage)
     {

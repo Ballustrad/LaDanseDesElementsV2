@@ -4,9 +4,11 @@ using UnityEngine.InputSystem;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using KinematicCharacterController.Examples;
 
 public class FragmentCollection : MonoBehaviour
 {
+    public ExamplePlayer examplePlayer;
     private int FireFragments = 0;
     private int WaterFragments = 0;
     private int WindFragments = 0;
@@ -30,6 +32,7 @@ public class FragmentCollection : MonoBehaviour
             if (other.gameObject.layer == LayerMask.NameToLayer("FireFragment"))
             {
                 FireFragments++;
+                examplePlayer.currentEnergyFire++;
                 fireFragmentText.text = "Fire Fragment : " + FireFragments.ToString();
                 Debug.Log("Fire Fragments: " + FireFragments);
                 Destroy(other.gameObject);
@@ -37,6 +40,7 @@ public class FragmentCollection : MonoBehaviour
             if (other.gameObject.layer == LayerMask.NameToLayer("WaterFragment"))
             {
                 WaterFragments++;
+                examplePlayer.currentEnergyWater++;
                 waterFragmentText.text = "Water Fragment : " + WaterFragments.ToString();
                 Debug.Log("Water Fragments: " + WaterFragments);
                 Destroy(other.gameObject);
@@ -44,6 +48,7 @@ public class FragmentCollection : MonoBehaviour
             if (other.gameObject.layer == LayerMask.NameToLayer("WindFragment"))
             {
                 WindFragments++;
+                examplePlayer.currentEnergyWind++;
                 windFragmentText.text = "Wind Fragment : " + WindFragments.ToString();
                 Debug.Log("Wind Fragments: " + WindFragments);
                 Destroy(other.gameObject);
@@ -51,6 +56,7 @@ public class FragmentCollection : MonoBehaviour
             if (other.gameObject.layer == LayerMask.NameToLayer("RockFragment"))
             {
                 RockFragments++;
+                examplePlayer.currentEnergyEarth++;
                 rockFragmentText.text = "Rock Fragment : " + RockFragments.ToString();
                 Debug.Log("Rock Fragments: " + RockFragments);
                 Destroy(other.gameObject);

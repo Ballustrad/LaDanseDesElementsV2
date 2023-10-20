@@ -245,6 +245,21 @@ PrefabInstance:
 
 '
       objectReference: {fileID: 0}
+    - target: {fileID: 4147960843103427416, guid: 295440b25a703004083fca73c37965b5,
+        type: 3}
+      propertyPath: sceneActuelle
+      value: MiniBiome-Galaan
+      objectReference: {fileID: 0}
+    - target: {fileID: 4147960843103427416, guid: 295440b25a703004083fca73c37965b5,
+        type: 3}
+      propertyPath: sceneAChargerSiDifferent
+      value: MiniBiome-Galaan
+      objectReference: {fileID: 0}
+    - target: {fileID: 4147960843103427416, guid: 295440b25a703004083fca73c37965b5,
+        type: 3}
+      propertyPath: sceneAChargerSiIdentique
+      value: Training-Room
+      objectReference: {fileID: 0}
     - target: {fileID: 4351159565093490601, guid: 295440b25a703004083fca73c37965b5,
         type: 3}
       propertyPath: m_Name
