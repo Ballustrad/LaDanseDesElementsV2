@@ -13,10 +13,10 @@ namespace KinematicCharacterController.Examples
     {
         public GameObject exampleCharacter;
         public int playerMaxHealth = 100;
-        public int fireHealth;
-        public int waterHealth;
-        public int windHealth;
-        public int earthHealth;
+       // public int fireHealth;
+        //public int waterHealth;
+        //public int windHealth;
+       // public int earthHealth;
         public int playerCurrentHealth;
 
         public HealthBar playerHealthBar;
@@ -81,25 +81,25 @@ namespace KinematicCharacterController.Examples
                 {
                     currentElement = 1;
                     currentEnergy = currentEnergyFire;
-                    fireHealth = playerCurrentHealth;
+                    //fireHealth = playerCurrentHealth;
                 }
                 if (waterIsOn == true)
                 {
                     currentElement = 4;
                     currentEnergy = currentEnergyWater;
-                    waterHealth = playerCurrentHealth;
+                    //waterHealth = playerCurrentHealth;
                 }
                 if (windIsOn == true)
                 {
                     currentElement = 3;
                     currentEnergy = currentEnergyWind;
-                    windHealth = playerCurrentHealth;
+                    //windHealth = playerCurrentHealth;
                 }
                 if (earthIsOn == true)
                 {
                     currentElement = 2;
                     currentEnergy = currentEnergyEarth;
-                    earthHealth = playerCurrentHealth;
+                   // earthHealth = playerCurrentHealth;
                 }
 
                 switch (currentElement)
@@ -255,7 +255,7 @@ namespace KinematicCharacterController.Examples
                     fireIsOn = false;
                     petsEarth.gameObject.SetActive(true);
                     petsFire.gameObject.SetActive(false);
-                    playerCurrentHealth = earthHealth ;
+                   // playerCurrentHealth = earthHealth ;
 
 
                 }
@@ -267,7 +267,7 @@ namespace KinematicCharacterController.Examples
                     fireIsOn = true;
                     petsWater.gameObject.SetActive(false);
                     petsFire.gameObject.SetActive (true);
-                    playerCurrentHealth = fireHealth;   
+                  //  playerCurrentHealth = fireHealth;   
                 }
                 else if (earthIsOn == true)
                 {
@@ -277,7 +277,7 @@ namespace KinematicCharacterController.Examples
                     windIsOn = true;
                     petsEarth.gameObject.SetActive(false);
                     petsWind.gameObject.SetActive(true);
-                    playerCurrentHealth = windHealth;
+                  //  playerCurrentHealth = windHealth;
 
                 }
                 else if (windIsOn == true)
@@ -288,7 +288,7 @@ namespace KinematicCharacterController.Examples
                     waterIsOn = true;
                     petsWind.gameObject.SetActive(false);
                     petsWater.gameObject.SetActive(true) ;
-                    playerCurrentHealth = waterHealth;
+                   // playerCurrentHealth = waterHealth;
 
                 }
                 lastUsageTime = Time.time;
