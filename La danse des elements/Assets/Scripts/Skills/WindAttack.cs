@@ -11,6 +11,14 @@ public class WindAttack : MonoBehaviour
     public float largeurZone = 4f; // Largeur de la zone d'attaque (conique)
     public float longueurZone = 10f; // Longueur de la zone d'attaque (conique)
     public Transform windStartPoint;
+
+    public GameObject windShown;
+    IEnumerator WindShow()
+    {
+        windShown.SetActive(true);
+        yield return new WaitForSeconds(1f);
+        windShown.SetActive(false);
+    }
     public void PerformWindAttack()
     {
         // Détermine la direction et l'orientation de la zone d'attaque
@@ -20,7 +28,7 @@ public class WindAttack : MonoBehaviour
 
         // Recherche tous les ennemis dans la zone d'attaque
         Collider[] colliders = Physics.OverlapCapsule(pointDebut, pointFin, largeurZone * 0.5f);
-
+        StartCoroutine(WindShow());
         foreach (Collider collider in colliders)
         {
             // Vérifie si l'objet touché a un composant "Ennemi" (à adapter selon votre structure de jeu)
