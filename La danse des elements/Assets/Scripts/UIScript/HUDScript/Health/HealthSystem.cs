@@ -51,8 +51,8 @@ public class HealthSystem : MonoBehaviour
 
         // Instancie un fragment d'énergie aléatoire à la position de l'ennemi
         GameObject energyFragment = Instantiate(energyFragments[randomIndex], transform.position, Quaternion.identity);
-        this.gameObject.SetActive(false);
-
+        //this.gameObject.SetActive(false);
+        Destroy(this.gameObject);
     }
     void HealHealth(int damage)
     {
