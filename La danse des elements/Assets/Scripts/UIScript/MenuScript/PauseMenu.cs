@@ -125,6 +125,7 @@ public class PauseMenu : MonoBehaviour
     public void OptionsMENU()
     {
         optionsMENU.SetActive(true);
+        primaryOptionsMenuButton.Select();
 
         controlsBoard.SetActive(true);
 
