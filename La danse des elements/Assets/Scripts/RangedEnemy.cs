@@ -16,7 +16,6 @@ public class RangedEnemy : MonoBehaviour
     private void Start()
     {
         agent = GetComponent<NavMeshAgent>();
-        
     }
 
     private void Update()

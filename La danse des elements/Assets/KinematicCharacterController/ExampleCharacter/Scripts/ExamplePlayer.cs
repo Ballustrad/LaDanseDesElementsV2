@@ -11,6 +11,7 @@ namespace KinematicCharacterController.Examples
 {
     public class ExamplePlayer : MonoBehaviour
     {
+        public GameObject exampleCharacter;
         public int playerMaxHealth = 100;
         public int fireHealth;
         public int waterHealth;
@@ -155,7 +156,7 @@ namespace KinematicCharacterController.Examples
         }
         private void Death()
         {
-            this.gameObject.SetActive(false);
+            exampleCharacter.SetActive(false);
         }
 
         private void LateUpdate()
