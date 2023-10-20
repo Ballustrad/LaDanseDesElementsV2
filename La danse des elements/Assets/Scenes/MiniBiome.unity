@@ -6411,7 +6411,7 @@ PrefabInstance:
     - target: {fileID: 2688071392672852133, guid: 295440b25a703004083fca73c37965b5,
         type: 3}
       propertyPath: sceneToReload
-      value: Training-Room
+      value: MiniBiome
       objectReference: {fileID: 0}
     - target: {fileID: 2688071392672852133, guid: 295440b25a703004083fca73c37965b5,
         type: 3}
