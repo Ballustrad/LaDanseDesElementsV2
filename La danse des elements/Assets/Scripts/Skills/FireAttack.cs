@@ -11,13 +11,20 @@ public class FireAttack : MonoBehaviour
     public float flameWidth = 5f; // Largeur du lance-flammes
     public float flameHeight = 5f; // Hauteur du lance-flammes
     public Transform startingRockLaunch;
-
+    public GameObject fireShown;
+    IEnumerator FireShow()
+    {
+        fireShown.SetActive(true);
+        yield return new WaitForSeconds(0.4f);
+        fireShown.SetActive(false);
+    }
     public void PerformFireAttack()
     {
         // Crée un rayon de détection devant le personnage
         Ray ray = new Ray(startingRockLaunch.position, startingRockLaunch.forward);
         RaycastHit[] hits = Physics.SphereCastAll(ray, flameWidth / 2f, fireRange);
         Debug.DrawRay(ray.origin, ray.direction * fireRange, Color.red);
+        StartCoroutine(FireShow()); 
         foreach (RaycastHit hit in hits)
         {
             // Vérifie si l'objet touché a un composant "DegatsContinus" (à adapter selon votre structure de jeu)
