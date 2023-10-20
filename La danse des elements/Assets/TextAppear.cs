@@ -8,10 +8,16 @@ public class TextAppear : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        worldText.SetActive(true);
+        if (other.CompareTag("Player"))
+        {
+            worldText.SetActive(true);
+        }
     }
     private void OnTriggerExit(Collider other)
     {
-        worldText.SetActive(false);
+        if (other.CompareTag("Player"))
+        {
+            worldText.SetActive(false);
+        }
     }
 }
