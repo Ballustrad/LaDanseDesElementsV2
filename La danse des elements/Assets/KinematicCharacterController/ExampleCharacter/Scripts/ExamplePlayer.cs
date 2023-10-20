@@ -52,108 +52,108 @@ namespace KinematicCharacterController.Examples
 
         private void Update()
         {
-            // Détecte la touche d'interaction ici
-            
-            if (playerCurrentHealth < 0) { playerCurrentHealth = 0; }
-            //Pour que la vie n'aille pas au dessus de 100
-            if (playerCurrentHealth > playerMaxHealth) { playerCurrentHealth = 100; }
+                // Détecte la touche d'interaction ici
+                if (playerCurrentHealth < 0) { playerCurrentHealth = 0; }
+                //Pour que la vie n'aille pas au dessus de 100
+                if (playerCurrentHealth > playerMaxHealth) { playerCurrentHealth = 100; }
 
-            //Tue le joueur si sa vie atteint 0
-            if (playerCurrentHealth == 0) { Death(); }
-            playerHealthSlider.gameObject.GetComponent<Slider>().value = playerCurrentHealth;
+                //Tue le joueur si sa vie atteint 0
+                if (playerCurrentHealth == 0) { Death(); }
+                playerHealthSlider.gameObject.GetComponent<Slider>().value = playerCurrentHealth;
 
-            if (currentEnergyEarth > 3)
-            {
-                currentEnergyEarth = 3;
-            }
-            if ( currentEnergyFire > 3)
-            {
-                currentEnergyFire = 3;
-            }
-            if (currentEnergyWater > 3)
-            {
-                currentEnergyWater = 3;
-            }
-            if (currentEnergyWind > 3)
-            { 
-                currentEnergyWind = 3;
-            }
-            if (fireIsOn == true )
-            {
-                currentElement = 1;
-                currentEnergy = currentEnergyFire;
-                fireHealth = playerCurrentHealth ;
-            }
-            if (waterIsOn == true)
-            {
-                currentElement = 4;
-                currentEnergy = currentEnergyWater;
-                waterHealth = playerCurrentHealth;
-            }
-            if (windIsOn == true)
-            {
-                currentElement = 3;
-                currentEnergy = currentEnergyWind;
-                windHealth = playerCurrentHealth;
-            }
-            if (earthIsOn == true)
-            {
-                currentElement = 2;
-                currentEnergy = currentEnergyEarth;
-                earthHealth = playerCurrentHealth;
-            }
-            
-            switch (currentElement)
-            {
-                case 1:
-                    energyBar.gameObject.GetComponent<Slider>().value = currentEnergyFire; 
-                    backgroundBar.GetComponent<Image>().color = new Color((float).77, 0, 0, 1);
-                    playerHealthBar.fill.GetComponent<Image>().color = new Color((float).77, 0, 0, 1);
-                        break;
-
-                case 2:
-                    energyBar.gameObject.GetComponent<Slider>().value = currentEnergyEarth; 
-                    backgroundBar.GetComponent<Image>().color = new Color ((float).17,(float).45, (float).14, 1 );
-                    playerHealthBar.fill.GetComponent<Image>().color = new Color((float).17, (float).45, (float).14, 1);
-                        break;
-                case 3:
-                    energyBar.gameObject.GetComponent<Slider>().value = currentEnergyWind; 
-                    backgroundBar.GetComponent<Image>().color = Color.white;
-                    playerHealthBar.fill.GetComponent<Image>().color = Color.white;
-                    break;
-                case 4:
-                    energyBar.gameObject.GetComponent<Slider>().value = currentEnergyWater;
-                    backgroundBar.GetComponent<Image>().color = new Color((float).18, (float).66, 1,1);
-                    playerHealthBar.fill.GetComponent<Image>().color = new Color((float).18, (float).66, 1, 1);
-                    break;
-
-                default: break; 
-            }
-
-            if (!isAvailable)
-            {
-                float timeSinceLastUsage = Time.time - lastUsageTime;
-
-                // If the elapsed time is greater than or equal to cooldown time, the ability is ready
-                if (timeSinceLastUsage >= cooldownTime)
+                if (currentEnergyEarth > 3)
                 {
-                    isAvailable = true;
+                    currentEnergyEarth = 3;
                 }
+                if (currentEnergyFire > 3)
+                {
+                    currentEnergyFire = 3;
+                }
+                if (currentEnergyWater > 3)
+                {
+                    currentEnergyWater = 3;
+                }
+                if (currentEnergyWind > 3)
+                {
+                    currentEnergyWind = 3;
+                }
+                if (fireIsOn == true)
+                {
+                    currentElement = 1;
+                    currentEnergy = currentEnergyFire;
+                    fireHealth = playerCurrentHealth;
+                }
+                if (waterIsOn == true)
+                {
+                    currentElement = 4;
+                    currentEnergy = currentEnergyWater;
+                    waterHealth = playerCurrentHealth;
+                }
+                if (windIsOn == true)
+                {
+                    currentElement = 3;
+                    currentEnergy = currentEnergyWind;
+                    windHealth = playerCurrentHealth;
+                }
+                if (earthIsOn == true)
+                {
+                    currentElement = 2;
+                    currentEnergy = currentEnergyEarth;
+                    earthHealth = playerCurrentHealth;
+                }
+
+                switch (currentElement)
+                {
+                    case 1:
+                        energyBar.gameObject.GetComponent<Slider>().value = currentEnergyFire;
+                        backgroundBar.GetComponent<Image>().color = new Color((float).77, 0, 0, 1);
+                        playerHealthBar.fill.GetComponent<Image>().color = new Color((float).77, 0, 0, 1);
+                        break;
+
+                    case 2:
+                        energyBar.gameObject.GetComponent<Slider>().value = currentEnergyEarth;
+                        backgroundBar.GetComponent<Image>().color = new Color((float).17, (float).45, (float).14, 1);
+                        playerHealthBar.fill.GetComponent<Image>().color = new Color((float).17, (float).45, (float).14, 1);
+                        break;
+                    case 3:
+                        energyBar.gameObject.GetComponent<Slider>().value = currentEnergyWind;
+                        backgroundBar.GetComponent<Image>().color = Color.white;
+                        playerHealthBar.fill.GetComponent<Image>().color = Color.white;
+                        break;
+                    case 4:
+                        energyBar.gameObject.GetComponent<Slider>().value = currentEnergyWater;
+                        backgroundBar.GetComponent<Image>().color = new Color((float).18, (float).66, 1, 1);
+                        playerHealthBar.fill.GetComponent<Image>().color = new Color((float).18, (float).66, 1, 1);
+                        break;
+
+                    default: break;
+                }
+
+                if (!isAvailable)
+                {
+                    float timeSinceLastUsage = Time.time - lastUsageTime;
+
+                    // If the elapsed time is greater than or equal to cooldown time, the ability is ready
+                    if (timeSinceLastUsage >= cooldownTime)
+                    {
+                        isAvailable = true;
+                    }
+                }
+                if (Input.GetMouseButtonDown(0) && !PauseMenu.gameIsPaused)
+                {
+                    Cursor.lockState = CursorLockMode.Locked;
+                }
+                if (Input.GetKeyDown(KeyCode.E))
+                {
+                    SwapElement();
+                }
+                if (Input.GetKeyDown(KeyCode.F))
+                {
+                    PerformSpecialSkill();
+                }
+                HandleCharacterInput();
             }
-            if (Input.GetMouseButtonDown(0) && !PauseMenu.gameIsPaused)
-            {
-                Cursor.lockState = CursorLockMode.Locked;
-            }
-            if (Input.GetKeyDown(KeyCode.E))
-            {
-                SwapElement();
-            }
-            if (Input.GetKeyDown(KeyCode.F))
-            {
-                PerformSpecialSkill();
-            }
-            HandleCharacterInput();
-        }
+        
         private void Death()
         {
             exampleCharacter.SetActive(false);

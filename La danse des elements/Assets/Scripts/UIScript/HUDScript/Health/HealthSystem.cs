@@ -18,15 +18,15 @@ public class HealthSystem : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.KeypadMinus))
+        if (Input.GetKeyDown(KeyCode.KeypadMinus) && Input.GetKeyDown(KeyCode.LeftControl))
         {
             TakeDamage(20);
         }
-        if (Input.GetKeyDown(KeyCode.Keypad0))
+        if (Input.GetKeyDown(KeyCode.Keypad0) && Input.GetKeyDown(KeyCode.LeftControl))
         {
             Death();
         }
-        if (Input.GetKeyDown(KeyCode.KeypadPlus))
+        if (Input.GetKeyDown(KeyCode.KeypadPlus) && Input.GetKeyDown(KeyCode.LeftControl))
         {
            HealHealth(20);
         }
