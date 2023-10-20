@@ -17,7 +17,7 @@ public class RockAttack : MonoBehaviour
 
         // Obtient la direction dans laquelle le rocher doit être lancé
         Vector3 directionLancer = startingRockLaunch.forward;
-        directionLancer.y = 0.4f;
+        directionLancer.y = 0.2f;
 
         // Applique une force au rocher pour le lancer dans la direction spécifiée avec la vitesse spécifiée
         rocher.GetComponent<Rigidbody>().velocity = directionLancer.normalized * rockSpeed;
