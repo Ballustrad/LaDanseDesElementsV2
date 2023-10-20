@@ -76,11 +76,11 @@ public class MainMenu : MonoBehaviour
     //LoadMENU
     public void TrainingRoomPlay()
     {
-        SceneManager.LoadScene("Training-Room");
+        SceneManager.LoadScene("TrainingRoom");
     }
     public void MiniBiomePlay()
     {
-        SceneManager.LoadScene("MiniBiome-Galaan");
+        SceneManager.LoadScene("MiniBiome");
     }
     public void CloseLoadMENU()
     {

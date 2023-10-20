@@ -15,6 +15,6 @@ EditorBuildSettings:
     path: Assets/Scenes/Training-Room.unity
     guid: ccd2cf61463fa64498c6619223698e63
   - enabled: 1
-    path: Assets/Scenes/MiniBiome-Galaan.unity
-    guid: 3510afeb388df72499794e9103895afa
+    path: Assets/Scenes/Mini-Biome.unity
+    guid: 71fe52233c4410843bc20a0625309865
   m_configObjects: {}

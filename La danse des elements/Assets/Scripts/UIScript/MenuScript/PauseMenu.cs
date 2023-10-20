@@ -146,17 +146,17 @@ public class PauseMenu : MonoBehaviour
         Resume();
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.None;
-        SceneManager.LoadScene("Menu-Galaan");
+        SceneManager.LoadScene("Menu");
     }
     public void TrainingRoomPlay()
     {
         Resume();
-        SceneManager.LoadScene("Training-Room");
+        SceneManager.LoadScene("TrainingRoom");
     }
     public void MiniBiomePlay()
     {
         Resume();
-        SceneManager.LoadScene("MiniBiome-Galaan");
+        SceneManager.LoadScene("MiniBiome");
     }
     public void CloseLoadMENU()
     {
