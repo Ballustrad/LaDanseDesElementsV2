@@ -1,3 +1,4 @@
+using KinematicCharacterController.Examples;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -9,7 +10,7 @@ public class HealthSystem : MonoBehaviour
     public int currentHealth;
     public GameObject[] energyFragments;
     public HealthBar healthBar;
-
+    public ExamplePlayer player;
     private void Start()
     {
         currentHealth = maxHealth;
@@ -47,10 +48,27 @@ public class HealthSystem : MonoBehaviour
     }
     private void Death()
     {
-        int randomIndex = Random.Range(0, energyFragments.Length);
+        switch (player.currentElement)
+        {
+            case 1:
+                GameObject energyFragmentEarth = Instantiate(energyFragments[2], transform.position, Quaternion.identity);
+                break;
+
+            case 2:
+                GameObject energyFragmentWater = Instantiate(energyFragments[3], transform.position, Quaternion.identity);
+                break;
+            case 3:
+                GameObject energyFragmentWind = Instantiate(energyFragments[4], transform.position, Quaternion.identity);
+                break;
+            case 4:
+                GameObject energyFragmentFire = Instantiate(energyFragments[1], transform.position, Quaternion.identity);
+                break;
+            default: break;
+        }
+        
 
         // Instancie un fragment d'énergie aléatoire à la position de l'ennemi
-        GameObject energyFragment = Instantiate(energyFragments[randomIndex], transform.position, Quaternion.identity);
+        //GameObject energyFragment = Instantiate(energyFragments[randomIndex], transform.position, Quaternion.identity);
         //this.gameObject.SetActive(false);
         Destroy(this.gameObject);
     }
