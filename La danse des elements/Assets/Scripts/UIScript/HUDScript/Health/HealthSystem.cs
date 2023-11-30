@@ -6,11 +6,12 @@ using UnityEngine.UI;
 
 public class HealthSystem : MonoBehaviour
 {
-    public int maxHealth = 100;
-    public int currentHealth;
+    public float maxHealth = 100;
+    public float currentHealth;
     public GameObject[] energyFragments;
     public HealthBar healthBar;
     public ExamplePlayer player;
+    public int numberofDotFire = 0;
     private void Start()
     {
         currentHealth = maxHealth;
@@ -32,20 +33,50 @@ public class HealthSystem : MonoBehaviour
            HealHealth(20);
         }
 
+        if (Time.time - lastDotTick >= 1f)
+        {
+            InflictDotDmg();
+            lastDotTick = Time.time;
+        }
         //Pour que la vie n'aille pas en dessous de 0
         if (currentHealth < 0) { currentHealth = 0; }
         //Pour que la vie n'aille pas au dessus du MaxHealth
         if (currentHealth > maxHealth) { currentHealth = maxHealth; }
-
+        print(numberofDotFire);
         //Tue le joueur si sa vie atteint 0
         if (currentHealth == 0) { Death(); }
     }
-    public void TakeDamage(int damage)
+    public float fireDOTdmg = 0;    
+    public float lastDotTick = 0;
+    public void InflictDotDmg()
+    {
+        fireDOTdmg = 0;
+        fireDOTdmg = numberofDotFire * (currentHealth / 100f);
+        TakeDamage(fireDOTdmg);
+    }
+
+    
+    public void addFireDot()
+    {
+        StartCoroutine(GetDOTFire());
+    }
+    public IEnumerator GetDOTFire()
+    {
+        numberofDotFire ++;
+        yield return new WaitForSeconds(3f);
+        numberofDotFire--;
+    }
+    public void TakeDamage(float damage)
     {
         currentHealth -= damage;
 
         healthBar.SetHealth(currentHealth);
     }
+
+
+
+
+    
     private void Death()
     {
         switch (player.currentElement)

@@ -7,7 +7,7 @@ public class FireAttack : MonoBehaviour
     public float cooldown;
     public float derniereUtilisation;
     public float fireRange = 5f; // Portée du lance-flammes
-    public int damagePerSecond = 10; // Dégâts infligés par seconde
+    public int damage = 10; // Dégâts infligés par seconde
     public float flameWidth = 5f; // Largeur du lance-flammes
     public float flameHeight = 5f; // Hauteur du lance-flammes
     public Transform startingRockLaunch;
@@ -28,13 +28,15 @@ public class FireAttack : MonoBehaviour
         foreach (RaycastHit hit in hits)
         {
             // Vérifie si l'objet touché a un composant "DegatsContinus" (à adapter selon votre structure de jeu)
-            DegatsContinus target = hit.transform.GetComponent<DegatsContinus>();
-
+           
+            HealthSystem target = hit.transform.GetComponent<HealthSystem>();
             if (target != null)
             {
                 // Inflige des dégâts à l'objet touché chaque seconde
-                target.InfligerDegatsContinus(damagePerSecond);
-                Debug.DrawLine(startingRockLaunch.position, hit.point, Color.green, 1f);
+               target.TakeDamage(damage);
+                target.addFireDot();
+               
+                //Debug.DrawLine(startingRockLaunch.position, hit.point, Color.green, 1f);
             }
         }
     }
