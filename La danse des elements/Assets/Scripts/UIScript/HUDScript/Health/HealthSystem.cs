@@ -54,7 +54,21 @@ public class HealthSystem : MonoBehaviour
         fireDOTdmg = numberofDotFire * (currentHealth / 100f);
         TakeDamage(fireDOTdmg);
     }
+    public bool isWet = false;
+    public float isWetTimer = 0;
+    public void addWetEffect()
+    {
+        if (isWet == false)
+        {
+            isWet = true;
+        }
+        else
+        {
 
+        }
+    }
+  
+    
     
     public void addFireDot()
     {
