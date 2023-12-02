@@ -37,6 +37,10 @@ public class MainMenu : MonoBehaviour
     public GameObject creditsButton;
 
     //MENU
+    public void NewGame()
+    {
+        SceneManager.LoadScene("TrainingRoom");
+    }
     public void LoadMENU()
     {
         loadMENU.SetActive(true);
@@ -74,10 +78,6 @@ public class MainMenu : MonoBehaviour
 
 
     //LoadMENU
-    public void TrainingRoomPlay()
-    {
-        SceneManager.LoadScene("TrainingRoom");
-    }
     public void MiniBiomePlay()
     {
         SceneManager.LoadScene("MiniBiome");
