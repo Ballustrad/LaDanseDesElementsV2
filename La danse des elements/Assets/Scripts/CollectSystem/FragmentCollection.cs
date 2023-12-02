@@ -6,7 +6,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using KinematicCharacterController.Examples;
 
-public class FragmentCollection : MonoBehaviour
+public class FragmentCollection : MonoBehaviour, IDataPersistence
 {
     public ExamplePlayer examplePlayer;
     private int FireFragments = 0;
@@ -63,6 +63,17 @@ public class FragmentCollection : MonoBehaviour
             }
         }
     }
+
+    //revoir le deathCount, pas compris pourquoi on ne peut mettre que deathCount
+    public void LoadData(GameData data)
+    {
+        this.FireFragments = data.deathCount;
+    }
+    public void SaveData(ref GameData data) 
+    {
+        data.deathCount = this.FireFragments;
+    }
+
     private void Update()
     {
         if (Keyboard.current.tabKey.wasPressedThisFrame)
