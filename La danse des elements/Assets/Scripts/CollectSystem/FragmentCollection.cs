@@ -67,11 +67,17 @@ public class FragmentCollection : MonoBehaviour, IDataPersistence
     //revoir le deathCount, pas compris pourquoi on ne peut mettre que deathCount
     public void LoadData(GameData data)
     {
-        this.FireFragments = data.deathCount;
+        this.FireFragments = data.fireFragments;
+        this.WaterFragments = data.waterFragments;
+        this.WindFragments = data.windFragments;
+        this.RockFragments = data.rockFragments;
     }
     public void SaveData(ref GameData data) 
     {
-        data.deathCount = this.FireFragments;
+        data.fireFragments = this.FireFragments;
+        data.waterFragments = this.WaterFragments;
+        data.windFragments = this.WindFragments;
+        data.rockFragments = this.RockFragments;
     }
 
     private void Update()

@@ -6,10 +6,16 @@ using UnityEngine;
 
 public class GameData
 {
-    public int deathCount;
+    public int fireFragments;
+    public int waterFragments;
+    public int windFragments;
+    public int rockFragments;
 
     public GameData()
     {
-        this.deathCount = 0;
+        this.fireFragments = 0;
+        this.waterFragments = 0;
+        this.windFragments = 0;
+        this.rockFragments = 0;
     }
 }

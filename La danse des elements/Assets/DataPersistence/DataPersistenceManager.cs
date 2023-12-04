@@ -8,8 +8,12 @@ using System.Linq;
 
 public class DataPersistanceManager : MonoBehaviour
 {
+    [Header("File Storage Config")]
+    [SerializeField] private string fileName;
+
     private GameData gameData;
     private List<IDataPersistence> dataPersistenceObjects;
+    private FileDataHandler dataHandler;
     public static DataPersistanceManager instance {  get; private set; }
 
     private void Awake()
@@ -22,6 +26,7 @@ public class DataPersistanceManager : MonoBehaviour
     }
     public void Start()
     {
+        this.dataHandler = new FileDataHandler(Application.persistentDataPath, fileName);
         this.dataPersistenceObjects = FindAllDataPersistanceObjects();
         LoadGame();
     }
@@ -33,6 +38,9 @@ public class DataPersistanceManager : MonoBehaviour
 
     public void LoadGame()
     {
+        //Load any saved data from a file using the data handler
+        this.gameData = dataHandler.Load();
+
         //if no data can be loaded, inialize to a new game
         if (this.gameData == null)
         {
@@ -46,8 +54,6 @@ public class DataPersistanceManager : MonoBehaviour
             //dans le tuto c'est " dataPersistenceObj "
             dataPersistenceObjects.LoadData(gameData);
         }
-
-        Debug.Log("Loaded FireFragment = " + gameData.deathCount);
     }
 
     public void SaveGame()
@@ -58,7 +64,8 @@ public class DataPersistanceManager : MonoBehaviour
             dataPersistenceObjects.SaveData(ref gameData);
         }
 
-        Debug.Log("Saved FireFragment = " + gameData.deathCount);
+        //save that data to a file using the data handler
+        dataHandler.Save(gameData);
     }
 
     private void OnApplicationQuit()
