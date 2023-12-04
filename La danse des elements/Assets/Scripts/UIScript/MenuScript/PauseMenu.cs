@@ -146,7 +146,7 @@ public class PauseMenu : MonoBehaviour
         Resume();
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.None;
-        SceneManager.LoadScene("Menu");
+        SceneManager.LoadScene("MenuSave&Load");
     }
     public void TrainingRoomPlay()
     {

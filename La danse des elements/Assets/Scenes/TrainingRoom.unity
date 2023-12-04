@@ -2367,6 +2367,11 @@ PrefabInstance:
       propertyPath: playerTransform
       value: 
       objectReference: {fileID: 575831171}
+    - target: {fileID: 6315409033331280810, guid: 2ba2d50b3fb07b443a6e554b40b225d3,
+        type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 2056018310}
     - target: {fileID: 6456193693087425397, guid: 2ba2d50b3fb07b443a6e554b40b225d3,
         type: 3}
       propertyPath: player
@@ -2892,6 +2897,11 @@ PrefabInstance:
       propertyPath: playerTransform
       value: 
       objectReference: {fileID: 575831171}
+    - target: {fileID: 6315409033331280810, guid: 2ba2d50b3fb07b443a6e554b40b225d3,
+        type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 2056018310}
     - target: {fileID: 6456193693087425397, guid: 2ba2d50b3fb07b443a6e554b40b225d3,
         type: 3}
       propertyPath: player
@@ -4345,6 +4355,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7101396c77a03cc449f926f77807e317, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  fileName: data.game
 --- !u!4 &2022207616
 Transform:
   m_ObjectHideFlags: 0
@@ -4648,6 +4659,11 @@ PrefabInstance:
       propertyPath: playerTransform
       value: 
       objectReference: {fileID: 575831171}
+    - target: {fileID: 6315409033331280810, guid: 2ba2d50b3fb07b443a6e554b40b225d3,
+        type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 2056018310}
     - target: {fileID: 6910453843676038310, guid: 2ba2d50b3fb07b443a6e554b40b225d3,
         type: 3}
       propertyPath: m_AnchorMax.x

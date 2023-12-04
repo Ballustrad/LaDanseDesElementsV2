@@ -2114,7 +2114,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 428313749}
         m_TargetAssemblyTypeName: MainMenu, Assembly-CSharp
-        m_MethodName: 
+        m_MethodName: Continue
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2430,6 +2430,11 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5405821660287872748, guid: 80a9d71b14b1fd648ae7eda9d761d0b4,
+        type: 3}
+      propertyPath: continueButton
+      value: 
+      objectReference: {fileID: 2090381243}
     - target: {fileID: 5405821660287872748, guid: 80a9d71b14b1fd648ae7eda9d761d0b4,
         type: 3}
       propertyPath: primaryLoadMenuButton

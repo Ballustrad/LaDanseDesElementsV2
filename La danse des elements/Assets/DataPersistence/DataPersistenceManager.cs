@@ -20,9 +20,13 @@ public class DataPersistanceManager : MonoBehaviour
     {
         if (instance != null)
         {
-            Debug.LogError("Found more than one Data Persistance Manager in the scene.");
+            Debug.Log("Found more than one Data Persistance Manager in the scene. Destroying the newest one");
+            Destroy(this.gameObject);
+            return;
         }
         instance = this;
+
+        DontDestroyOnLoad(this.gameObject);
     }
     public void Start()
     {
@@ -41,11 +45,11 @@ public class DataPersistanceManager : MonoBehaviour
         //Load any saved data from a file using the data handler
         this.gameData = dataHandler.Load();
 
-        //if no data can be loaded, inialize to a new game
+        //if no data can be loaded, don't continue
         if (this.gameData == null)
         {
-            Debug.Log("No data was found. Initializing data to defaults values");
-            NewGame();
+            Debug.Log("No data was found. A New Game need to be started before data can be loaded");
+            return;
         }
 
         //push the Loaded data to all other scripts that need it
@@ -58,6 +62,14 @@ public class DataPersistanceManager : MonoBehaviour
 
     public void SaveGame()
     {
+        //if we don't have any data to save, log a warning here
+        if (this.gameData == null)
+        {
+            Debug.LogWarning("No data was found. A New Game need to be started before data can be saved");
+            return;
+        }
+
+        // if we don't have any data to save, log a warning here
         foreach (IDataPersistence dataPersistenceObjects in dataPersistenceObjects)
         {
             //dans le tuto c'est " dataPersistenceObj "
@@ -79,5 +91,11 @@ public class DataPersistanceManager : MonoBehaviour
             .OfType<IDataPersistence>();
 
         return new List<IDataPersistence>(dataPersistenceObjects);
+    }
+
+    //marche pas
+    public bool HasGameData()
+    {
+        return gameData != null;
     }
 }

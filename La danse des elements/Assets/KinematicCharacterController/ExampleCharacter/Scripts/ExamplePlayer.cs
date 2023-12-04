@@ -9,14 +9,14 @@ using UnityEngine.Events;
 
 namespace KinematicCharacterController.Examples
 {
-    public class ExamplePlayer : MonoBehaviour
+    public class ExamplePlayer : MonoBehaviour, IDataPersistence
     {
         public GameObject exampleCharacter;
         public int playerMaxHealth = 100;
-       // public int fireHealth;
+        // public int fireHealth;
         //public int waterHealth;
         //public int windHealth;
-       // public int earthHealth;
+        // public int earthHealth;
         public int playerCurrentHealth;
 
         public HealthBar playerHealthBar;
@@ -153,6 +153,18 @@ namespace KinematicCharacterController.Examples
                 }
                 HandleCharacterInput();
             }
+
+        public void LoadData(GameData data)
+        {
+            this.playerMaxHealth = data.playerMaxHealth;
+            this.playerCurrentHealth = data.playerCurrentHealth;
+        }
+
+        public void SaveData(ref GameData data)
+        {
+            data.playerMaxHealth = this.playerMaxHealth;
+            data.playerCurrentHealth = this.playerCurrentHealth;
+        }
         
         private void Death()
         {

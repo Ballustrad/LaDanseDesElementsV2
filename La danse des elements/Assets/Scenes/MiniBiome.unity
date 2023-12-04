@@ -6518,6 +6518,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: PauseMenuCanvas
       objectReference: {fileID: 0}
+    - target: {fileID: 4618560040027365854, guid: 295440b25a703004083fca73c37965b5,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4674580626238922046, guid: 295440b25a703004083fca73c37965b5,
         type: 3}
       propertyPath: m_IsActive
@@ -7823,6 +7828,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: EventSystem
+      objectReference: {fileID: 0}
+    - target: {fileID: 8728172742193885220, guid: 7d2ac0b214e103b4d807945cd0d7f48f,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

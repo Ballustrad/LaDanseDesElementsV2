@@ -40,7 +40,7 @@ namespace KinematicCharacterController.Examples
         TowardsGroundSlopeAndGravity,
     }
 
-    public class ExampleCharacterController : MonoBehaviour, ICharacterController
+    public class ExampleCharacterController : MonoBehaviour, ICharacterController, IDataPersistence
     {
         public KinematicCharacterMotor Motor;
 
@@ -96,6 +96,16 @@ namespace KinematicCharacterController.Examples
 
             // Assign the characterController to the motor
             Motor.CharacterController = this;
+        }
+
+        public void LoadData(GameData data)
+        {
+            this.transform.position = data.playerPosition;
+        }
+
+        public void SaveData(ref GameData data)
+        {
+            data.playerPosition = this.transform.position;
         }
 
         /// <summary>
