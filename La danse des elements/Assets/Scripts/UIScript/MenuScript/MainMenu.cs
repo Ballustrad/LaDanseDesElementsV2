@@ -37,21 +37,8 @@ public class MainMenu : MonoBehaviour
     public GameObject creditsMENU;
     public GameObject creditsButton;
 
-    private void Start()
-    {
-        if (!DataPersistanceManager.instance.HasGameData())
-        {
-            continueButton.interactable = false;
-        }
-    }
-
     //MENU
-    public void NewGame()
-    {
-        DataPersistanceManager.instance.NewGame();
-        SceneManager.LoadScene("TrainingRoom");
-    }
-    public void Continue()
+    public void PlayGame()
     {
         SceneManager.LoadScene("TrainingRoom");
     }
