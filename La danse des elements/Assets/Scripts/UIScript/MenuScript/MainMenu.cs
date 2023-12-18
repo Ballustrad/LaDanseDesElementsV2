@@ -5,71 +5,45 @@ using UnityEngine.UI;
 public class MainMenu : MonoBehaviour
 {
     [Header("MENU")]
-    public GameObject menuContenu;
+    public GameObject mainMENU;
     [Space(10)]
     public Button primaryMainMenuButton;
-    public Button continueButton;
-    [Space(20)]
-
-    [Header("Load MENU")]
-    public GameObject loadMENU;
-    [Space(10)]
-    public Button primaryLoadMenuButton;
     [Space(20)]
 
     [Header("Options MENU")]
     public GameObject optionsMENU;
     [Space(10)]
-    public GameObject controlsBoard;
-    public GameObject audiosBoard;
-    public GameObject graphicsBoard;
-    [Space(20)]
     public Button primaryOptionsMenuButton;
-    [Space(10)]
-    public Button primaryControlsButton;
-    public Button primaryAudiosButton;
-    public Button primaryGraphicsButton;
     [Space(20)]
 
-    [Header("Extras MENU")]
-    public GameObject extrasMENU;
-    [Space(10)]
+    [Header("Credits MENU")]
     public GameObject creditsMENU;
-    public GameObject creditsButton;
+    public Button primaryCreditsMenuButton;
 
     //MENU
+    private void Start()
+    {
+        primaryMainMenuButton.Select();
+    }
+
     public void PlayGame()
     {
         SceneManager.LoadScene("TrainingRoom");
     }
 
-    public void LoadMENU()
-    {
-        loadMENU.SetActive(true);
-        menuContenu.SetActive(false);
-        primaryLoadMenuButton.Select();
-    }
-
-
     public void OptionsMENU()
     {
         optionsMENU.SetActive(true);
+        primaryOptionsMenuButton.Select();
 
-        controlsBoard.SetActive(true);
-
-        audiosBoard.SetActive(false);
-        graphicsBoard.SetActive(false);
-
-
-        menuContenu.SetActive(false);
+        mainMENU.SetActive(false);
     }
-    public void ExtrasMENU()
+    public void CreditsMENU()
     {
-        extrasMENU.SetActive(true);
-        creditsButton.SetActive(true);
+        creditsMENU.SetActive(true);
+        primaryCreditsMenuButton.Select();
 
-
-        menuContenu.SetActive(false);
+        mainMENU.SetActive(false);
     }
 
     public void QuitGame()
@@ -77,79 +51,21 @@ public class MainMenu : MonoBehaviour
         Application.Quit();
     }
 
-
-
-    //LoadMENU
-    public void MiniBiomePlay()
-    {
-        SceneManager.LoadScene("MiniBiome");
-    }
-    public void CloseLoadMENU()
-    {
-        loadMENU.SetActive(false);
-
-
-        menuContenu.SetActive(true);
-        primaryMainMenuButton.Select();
-    }
-
-
-
     //OptionsMENU
-    public void ControlsBoard()
-    {
-        controlsBoard.SetActive(true);
-
-        audiosBoard.SetActive(false);
-        graphicsBoard.SetActive(false);
-    }
-    public void AudiosBoard()
-    {
-        audiosBoard.SetActive(true);
-
-        graphicsBoard.SetActive(false);
-        controlsBoard.SetActive(false);
-    }
-    public void GraphicsBoard()
-    {
-        graphicsBoard.SetActive(true);
-
-        audiosBoard.SetActive(false);
-        controlsBoard.SetActive(false);
-    }
-
     public void CloseOptions()
     {
         optionsMENU.SetActive(false);
+        primaryMainMenuButton.Select();
 
-        audiosBoard.SetActive(false);
-        graphicsBoard.SetActive(false);
-
-
-        menuContenu.SetActive(true);
-    }
-
-
-
-    //ExtrasMENU
-    public void Credits()
-    {
-        creditsMENU.SetActive(true);
-        creditsButton.SetActive(false);
-    }
-    public void CloseExtra()
-    {
-        extrasMENU.SetActive(false);
-        creditsButton.SetActive(false);
-
-
-        menuContenu.SetActive(true);
+        mainMENU.SetActive(true);
     }
 
     //CreditsMENU
     public void CloseCredits()
     {
         creditsMENU.SetActive(false);
-        creditsButton.SetActive(true);
+        primaryMainMenuButton.Select();
+
+        mainMENU.SetActive(true);
     }
 }
