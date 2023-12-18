@@ -9,6 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4560839285128238809}
+  - component: {fileID: 241564850299396926}
   - component: {fileID: 3741321884129996247}
   - component: {fileID: 36372155551971167}
   - component: {fileID: 1019638661575014387}
@@ -16,7 +17,6 @@ GameObject:
   - component: {fileID: 6315409033331280810}
   - component: {fileID: 713395916252226436}
   - component: {fileID: 5067012061203007283}
-  - component: {fileID: 5054114381156504395}
   - component: {fileID: 731839326153810306}
   m_Layer: 6
   m_Name: Ennemy
@@ -43,6 +43,36 @@ Transform:
   - {fileID: 2652665217495734583}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
+--- !u!114 &241564850299396926
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 269496004499003644}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 50e2c4792dcef6f45b5b4ab1a24c20b6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  patrolPoints:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  detectionRange: 10
+  playerLayer:
+    serializedVersion: 2
+    m_Bits: 128
+  chaseSpeed: 5
+  rotationSpeed: 5
+  projectilePrefab: {fileID: 9122521471167916708, guid: 92798a426236a1049b3ce00d5f121ffc,
+    type: 3}
+  shootingDistance: 10
+  shootingCooldown: 2
 --- !u!33 &3741321884129996247
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -159,6 +189,15 @@ MonoBehaviour:
   - {fileID: 721184713681027233, guid: 8fd1c15a156724c45a195bda6d9791af, type: 3}
   - {fileID: 721184713681027233, guid: ce78807d8bba29642a78b0ef325b93f9, type: 3}
   healthBar: {fileID: 8730848738740923584}
+  player: {fileID: 0}
+  numberofDotFire: 0
+  navMeshAgent: {fileID: 0}
+  hasEvaporate: 0
+  evaporateTimer: 0
+  fireDOTdmg: 0
+  lastDotTick: 0
+  isWet: 0
+  isWetTimer: 0
 --- !u!114 &713395916252226436
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -196,25 +235,6 @@ NavMeshAgent:
   m_BaseOffset: 1
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
---- !u!114 &5054114381156504395
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 269496004499003644}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 038f9d1bb469f5c459da791afc3a65de, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  projectilePrefab: {fileID: 9122521471167916708, guid: 92798a426236a1049b3ce00d5f121ffc,
-    type: 3}
-  shootingDistance: 10
-  shootingCooldown: 2
-  target: {fileID: 0}
-  agent: {fileID: 5067012061203007283}
-  playerTransform: {fileID: 0}
 --- !u!54 &731839326153810306
 Rigidbody:
   m_ObjectHideFlags: 0
