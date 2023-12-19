@@ -21,7 +21,9 @@ public class FireAttack : MonoBehaviour
     public void PerformFireAttack()
     {
         // Crée un rayon de détection devant le personnage
-        Ray ray = new Ray(startingRockLaunch.position, startingRockLaunch.forward);
+        Ray ray = new Ray(Camera.main.transform.position, Camera.main.transform.forward);
+        Debug.DrawRay(ray.origin, ray.direction * 50, Color.red,10);
+       // Debug.Break();
         RaycastHit[] hits = Physics.SphereCastAll(ray, flameWidth / 2f, fireRange);
         Debug.DrawRay(ray.origin, ray.direction * fireRange, Color.red);
         StartCoroutine(FireShow()); 
