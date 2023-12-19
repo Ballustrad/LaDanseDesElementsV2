@@ -9,7 +9,7 @@ namespace KinematicCharacterController.Examples
     public class Teleporter : MonoBehaviour
     {
         public Teleporter TeleportTo;
-        public ExamplePlayer plauer;
+        public ExamplePlayer player;
         public UnityAction<ExampleCharacterController> OnCharacterTeleport;
 
         public bool isBeingTeleportedTo { get; set; }
@@ -18,7 +18,7 @@ namespace KinematicCharacterController.Examples
         {
             
             
-                if (!isBeingTeleportedTo && plauer.tpAuthorized == true)
+                if (!isBeingTeleportedTo && player.tpAuthorized == true)
                 {
                     ExampleCharacterController cc = other.GetComponent<ExampleCharacterController>();
                     if (cc)
@@ -30,7 +30,7 @@ namespace KinematicCharacterController.Examples
                             OnCharacterTeleport(cc);
                         }
                         TeleportTo.isBeingTeleportedTo = true;
-                        plauer.tpAuthorized = false;
+                        player.tpAuthorized = false;
                     }
                 }
 

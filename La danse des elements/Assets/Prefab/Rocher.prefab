@@ -147,3 +147,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   degats: 25
+  rocDestroyedSound: {fileID: 8300000, guid: 538528ed10df1e64ea021dedcfde1792, type: 3}

@@ -11,7 +11,8 @@ public class PropulsionSkill : MonoBehaviour
     public float slowFall;
     public float airMoveSpeed;
     public float airAccelerationSpeed;
-
+    public AudioClip floatingSound;
+    public AudioSource audioSource;
     private void Start()
     {
         // Récupère le composant Rigidbody attaché au joueur
@@ -31,6 +32,11 @@ public class PropulsionSkill : MonoBehaviour
     {
         exampleCharacterController.AddVelocity(propelForce);
         yield return new WaitForSeconds(1f);
+        if (audioSource != null && floatingSound != null)
+        {
+            // Joue le son depuis l'AudioSource du soundManager
+            audioSource.PlayOneShot(floatingSound);
+        }
         exampleCharacterController.Drag = slowFall;
         exampleCharacterController.MaxAirMoveSpeed = airMoveSpeed;
         exampleCharacterController.AirAccelerationSpeed = airAccelerationSpeed;

@@ -11,7 +11,8 @@ public class WindAttack : MonoBehaviour
     public float largeurZone = 4f; // Largeur de la zone d'attaque (conique)
     public float longueurZone = 10f; // Longueur de la zone d'attaque (conique)
     public Transform windStartPoint;
-
+    public AudioSource audioSource;
+    public AudioClip windSwipeSound;
     public GameObject windShown;
     IEnumerator WindShow()
     {
@@ -25,7 +26,11 @@ public class WindAttack : MonoBehaviour
         Vector3 direction = windStartPoint.forward;
         Vector3 pointDebut = windStartPoint.position + windStartPoint.up * hauteurZone * 0.5f;
         Vector3 pointFin = pointDebut + direction * longueurZone;
-
+        if (audioSource != null && windSwipeSound != null)
+        {
+            // Joue le son depuis l'AudioSource du soundManager
+            audioSource.PlayOneShot(windSwipeSound);
+        }
         // Recherche tous les ennemis dans la zone d'attaque
         Collider[] colliders = Physics.OverlapCapsule(pointDebut, pointFin, largeurZone * 0.5f);
         StartCoroutine(WindShow());

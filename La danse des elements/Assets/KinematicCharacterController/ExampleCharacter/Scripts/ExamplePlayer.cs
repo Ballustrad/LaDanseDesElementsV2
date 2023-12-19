@@ -330,7 +330,7 @@ namespace KinematicCharacterController.Examples
         public StoneBridgeSkill stoneBridgeSkill;
         public PropulsionSkill propulsionSkill;
 
-        public WaterFormSkill waterFormSkill;
+        
 
         public float interactionDistance = 3f;
 

@@ -10,8 +10,15 @@ public class RockAttack : MonoBehaviour
     public float rockSpeed = 10f; // Vitesse de déplacement du rocher
     public int rockDamage = 10; // Dégâts infligés par le rocher
     public Transform startingRockLaunch;
+    public AudioClip rockThrowSound; // Son à jouer
+    public AudioSource audioSource; // Référence à l'AudioSource
     public void PerformRockAttack()
     {
+        if (audioSource != null && rockThrowSound != null)
+        {
+            // Jouer le son
+            audioSource.PlayOneShot(rockThrowSound);
+        }
         // Crée une instance du rocher à la position et rotation du personnage
         GameObject rocher = Instantiate(rockPrefab, startingRockLaunch.position, startingRockLaunch.rotation);
 
