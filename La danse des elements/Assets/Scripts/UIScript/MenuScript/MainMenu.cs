@@ -8,6 +8,9 @@ public class MainMenu : MonoBehaviour
     public GameObject mainMENU;
     [Space(10)]
     public Button primaryMainMenuButton;
+    [Space(10)]
+    public Button optionsButton;
+    public Button creditsButton;
     [Space(20)]
 
     [Header("Options MENU")]
@@ -55,7 +58,7 @@ public class MainMenu : MonoBehaviour
     public void CloseOptions()
     {
         optionsMENU.SetActive(false);
-        primaryMainMenuButton.Select();
+        optionsButton.Select();
 
         mainMENU.SetActive(true);
     }
@@ -64,7 +67,7 @@ public class MainMenu : MonoBehaviour
     public void CloseCredits()
     {
         creditsMENU.SetActive(false);
-        primaryMainMenuButton.Select();
+        creditsButton.Select();
 
         mainMENU.SetActive(true);
     }
