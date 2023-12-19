@@ -1,12 +1,3 @@
-%YAML 1.1
-%TAG !u! tag:unity3d.com,2011:
---- !u!91 &9100000
-AnimatorController:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: Animator_Eau
-  serializedVersion: 5
-  m_AnimatorParameters: []
-  m_AnimatorLayers: []
+version https://git-lfs.github.com/spec/v1
+oid sha256:311d325169152c3cc2e4e4ed827e883f322a4247bef8fe9bd7dd6a93cf3e2acc
+size 303
