@@ -32,8 +32,11 @@ namespace KinematicCharacterController.Examples
         public GameObject Fire;
         public GameObject Water;
         public GameObject Wind;
-        public GameObject Earth;        
-
+        public GameObject Earth;
+        public GameObject fireUI;
+        public GameObject earthUi;
+        public GameObject windUi;
+        public GameObject waterUI;
         public int currentElement = 1;
         private void Start()
         {
@@ -108,23 +111,31 @@ namespace KinematicCharacterController.Examples
                         energyBar.gameObject.GetComponent<Slider>().value = currentEnergyFire;
                         backgroundBar.GetComponent<Image>().color = new Color((float).77, 0, 0, 1);
                         playerHealthBar.fill.GetComponent<Image>().color = new Color((float).77, 0, 0, 1);
+                        fireUI.SetActive(true);
+                        waterUI.SetActive(false);
                         break;
 
                     case 2:
                         energyBar.gameObject.GetComponent<Slider>().value = currentEnergyEarth;
                         backgroundBar.GetComponent<Image>().color = new Color((float).17, (float).45, (float).14, 1);
                         playerHealthBar.fill.GetComponent<Image>().color = new Color((float).17, (float).45, (float).14, 1);
-                        break;
+                        fireUI.SetActive(false);
+                        earthUi.SetActive(true);
+                    break;
                     case 3:
                         energyBar.gameObject.GetComponent<Slider>().value = currentEnergyWind;
                         backgroundBar.GetComponent<Image>().color = Color.white;
                         playerHealthBar.fill.GetComponent<Image>().color = Color.white;
-                        break;
+                    windUi.SetActive(true);
+                    earthUi.SetActive(false);
+                    break;
                     case 4:
                         energyBar.gameObject.GetComponent<Slider>().value = currentEnergyWater;
                         backgroundBar.GetComponent<Image>().color = new Color((float).18, (float).66, 1, 1);
                         playerHealthBar.fill.GetComponent<Image>().color = new Color((float).18, (float).66, 1, 1);
-                        break;
+                    windUi.SetActive(false);
+                    waterUI.SetActive(true);
+                    break;
 
                     default: break;
                 }
