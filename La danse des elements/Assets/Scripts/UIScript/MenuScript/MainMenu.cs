@@ -29,7 +29,7 @@ public class MainMenu : MonoBehaviour
     {
         primaryMainMenuButton.Select();
     }
-    
+
     public void PlayGame()
     {
         SceneManager.LoadScene("TrainingRoom");
@@ -59,8 +59,8 @@ public class MainMenu : MonoBehaviour
     public void CloseOptions()
     {
         optionsMENU.SetActive(false);
-        optionsButton.Select();
 
+        optionsButton.Select();
         mainMENU.SetActive(true);
     }
 
@@ -68,8 +68,8 @@ public class MainMenu : MonoBehaviour
     public void CloseCredits()
     {
         creditsMENU.SetActive(false);
-        creditsButton.Select();
 
+        creditsButton.Select();
         mainMENU.SetActive(true);
     }
 }
