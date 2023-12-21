@@ -37,18 +37,7 @@ public class HealthSystem : MonoBehaviour
             Evaporate();
         }
         print(isWet);
-        if (Input.GetKeyDown(KeyCode.KeypadMinus))
-        {
-            TakeDamage(20);
-        }
-        if (Input.GetKeyDown(KeyCode.Keypad0))
-        {
-            Death();
-        }
-        if (Input.GetKeyDown(KeyCode.KeypadPlus))
-        {
-           HealHealth(20);
-        }
+        
         while (isWet == true)
         {
             navMeshAgent.speed = navMeshAgent.speed - 3f;
