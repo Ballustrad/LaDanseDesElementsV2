@@ -7,10 +7,17 @@ public class FireBallSkill : MonoBehaviour
     public GameObject fireballPrefab;
     public float fireballSpeed = 10f;
     public Transform fireballSpawnPoint;
-        
+    public AudioClip fireballSound; // Son à jouer
+    public AudioSource audioSource; // Référence à l'AudioSource
+
 
     public void UseFireball()
     {
+        if (audioSource != null && fireballSound != null)
+        {
+            // Jouer le son
+            audioSource.PlayOneShot(fireballSound);
+        }
         // Crée une instance de boule de feu à la position et rotation du joueur
         GameObject fireball = Instantiate(fireballPrefab, fireballSpawnPoint.position, fireballSpawnPoint.rotation);
 

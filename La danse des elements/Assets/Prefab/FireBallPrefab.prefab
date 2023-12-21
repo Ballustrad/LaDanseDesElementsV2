@@ -119,6 +119,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ca7882f7e6f0734cbe7633dbba6a18c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  WallBreakSound: {fileID: 8300000, guid: 24bf64c3656ae7949a95a777a8d1144a, type: 3}
 --- !u!54 &-4663719483785863510
 Rigidbody:
   m_ObjectHideFlags: 0

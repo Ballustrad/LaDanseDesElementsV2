@@ -12,6 +12,8 @@ public class FireAttack : MonoBehaviour
     public float flameHeight = 5f; // Hauteur du lance-flammes
     public Transform startingRockLaunch;
     public GameObject fireShown;
+    public AudioClip fireSound; // Son à jouer
+    public AudioSource audioSource; // Référence à l'AudioSource
     IEnumerator FireShow()
     {
         fireShown.SetActive(true);
@@ -20,6 +22,11 @@ public class FireAttack : MonoBehaviour
     }
     public void PerformFireAttack()
     {
+        if (audioSource != null && fireSound != null)
+        {
+            // Jouer le son
+            audioSource.PlayOneShot(fireSound);
+        }
         // Crée un rayon de détection devant le personnage
         Ray ray = new Ray(Camera.main.transform.position, Camera.main.transform.forward);
         Debug.DrawRay(ray.origin, ray.direction * 50, Color.red,10);

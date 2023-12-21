@@ -5,8 +5,13 @@ using UnityEngine;
 public class RocImpact : MonoBehaviour
 {
     public int degats = 10; // Dégâts infligés à l'ennemi
-    
 
+    public AudioClip rocDestroyedSound; // Son à jouer
+    private AudioSource audioSource;
+    private void Start()
+    {
+        audioSource = SoundManager.instance.audioSource;
+    }
     void OnCollisionEnter(Collision collision)
     {
 
@@ -18,11 +23,24 @@ public class RocImpact : MonoBehaviour
          {
       
             ennemi.TakeDamage(degats);
-        
+            if (audioSource != null && rocDestroyedSound != null)
+            {
+                // Joue le son depuis l'AudioSource du soundManager
+                audioSource.PlayOneShot(rocDestroyedSound);
+            }
 
-        // Détruit le rocher au contact de l'ennemi
-        Destroy(gameObject);
+            // Détruit le rocher au contact de l'ennemi
+            Destroy(gameObject);
         }
         
+    }
+    void OnDestroy()
+    {
+        // Vérifie si le son doit être joué avant la destruction de l'objet
+        if (audioSource != null && rocDestroyedSound != null)
+        {
+            // Joue le son depuis l'AudioSource du soundManager
+            audioSource.PlayOneShot(rocDestroyedSound);
+        }
     }
 }
