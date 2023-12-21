@@ -1935,381 +1935,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!1 &2475738817868888152
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 4185102996351597065}
-  - component: {fileID: 1975515385006960971}
-  - component: {fileID: 4246050332683063521}
-  - component: {fileID: 4225610271573458641}
-  - component: {fileID: 1071120188758179008}
-  - component: {fileID: 7170518854509879423}
-  - component: {fileID: 6873857964804388470}
-  - component: {fileID: 2393616500354713415}
-  - component: {fileID: 684071939052096658}
-  - component: {fileID: 9153336381603646569}
-  - component: {fileID: 3773491367028957090}
-  - component: {fileID: 645510279824950046}
-  - component: {fileID: 3052325204357332479}
-  m_Layer: 7
-  m_Name: Player (1)
-  m_TagString: Player
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &4185102996351597065
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2475738817868888152}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.063770175, y: -1.9848776, z: 3.740922}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 9008698868530009469}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1975515385006960971
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2475738817868888152}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 461cd396e3fc7cc4eb9c92bde05c1b9a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  exampleCharacter: {fileID: 7086427766045276718}
-  playerMaxHealth: 300
-  playerCurrentHealth: 0
-  playerHealthBar: {fileID: 7792458701095430582}
-  Character: {fileID: 8154382609784156234}
-  CharacterCamera: {fileID: 5406923150983618948}
-  playerHealthSlider: {fileID: 4636678200476288366}
-  bodyToTP: {fileID: 7186592926055950288}
-  Fire: {fileID: 6358211021025070750}
-  Water: {fileID: 7891633580774618485}
-  Wind: {fileID: 2331376696040919323}
-  Earth: {fileID: 5942249243457979303}
-  fireUI: {fileID: 4962419022715842831}
-  earthUi: {fileID: 1456928599163294857}
-  windUi: {fileID: 7315454733766871856}
-  waterUI: {fileID: 7431665461058017925}
-  currentElement: 1
-  fireIsOn: 1
-  waterIsOn: 0
-  windIsOn: 0
-  earthIsOn: 0
-  cooldownTime: 2
-  petsFire: {fileID: 5654529633017186719}
-  petsWater: {fileID: 2119583999305236400}
-  petsWind: {fileID: 751034129925334483}
-  petsEarth: {fileID: 1124995050347377168}
-  energyBar: {fileID: 6104109443226000164}
-  backgroundBar: {fileID: 3392161139398360778}
-  currentEnergyWater: 3
-  currentEnergyFire: 3
-  currentEnergyEarth: 3
-  currentEnergyWind: 3
-  currentEnergy: 3
-  fireballSkill: {fileID: 3773491367028957090}
-  stoneBridgeSkill: {fileID: 9153336381603646569}
-  propulsionSkill: {fileID: 645510279824950046}
-  interactionDistance: 3
-  tpAuthorized: 0
---- !u!114 &4246050332683063521
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2475738817868888152}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3ae78730441644e47abe5d656b275429, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  attackController: {fileID: 4225610271573458641}
---- !u!114 &4225610271573458641
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2475738817868888152}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f5f03dd9f8ea41f4ebe57aae14e34247, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  fireAttack: {fileID: 1071120188758179008}
-  rockAttack: {fileID: 2393616500354713415}
-  examplePlayer: {fileID: 1975515385006960971}
-  waterAttack: {fileID: 6873857964804388470}
-  windAttack: {fileID: 7170518854509879423}
---- !u!114 &1071120188758179008
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2475738817868888152}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5cfc0d4f9684ac648a6feca94be1ce6c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  cooldown: 0.2
-  derniereUtilisation: 0
-  fireRange: 5
-  damage: 10
-  flameWidth: 3
-  flameHeight: 3
-  startingRockLaunch: {fileID: 6480712681866325143}
-  fireShown: {fileID: 1288641994874735617}
-  fireSound: {fileID: 8300000, guid: 88cdfcd8b8a83a8429fbab4d5bf4c4e4, type: 3}
-  audioSource: {fileID: 3052325204357332479}
---- !u!114 &7170518854509879423
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2475738817868888152}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0d184cb91a5e7664aace38abbe9d9530, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  cooldown: 1
-  derniereUtilisation: 0
-  degats: 20
-  hauteurZone: 5
-  largeurZone: 7
-  longueurZone: 2
-  windStartPoint: {fileID: 5243737495904431304}
-  audioSource: {fileID: 3052325204357332479}
-  windSwipeSound: {fileID: 8300000, guid: 82c09b20b01e96e469a10440bb0d2a98, type: 3}
-  windShown: {fileID: 8801197995440565405}
---- !u!114 &6873857964804388470
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2475738817868888152}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0fc776891c0bcab4a863800149d83b55, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  cooldown: 0.6
-  derniereUtilisation: 0
-  bulleEauPrefab: {fileID: 6110028103501858239, guid: 9d9ff373bdd67d642a7ea9c809ac8215,
-    type: 3}
-  degats: 20
-  vitesse: 45
-  portee: 10
-  waterStartPoint: {fileID: 5149299384023703706}
-  waterAttackSound: {fileID: 8300000, guid: 2b55f189cf8d43c45af47b86ef5547fe, type: 3}
-  audioSource: {fileID: 3052325204357332479}
---- !u!114 &2393616500354713415
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2475738817868888152}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4fd658f17270ded478a89738853462fe, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  cooldown: 1.3
-  derniereUtilisation: 0
-  rockPrefab: {fileID: 1028869995256010623, guid: 2ab53841cf0d57d44bbdb98fc7565e93,
-    type: 3}
-  rockSpeed: 9
-  rockDamage: 30
-  startingRockLaunch: {fileID: 6826581270246866698}
-  rockThrowSound: {fileID: 0}
-  audioSource: {fileID: 3052325204357332479}
---- !u!114 &684071939052096658
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2475738817868888152}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 24dd97b12bc77c44bb001a8f941df2d1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &9153336381603646569
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2475738817868888152}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3b202b3c9e6577d41b6b52db33a1ea22, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  stoneBridgePrefab: {fileID: 651159340684689092, guid: 032f60c5e50c3d04fb27be7b917836b1,
-    type: 3}
-  bridgeLength: 7
-  bridgeDuration: 10
-  stoneBridgeSpawnPoint: {fileID: 6668610355989533501}
-  rockBridgeBuildSound: {fileID: 8300000, guid: 2224d85eb6f51e144bf461c820be062a,
-    type: 3}
-  audioSource: {fileID: 3052325204357332479}
---- !u!114 &3773491367028957090
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2475738817868888152}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 71c4d10479a4dc747bc7dd079462e415, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  fireballPrefab: {fileID: 7453221400329118818, guid: 3ed41951b2fa30a4a85946c921f09379,
-    type: 3}
-  fireballSpeed: 10
-  fireballSpawnPoint: {fileID: 6480712681866325143}
-  fireballSound: {fileID: 8300000, guid: b5de20e339bfe2a4ba7c79fafea8e709, type: 3}
-  audioSource: {fileID: 3052325204357332479}
---- !u!114 &645510279824950046
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2475738817868888152}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 21bda43824b09e6419978836415f18b2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  exampleCharacterController: {fileID: 8154382609784156234}
-  propelForce: {x: 0, y: 40, z: 0}
-  slowFall: 8
-  airMoveSpeed: 100
-  airAccelerationSpeed: 100
-  floatingSound: {fileID: 8300000, guid: 73a74afe7bc7faa4f921599183d58f24, type: 3}
-  audioSource: {fileID: 3052325204357332479}
---- !u!82 &3052325204357332479
-AudioSource:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2475738817868888152}
-  m_Enabled: 1
-  serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 0
-  m_Volume: 0.499
-  m_Pitch: 1
-  Loop: 0
-  Mute: 0
-  Spatialize: 0
-  SpatializePostEffects: 0
-  Priority: 128
-  DopplerLevel: 1
-  MinDistance: 1
-  MaxDistance: 500
-  Pan2D: 0
-  rolloffMode: 0
-  BypassEffects: 0
-  BypassListenerEffects: 0
-  BypassReverbZones: 0
-  rolloffCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    - serializedVersion: 3
-      time: 1
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  panLevelCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  spreadCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  reverbZoneMixCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
 --- !u!1 &2502943200365886396
 GameObject:
   m_ObjectHideFlags: 0
@@ -3493,11 +3118,10 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 9022024499599754910}
   - {fileID: 3019691717301873635}
   - {fileID: 8026615891986563612}
-  - {fileID: 4185102996351597065}
   - {fileID: 6754636075590703284}
-  - {fileID: 9022024499599754910}
   - {fileID: 1347956830437344431}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -5522,6 +5146,17 @@ GameObject:
   - component: {fileID: 4823509547365378196}
   - component: {fileID: 4794679102404943823}
   - component: {fileID: 4647944585667117045}
+  - component: {fileID: 5389131711919738073}
+  - component: {fileID: 2096665005436726234}
+  - component: {fileID: 5370039963870492558}
+  - component: {fileID: 3077209326772471321}
+  - component: {fileID: 4476770203796489790}
+  - component: {fileID: 8057948821886420326}
+  - component: {fileID: 2534824568002700760}
+  - component: {fileID: 7634258838288857919}
+  - component: {fileID: 4782736996056101090}
+  - component: {fileID: 770308289827480742}
+  - component: {fileID: 7179301816147648616}
   m_Layer: 7
   m_Name: ExampleCharacter (1)
   m_TagString: Player
@@ -5537,8 +5172,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7086427766045276718}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -5.31}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -5626,7 +5261,7 @@ MonoBehaviour:
   StableGroundLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  DiscreteCollisionEvents: 0
+  DiscreteCollisionEvents: 1
   StepHandling: 2
   MaxStepHeight: 0.5
   AllowSteppingWithoutStableGrounding: 0
@@ -5636,7 +5271,7 @@ MonoBehaviour:
   MaxVelocityForLedgeSnap: 0
   MaxStableDenivelationAngle: 180
   InteractiveRigidbodyHandling: 1
-  RigidbodyInteractionType: 1
+  RigidbodyInteractionType: 2
   SimulatedCharacterMass: 1
   PreserveAttachedRigidbodyMomentum: 1
   HasPlanarConstraint: 0
@@ -5685,7 +5320,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: efa482023f950564687d0bb6b22a548e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  examplePlayer: {fileID: 1975515385006960971}
+  examplePlayer: {fileID: 5389131711919738073}
 --- !u!114 &4647944585667117045
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5698,13 +5333,336 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1ab6d5d8afbea454b9a677da79c4e7f9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  examplePlayer: {fileID: 1975515385006960971}
+  examplePlayer: {fileID: 5389131711919738073}
   uiFragmentText: {fileID: 5491757045612491308}
   uiFragmentVisible: 0
   fireFragmentText: {fileID: 6805456000126550211}
   waterFragmentText: {fileID: 8726010936696423075}
   windFragmentText: {fileID: 1417582965138927660}
   rockFragmentText: {fileID: 2643008080503738604}
+--- !u!114 &5389131711919738073
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7086427766045276718}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 461cd396e3fc7cc4eb9c92bde05c1b9a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  exampleCharacter: {fileID: 7086427766045276718}
+  playerMaxHealth: 300
+  playerCurrentHealth: 0
+  playerHealthBar: {fileID: 7792458701095430582}
+  Character: {fileID: 8154382609784156234}
+  CharacterCamera: {fileID: 5406923150983618948}
+  playerHealthSlider: {fileID: 4636678200476288366}
+  bodyToTP: {fileID: 7186592926055950288}
+  Fire: {fileID: 6358211021025070750}
+  Water: {fileID: 7891633580774618485}
+  Wind: {fileID: 2331376696040919323}
+  Earth: {fileID: 5942249243457979303}
+  fireUI: {fileID: 4962419022715842831}
+  earthUi: {fileID: 1456928599163294857}
+  windUi: {fileID: 7315454733766871856}
+  waterUI: {fileID: 7431665461058017925}
+  currentElement: 1
+  lavaLayer:
+    serializedVersion: 2
+    m_Bits: 4096
+  fireIsOn: 1
+  waterIsOn: 0
+  windIsOn: 0
+  earthIsOn: 0
+  cooldownTime: 2
+  petsFire: {fileID: 5654529633017186719}
+  petsWater: {fileID: 2119583999305236400}
+  petsWind: {fileID: 751034129925334483}
+  petsEarth: {fileID: 1124995050347377168}
+  energyBar: {fileID: 6104109443226000164}
+  backgroundBar: {fileID: 3392161139398360778}
+  currentEnergyWater: 3
+  currentEnergyFire: 3
+  currentEnergyEarth: 3
+  currentEnergyWind: 3
+  currentEnergy: 3
+  fireballSkill: {fileID: 4782736996056101090}
+  stoneBridgeSkill: {fileID: 7634258838288857919}
+  propulsionSkill: {fileID: 770308289827480742}
+  interactionDistance: 3
+  tpAuthorized: 0
+--- !u!114 &2096665005436726234
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7086427766045276718}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ae78730441644e47abe5d656b275429, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attackController: {fileID: 5370039963870492558}
+--- !u!114 &5370039963870492558
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7086427766045276718}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f5f03dd9f8ea41f4ebe57aae14e34247, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fireAttack: {fileID: 3077209326772471321}
+  rockAttack: {fileID: 2534824568002700760}
+  examplePlayer: {fileID: 5389131711919738073}
+  waterAttack: {fileID: 8057948821886420326}
+  windAttack: {fileID: 4476770203796489790}
+--- !u!114 &3077209326772471321
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7086427766045276718}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5cfc0d4f9684ac648a6feca94be1ce6c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cooldown: 0.2
+  derniereUtilisation: 0
+  fireRange: 5
+  damage: 10
+  flameWidth: 3
+  flameHeight: 3
+  startingRockLaunch: {fileID: 6480712681866325143}
+  fireShown: {fileID: 1288641994874735617}
+  fireSound: {fileID: 8300000, guid: 88cdfcd8b8a83a8429fbab4d5bf4c4e4, type: 3}
+  audioSource: {fileID: 7179301816147648616}
+--- !u!114 &4476770203796489790
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7086427766045276718}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d184cb91a5e7664aace38abbe9d9530, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cooldown: 1
+  derniereUtilisation: 0
+  degats: 20
+  hauteurZone: 5
+  largeurZone: 7
+  longueurZone: 2
+  windStartPoint: {fileID: 5243737495904431304}
+  audioSource: {fileID: 7179301816147648616}
+  windSwipeSound: {fileID: 8300000, guid: 82c09b20b01e96e469a10440bb0d2a98, type: 3}
+  windShown: {fileID: 8801197995440565405}
+--- !u!114 &8057948821886420326
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7086427766045276718}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0fc776891c0bcab4a863800149d83b55, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cooldown: 0.6
+  derniereUtilisation: 0
+  bulleEauPrefab: {fileID: 6110028103501858239, guid: 9d9ff373bdd67d642a7ea9c809ac8215,
+    type: 3}
+  degats: 20
+  vitesse: 45
+  portee: 10
+  waterStartPoint: {fileID: 5149299384023703706}
+  waterAttackSound: {fileID: 8300000, guid: 2b55f189cf8d43c45af47b86ef5547fe, type: 3}
+  audioSource: {fileID: 7179301816147648616}
+--- !u!114 &2534824568002700760
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7086427766045276718}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4fd658f17270ded478a89738853462fe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cooldown: 1.3
+  derniereUtilisation: 0
+  rockPrefab: {fileID: 1028869995256010623, guid: 2ab53841cf0d57d44bbdb98fc7565e93,
+    type: 3}
+  rockSpeed: 9
+  rockDamage: 30
+  startingRockLaunch: {fileID: 6826581270246866698}
+  rockThrowSound: {fileID: 0}
+  audioSource: {fileID: 7179301816147648616}
+--- !u!114 &7634258838288857919
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7086427766045276718}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3b202b3c9e6577d41b6b52db33a1ea22, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stoneBridgePrefab: {fileID: 651159340684689092, guid: 032f60c5e50c3d04fb27be7b917836b1,
+    type: 3}
+  bridgeLength: 7
+  bridgeDuration: 10
+  stoneBridgeSpawnPoint: {fileID: 6668610355989533501}
+  rockBridgeBuildSound: {fileID: 8300000, guid: 2224d85eb6f51e144bf461c820be062a,
+    type: 3}
+  audioSource: {fileID: 7179301816147648616}
+--- !u!114 &4782736996056101090
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7086427766045276718}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 71c4d10479a4dc747bc7dd079462e415, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fireballPrefab: {fileID: 7453221400329118818, guid: 3ed41951b2fa30a4a85946c921f09379,
+    type: 3}
+  fireballSpeed: 10
+  fireballSpawnPoint: {fileID: 6480712681866325143}
+  fireballSound: {fileID: 8300000, guid: b5de20e339bfe2a4ba7c79fafea8e709, type: 3}
+  audioSource: {fileID: 7179301816147648616}
+--- !u!114 &770308289827480742
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7086427766045276718}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 21bda43824b09e6419978836415f18b2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  exampleCharacterController: {fileID: 8154382609784156234}
+  propelForce: {x: 0, y: 40, z: 0}
+  slowFall: 8
+  airMoveSpeed: 100
+  airAccelerationSpeed: 100
+  floatingSound: {fileID: 8300000, guid: 73a74afe7bc7faa4f921599183d58f24, type: 3}
+  audioSource: {fileID: 7179301816147648616}
+--- !u!82 &7179301816147648616
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7086427766045276718}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 0
+  m_Volume: 0.587
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &7245058744949999903
 GameObject:
   m_ObjectHideFlags: 0

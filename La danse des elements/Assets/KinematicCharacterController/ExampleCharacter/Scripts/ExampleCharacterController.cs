@@ -288,6 +288,7 @@ namespace KinematicCharacterController.Examples
         /// This is where you tell your character what its velocity should be right now. 
         /// This is the ONLY place where you can set the character's velocity
         /// </summary>
+       
         public void UpdateVelocity(ref Vector3 currentVelocity, float deltaTime)
         {
             switch (CurrentCharacterState)

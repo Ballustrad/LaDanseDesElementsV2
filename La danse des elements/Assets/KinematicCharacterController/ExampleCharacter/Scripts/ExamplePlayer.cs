@@ -6,6 +6,7 @@ using KinematicCharacterController.Examples;
 using UnityEngine.UI;
 using static UnityEngine.Rendering.DebugUI;
 using UnityEngine.Events;
+using UnityEngine.SceneManagement;
 
 namespace KinematicCharacterController.Examples
 {
@@ -38,6 +39,7 @@ namespace KinematicCharacterController.Examples
         public GameObject windUi;
         public GameObject waterUI;
         public int currentElement = 1;
+
         private void Start()
         {
             playerCurrentHealth = playerMaxHealth;
@@ -177,9 +179,10 @@ namespace KinematicCharacterController.Examples
             data.playerCurrentHealth = this.playerCurrentHealth;
         }
         
-        private void Death()
+        public void Death()
         {
             exampleCharacter.SetActive(false);
+            SceneManager.LoadScene("MainGameplay");
         }
 
         private void LateUpdate()
@@ -237,13 +240,21 @@ namespace KinematicCharacterController.Examples
             // Apply inputs to character
             Character.SetInputs(ref characterInputs);
         }
+        public LayerMask lavaLayer;
         private void OnTriggerEnter(Collider other)
         {
             if (other.CompareTag("Ennemy"))
             {
                 PlayerTakeDamage(5);
             }
+            if (other.CompareTag("Lava"))
+            {
+                Death();
+
+            }
+
         }
+        
         public void PlayerTakeDamage(int damage)
         {
             playerCurrentHealth -= damage;
@@ -327,8 +338,8 @@ namespace KinematicCharacterController.Examples
 
 
         }
-
-
+        
+        
 
         public GameObject energyBar;
         public GameObject backgroundBar;
