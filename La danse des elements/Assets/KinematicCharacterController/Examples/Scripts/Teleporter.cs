@@ -14,7 +14,7 @@ namespace KinematicCharacterController.Examples
 
         public bool isBeingTeleportedTo { get; set; }
 
-        private void OnTriggerEnter(Collider other)
+        private void OnTriggerStay(Collider other)
         {
             
             

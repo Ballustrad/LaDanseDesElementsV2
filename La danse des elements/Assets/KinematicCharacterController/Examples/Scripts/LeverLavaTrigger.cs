@@ -13,14 +13,11 @@ public class LeverLavaTrigger : MonoBehaviour
     [SerializeField] Transform herseTransform;
     [SerializeField] Transform lavaTarget;
     [SerializeField] Transform herseTarget;
-    private Vector3 defaultPose;
+    
     
 
-    private float lavaSpeed = 5;
-    private void Start()
-    {
-        defaultPose = lavaTransform.position;   
-    }
+    
+   
     private void OnTriggerStay(Collider other)
     {
              

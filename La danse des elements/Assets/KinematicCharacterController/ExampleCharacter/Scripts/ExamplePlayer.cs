@@ -276,7 +276,7 @@ namespace KinematicCharacterController.Examples
         public GameObject petsWater;
         public GameObject petsWind;
         public GameObject petsEarth;
-        
+        public bool hasFragmentKey =false;
         public void SwapElement()
         {
             if (isAvailable)

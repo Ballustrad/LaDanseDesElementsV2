@@ -5157,6 +5157,7 @@ GameObject:
   - component: {fileID: 4782736996056101090}
   - component: {fileID: 770308289827480742}
   - component: {fileID: 7179301816147648616}
+  - component: {fileID: 5165352990464181740}
   m_Layer: 7
   m_Name: ExampleCharacter (1)
   m_TagString: Player
@@ -5225,7 +5226,7 @@ MonoBehaviour:
   AirAccelerationSpeed: 30
   Drag: 0
   AllowJumpingWhenSliding: 1
-  JumpUpSpeed: 10
+  JumpUpSpeed: 20
   JumpScalableForwardSpeed: 0
   JumpPreGroundingGraceTime: 0.1
   JumpPostGroundingGraceTime: 0.1
@@ -5663,6 +5664,27 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!65 &5165352990464181740
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7086427766045276718}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 0.5516968, z: 0.92840576}
+  m_Center: {x: 0, y: 0.15008545, z: 0.03579712}
 --- !u!1 &7245058744949999903
 GameObject:
   m_ObjectHideFlags: 0
