@@ -20,10 +20,7 @@ public class FragmentCollection : MonoBehaviour, IDataPersistence
     private Vector2 uiFragmentHiddenPosition = new Vector2(-195f, 0f); // Position when hidden
     private Vector2 uiFragmentVisiblePosition = new Vector2(25f, 0f);   // Position when visible
 
-    public TextMeshProUGUI fireFragmentText;
-    public TextMeshProUGUI waterFragmentText;
-    public TextMeshProUGUI windFragmentText;
-    public TextMeshProUGUI rockFragmentText;
+    
 
     private void OnTriggerEnter(Collider other)
     {
@@ -33,7 +30,7 @@ public class FragmentCollection : MonoBehaviour, IDataPersistence
             {
                 FireFragments++;
                 examplePlayer.currentEnergyFire++;
-                //fireFragmentText.text = "Fire Fragment : " + FireFragments.ToString();
+                
                 Debug.Log("Fire Fragments: " + FireFragments);
                 Destroy(other.gameObject);
             }
@@ -41,7 +38,7 @@ public class FragmentCollection : MonoBehaviour, IDataPersistence
             {
                 WaterFragments++;
                 examplePlayer.currentEnergyWater++;
-                //waterFragmentText.text = "Water Fragment : " + WaterFragments.ToString();
+                
                 Debug.Log("Water Fragments: " + WaterFragments);
                 Destroy(other.gameObject);
             }
@@ -49,7 +46,7 @@ public class FragmentCollection : MonoBehaviour, IDataPersistence
             {
                 WindFragments++;
                 examplePlayer.currentEnergyWind++;
-                //windFragmentText.text = "Wind Fragment : " + WindFragments.ToString();
+                
                 Debug.Log("Wind Fragments: " + WindFragments);
                 Destroy(other.gameObject);
             }
@@ -57,7 +54,7 @@ public class FragmentCollection : MonoBehaviour, IDataPersistence
             {
                 RockFragments++;
                 examplePlayer.currentEnergyEarth++;
-                //rockFragmentText.text = "Rock Fragment : " + RockFragments.ToString();
+                
                 Debug.Log("Rock Fragments: " + RockFragments);
                 Destroy(other.gameObject);
             }
@@ -91,7 +88,7 @@ public class FragmentCollection : MonoBehaviour, IDataPersistence
             {
                 // Slide the UI in
                 Debug.Log("UI Fragment ON");
-                uiFragmentText.SetActive(true);
+                
                 StartCoroutine(MoveUITo(uiFragmentVisiblePosition));
             }
             else
@@ -102,10 +99,7 @@ public class FragmentCollection : MonoBehaviour, IDataPersistence
             }
         }
 
-        fireFragmentText.text = "Fire Fragment : " + FireFragments;
-        waterFragmentText.text = "Water Fragment : " + WaterFragments;
-        windFragmentText.text = "Wind Fragment : " + WindFragments;
-        rockFragmentText.text = "Rock Fragment : " + RockFragments;
+        
     }
 
     private IEnumerator MoveUITo(Vector2 targetPosition, System.Action onComplete = null)

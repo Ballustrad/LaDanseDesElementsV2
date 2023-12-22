@@ -24,6 +24,8 @@ public class GemmeActivate : MonoBehaviour
             gemEnable = true;
             gem.SetActive(true);
             StartCoroutine(ShowBridge());
+            player.UpdateQuestText("Traversez le pont");
+            player.hasFragmentKey = false;
         }
     }
     private IEnumerator ShowBridge()

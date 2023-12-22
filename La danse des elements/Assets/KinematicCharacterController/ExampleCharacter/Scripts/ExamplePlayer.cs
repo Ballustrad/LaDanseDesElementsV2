@@ -7,6 +7,8 @@ using UnityEngine.UI;
 using static UnityEngine.Rendering.DebugUI;
 using UnityEngine.Events;
 using UnityEngine.SceneManagement;
+using System;
+using TMPro;
 
 namespace KinematicCharacterController.Examples
 {
@@ -45,7 +47,7 @@ namespace KinematicCharacterController.Examples
             playerCurrentHealth = playerMaxHealth;
             playerHealthBar.SetMaxHealth(playerMaxHealth);
             Cursor.lockState = CursorLockMode.Locked;
-
+            UpdateQuestText("Atteignez le haut de la Grotte");
 
             // Tell camera to follow transform
             CharacterCamera.SetFollowTransform(Character.CameraFollowPoint);
@@ -141,10 +143,11 @@ namespace KinematicCharacterController.Examples
 
                     default: break;
                 }
-
+            
                 if (!isAvailable)
                 {
-                    float timeSinceLastUsage = Time.time - lastUsageTime;
+                    swapeIcon.color = Color.gray;
+                float timeSinceLastUsage = Time.time - lastUsageTime;
 
                     // If the elapsed time is greater than or equal to cooldown time, the ability is ready
                     if (timeSinceLastUsage >= cooldownTime)
@@ -152,6 +155,10 @@ namespace KinematicCharacterController.Examples
                         isAvailable = true;
                     }
                 }
+                if (isAvailable)
+            {
+                swapeIcon.color = Color.white;
+            }
                 if (Input.GetMouseButtonDown(0) && !PauseMenu.gameIsPaused)
                 {
                     Cursor.lockState = CursorLockMode.Locked;
@@ -277,10 +284,16 @@ namespace KinematicCharacterController.Examples
         public GameObject petsWind;
         public GameObject petsEarth;
         public bool hasFragmentKey =false;
+        public TextMeshProUGUI questText;
+        public void UpdateQuestText(string text)
+        {
+            questText.text = text;
+        }
         public void SwapElement()
         {
             if (isAvailable)
             {
+                
                 if (fireIsOn == true)
                 {
                     Fire.gameObject.SetActive(false);
@@ -289,7 +302,9 @@ namespace KinematicCharacterController.Examples
                     fireIsOn = false;
                     petsEarth.gameObject.SetActive(true);
                     petsFire.gameObject.SetActive(false);
-                   // playerCurrentHealth = earthHealth ;
+                    fireIcon.SetActive(false);
+                    earthIcon.SetActive(true);
+                    // playerCurrentHealth = earthHealth ;
 
 
                 }
@@ -301,7 +316,9 @@ namespace KinematicCharacterController.Examples
                     fireIsOn = true;
                     petsWater.gameObject.SetActive(false);
                     petsFire.gameObject.SetActive (true);
-                  //  playerCurrentHealth = fireHealth;   
+                    fireIcon.SetActive(true);
+                    waterIcon.SetActive(false);
+                    //  playerCurrentHealth = fireHealth;   
                 }
                 else if (earthIsOn == true)
                 {
@@ -311,7 +328,9 @@ namespace KinematicCharacterController.Examples
                     windIsOn = true;
                     petsEarth.gameObject.SetActive(false);
                     petsWind.gameObject.SetActive(true);
-                  //  playerCurrentHealth = windHealth;
+                    windIcon.SetActive(true);
+                    earthIcon.SetActive(false);
+                    //  playerCurrentHealth = windHealth;
 
                 }
                 else if (windIsOn == true)
@@ -322,7 +341,9 @@ namespace KinematicCharacterController.Examples
                     waterIsOn = true;
                     petsWind.gameObject.SetActive(false);
                     petsWater.gameObject.SetActive(true) ;
-                   // playerCurrentHealth = waterHealth;
+                    waterIcon.SetActive(true);
+                    windIcon.SetActive(false);
+                    // playerCurrentHealth = waterHealth;
 
                 }
                 lastUsageTime = Time.time;
@@ -332,13 +353,18 @@ namespace KinematicCharacterController.Examples
             }
             else
             {
+                
                 // The ability is not available, you can add a sound or visual effect to indicate this to the player
                 Debug.Log("Ability on cooldown...");
             }
 
 
         }
-        
+        public Image swapeIcon;
+        [SerializeField] GameObject fireIcon;
+        [SerializeField] GameObject earthIcon;
+        [SerializeField] GameObject windIcon;
+        [SerializeField] GameObject waterIcon;
         
 
         public GameObject energyBar;
@@ -391,6 +417,29 @@ namespace KinematicCharacterController.Examples
                 }
             }
         }
-      
+        [SerializeField] Image endFade;
+        public void Endgame()
+        {
+            StartCoroutine(FadeImageToBlack(5.0f));
+
+        }
+        private IEnumerator FadeImageToBlack(float fadeDuration)
+        {
+            Color originalColor = endFade.color;
+            Color targetColor = new Color(originalColor.r, originalColor.g, originalColor.b, 1.0f); // Alpha à 1 (complètement opaque)
+
+            float timer = 0.0f;
+            while (timer < fadeDuration)
+            {
+                float progress = timer / fadeDuration;
+                endFade.color = Color.Lerp(originalColor, targetColor, progress);
+                timer += Time.deltaTime;
+                yield return null;
+            }
+
+            endFade.color = targetColor; // Assure que l'alpha atteint bien 1 à la fin
+
+            SceneManager.LoadScene("MainMenu");
+        }
     }
 }
