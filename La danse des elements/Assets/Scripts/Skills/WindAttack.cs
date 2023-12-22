@@ -13,15 +13,19 @@ public class WindAttack : MonoBehaviour
     public Transform windStartPoint;
     public AudioSource audioSource;
     public AudioClip windSwipeSound;
-    public GameObject windShown;
+    public GameObject windShownprefab;
+    private GameObject windslashInstance;
+
     IEnumerator WindShow()
     {
-        windShown.SetActive(true);
+        
+        
         yield return new WaitForSeconds(1f);
-        windShown.SetActive(false);
+        Destroy(windslashInstance, 5.0f);
     }
     public void PerformWindAttack()
     {
+        windslashInstance = Instantiate(windShownprefab, windStartPoint.position, windStartPoint.rotation, windStartPoint);
         // Détermine la direction et l'orientation de la zone d'attaque
         Vector3 direction = windStartPoint.forward;
         Vector3 pointDebut = windStartPoint.position + windStartPoint.up * hauteurZone * 0.5f;

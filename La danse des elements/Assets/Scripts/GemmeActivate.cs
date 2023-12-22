@@ -19,13 +19,18 @@ public class GemmeActivate : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
-        if (other.CompareTag("Player") && player.hasFragmentKey == true && Input.GetKey(KeyCode.X) && !gemEnable)
+        if (other.CompareTag("Player") && player.hasFragmentKey == true )
         {
-            gemEnable = true;
-            gem.SetActive(true);
-            StartCoroutine(ShowBridge());
-            player.UpdateQuestText("Traversez le pont");
-            player.hasFragmentKey = false;
+            player.interactText.SetActive(true);
+            if (  Input.GetKey(KeyCode.X) && !gemEnable)
+            {
+                gemEnable = true;
+                gem.SetActive(true);
+                StartCoroutine(ShowBridge());
+                player.UpdateQuestText("Traversez le pont");
+                player.hasFragmentKey = false;
+            }
+           
         }
     }
     private IEnumerator ShowBridge()
@@ -45,6 +50,7 @@ public class GemmeActivate : MonoBehaviour
         bridge7 .SetActive(true);
         yield return new WaitForSeconds(1f);
         bridge8 .SetActive(true);
+        player.interactText.SetActive (false);
         
         yield return null;
     }

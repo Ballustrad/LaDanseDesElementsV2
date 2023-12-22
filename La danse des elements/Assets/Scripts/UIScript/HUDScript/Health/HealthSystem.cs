@@ -14,7 +14,9 @@ public class HealthSystem : MonoBehaviour
     public ExamplePlayer player;
     public int numberofDotFire = 0;
     public NavMeshAgent navMeshAgent;
-
+    [SerializeField] AudioSource audioSource;
+    [SerializeField] AudioClip deathclip;
+    [SerializeField] AudioClip enemyhitted;
     private void Start()
     {
         currentHealth = maxHealth;
@@ -108,7 +110,7 @@ public class HealthSystem : MonoBehaviour
     public void TakeDamage(float damage)
     {
         currentHealth -= damage;
-
+        
         healthBar.SetHealth(currentHealth);
     }
 
@@ -118,6 +120,11 @@ public class HealthSystem : MonoBehaviour
     
     private void Death()
     {
+        if (audioSource != null && deathclip != null)
+        {
+            // Joue le son depuis l'AudioSource du soundManager
+            audioSource.PlayOneShot(deathclip);
+        }
         switch (player.currentElement)
         {
             case 1:
@@ -137,15 +144,8 @@ public class HealthSystem : MonoBehaviour
         }
         
 
-        // Instancie un fragment d'énergie aléatoire à la position de l'ennemi
-        //GameObject energyFragment = Instantiate(energyFragments[randomIndex], transform.position, Quaternion.identity);
-        //this.gameObject.SetActive(false);
+        
         Destroy(this.gameObject);
     }
-    void HealHealth(int damage)
-    {
-        currentHealth += damage;
-
-        healthBar.SetHealth(currentHealth);
-    }
+   
 }

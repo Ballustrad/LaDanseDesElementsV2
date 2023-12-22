@@ -9,11 +9,13 @@ using UnityEngine.Events;
 using UnityEngine.SceneManagement;
 using System;
 using TMPro;
+using System.Runtime.InteropServices;
 
 namespace KinematicCharacterController.Examples
 {
     public class ExamplePlayer : MonoBehaviour, IDataPersistence
     {
+        public GameObject interactText;
         public GameObject exampleCharacter;
         public int playerMaxHealth = 100;
         // public int fireHealth;
@@ -55,8 +57,75 @@ namespace KinematicCharacterController.Examples
             // Ignore the character's collider(s) for camera obstruction checks
             CharacterCamera.IgnoredColliders.Clear();
             CharacterCamera.IgnoredColliders.AddRange(Character.GetComponentsInChildren<Collider>());
+            UpdateSkillIconsEarth();
+            UpdateSkillIconsFire();
+            UpdateSkillIconsWind();
+            UpdateSkillIconsWater();
         }
-
+        [SerializeField] GameObject[] skillIconsFire;
+        public void UpdateSkillIconsFire()
+        {
+            for (int i = 0; i < skillIconsFire.Length; i++)
+            {
+                // Active ou désactive les icônes en fonction des charges restantes
+                if (i < currentEnergyFire)
+                {
+                    skillIconsFire[i].gameObject.SetActive(true);
+                }
+                else
+                {
+                    skillIconsFire[i].gameObject.SetActive(false);
+                }
+            }
+        }
+        [SerializeField] GameObject[] skillIconsWater;
+        public void UpdateSkillIconsWater()
+        {
+            for (int i = 0; i < skillIconsWater.Length; i++)
+            {
+                // Active ou désactive les icônes en fonction des charges restantes
+                if (i < currentEnergyWater)
+                {
+                    skillIconsWater[i].gameObject.SetActive(true);
+                }
+                else
+                {
+                    skillIconsWater[i].gameObject.SetActive(false);
+                }
+            }
+        }
+        [SerializeField] GameObject[] skillIconsEarth;
+        public void UpdateSkillIconsEarth()
+        {
+            for (int i = 0; i < skillIconsEarth.Length; i++)
+            {
+                // Active ou désactive les icônes en fonction des charges restantes
+                if (i < currentEnergyEarth)
+                {
+                    skillIconsEarth[i].gameObject.SetActive(true);
+                }
+                else
+                {
+                    skillIconsEarth[i].gameObject.SetActive(false);
+                }
+            }
+        }
+        [SerializeField] GameObject[] skillIconsWind;
+        public void UpdateSkillIconsWind()
+        {
+            for (int i = 0; i < skillIconsWind.Length; i++)
+            {
+                // Active ou désactive les icônes en fonction des charges restantes
+                if (i < currentEnergyWind)
+                {
+                    skillIconsWind[i].gameObject.SetActive(true);
+                }
+                else
+                {
+                    skillIconsWind[i].gameObject.SetActive(false);
+                }
+            }
+        }
         private void Update()
         {
                 // Détecte la touche d'interaction ici
@@ -109,40 +178,7 @@ namespace KinematicCharacterController.Examples
                    // earthHealth = playerCurrentHealth;
                 }
 
-                switch (currentElement)
-                {
-                    case 1:
-                        energyBar.gameObject.GetComponent<Slider>().value = currentEnergyFire;
-                        backgroundBar.GetComponent<Image>().color = new Color((float).77, 0, 0, 1);
-                        playerHealthBar.fill.GetComponent<Image>().color = new Color((float).77, 0, 0, 1);
-                        fireUI.SetActive(true);
-                        waterUI.SetActive(false);
-                        break;
-
-                    case 2:
-                        energyBar.gameObject.GetComponent<Slider>().value = currentEnergyEarth;
-                        backgroundBar.GetComponent<Image>().color = new Color((float).17, (float).45, (float).14, 1);
-                        playerHealthBar.fill.GetComponent<Image>().color = new Color((float).17, (float).45, (float).14, 1);
-                        fireUI.SetActive(false);
-                        earthUi.SetActive(true);
-                    break;
-                    case 3:
-                        energyBar.gameObject.GetComponent<Slider>().value = currentEnergyWind;
-                        backgroundBar.GetComponent<Image>().color = Color.white;
-                        playerHealthBar.fill.GetComponent<Image>().color = Color.white;
-                    windUi.SetActive(true);
-                    earthUi.SetActive(false);
-                    break;
-                    case 4:
-                        energyBar.gameObject.GetComponent<Slider>().value = currentEnergyWater;
-                        backgroundBar.GetComponent<Image>().color = new Color((float).18, (float).66, 1, 1);
-                        playerHealthBar.fill.GetComponent<Image>().color = new Color((float).18, (float).66, 1, 1);
-                    windUi.SetActive(false);
-                    waterUI.SetActive(true);
-                    break;
-
-                    default: break;
-                }
+               
             
                 if (!isAvailable)
                 {
@@ -225,11 +261,7 @@ namespace KinematicCharacterController.Examples
             // Apply inputs to the camera
             CharacterCamera.UpdateWithInput(Time.deltaTime, 0f, lookInputVector);
 
-            // Handle toggling zoom level
-           /* if (Input.GetMouseButtonDown(1))
-            {
-                CharacterCamera.TargetDistance = (CharacterCamera.TargetDistance == 0f) ? CharacterCamera.DefaultDistance : 0f;
-            }*/
+          
         }
 
         private void HandleCharacterInput()
@@ -252,7 +284,8 @@ namespace KinematicCharacterController.Examples
         {
             if (other.CompareTag("Ennemy"))
             {
-                PlayerTakeDamage(5);
+                 
+                PlayerTakeDamage(other.gameObject.GetComponent<EnemyProjectile>().damage);
             }
             if (other.CompareTag("Lava"))
             {
@@ -289,6 +322,10 @@ namespace KinematicCharacterController.Examples
         {
             questText.text = text;
         }
+        [SerializeField] GameObject chargesFire;
+        [SerializeField] GameObject chargesEarth;
+        [SerializeField] GameObject chargesWind;
+        [SerializeField] GameObject chargesWater;
         public void SwapElement()
         {
             if (isAvailable)
@@ -304,6 +341,10 @@ namespace KinematicCharacterController.Examples
                     petsFire.gameObject.SetActive(false);
                     fireIcon.SetActive(false);
                     earthIcon.SetActive(true);
+                   chargesFire.gameObject.SetActive(false);
+                    chargesEarth.gameObject.SetActive(true);
+                    fireUI.SetActive(false);
+                    earthUi.SetActive(true);
                     // playerCurrentHealth = earthHealth ;
 
 
@@ -318,7 +359,11 @@ namespace KinematicCharacterController.Examples
                     petsFire.gameObject.SetActive (true);
                     fireIcon.SetActive(true);
                     waterIcon.SetActive(false);
-                    //  playerCurrentHealth = fireHealth;   
+                    chargesWater.gameObject.SetActive(false);
+                    chargesFire.gameObject.SetActive(true);
+                    fireUI.SetActive(true);
+                    waterUI.SetActive(false);
+
                 }
                 else if (earthIsOn == true)
                 {
@@ -330,6 +375,11 @@ namespace KinematicCharacterController.Examples
                     petsWind.gameObject.SetActive(true);
                     windIcon.SetActive(true);
                     earthIcon.SetActive(false);
+                    chargesEarth.SetActive(false);
+                    chargesWind.SetActive(true);
+                    windUi.SetActive(true);
+                    earthUi.SetActive(false);
+
                     //  playerCurrentHealth = windHealth;
 
                 }
@@ -343,6 +393,11 @@ namespace KinematicCharacterController.Examples
                     petsWater.gameObject.SetActive(true) ;
                     waterIcon.SetActive(true);
                     windIcon.SetActive(false);
+                    chargesWind.SetActive (false);
+                    chargesWater.SetActive(true);
+                    windUi.SetActive(false);
+                    waterUI.SetActive(true);
+
                     // playerCurrentHealth = waterHealth;
 
                 }
@@ -390,25 +445,29 @@ namespace KinematicCharacterController.Examples
         {
             if (currentEnergy > 0)
             {
-                energyBar.gameObject.GetComponent<Slider>().value = currentEnergy - 1;
+                
                 // Sélectionner l'attaque appropriée en fonction de l'élément actuel du joueur
                 switch (currentElement)
                 {
                     case 1:
-                        currentEnergyFire = energyBar.GetComponent<Slider>().value;
+                        currentEnergyFire--;
                         fireballSkill.UseFireball();
+                        UpdateSkillIconsFire();
                         break;
                     case 2:
-                        currentEnergyEarth = energyBar.GetComponent<Slider>().value;
+                        currentEnergyEarth--;
                         stoneBridgeSkill.CreateStoneBridge();
+                        UpdateSkillIconsEarth();
                         break;
                     case 3:
-                        currentEnergyWind = energyBar.GetComponent<Slider>().value;
+                        currentEnergyWind--;
                         propulsionSkill.PropelInAir();
+                        UpdateSkillIconsWind();
                         break;
                     case 4:
-                        currentEnergyWater = energyBar.GetComponent<Slider>().value;
+                        currentEnergyWater--;
                         tpAuthorized = true;
+                        UpdateSkillIconsWater();
                         break;
                     default:
                         break;

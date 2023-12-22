@@ -30,7 +30,7 @@ public class FragmentCollection : MonoBehaviour, IDataPersistence
             {
                 FireFragments++;
                 examplePlayer.currentEnergyFire++;
-                
+                examplePlayer.UpdateSkillIconsFire();
                 Debug.Log("Fire Fragments: " + FireFragments);
                 Destroy(other.gameObject);
             }
@@ -38,6 +38,7 @@ public class FragmentCollection : MonoBehaviour, IDataPersistence
             {
                 WaterFragments++;
                 examplePlayer.currentEnergyWater++;
+                examplePlayer.UpdateSkillIconsWater();
                 
                 Debug.Log("Water Fragments: " + WaterFragments);
                 Destroy(other.gameObject);
@@ -46,6 +47,7 @@ public class FragmentCollection : MonoBehaviour, IDataPersistence
             {
                 WindFragments++;
                 examplePlayer.currentEnergyWind++;
+                examplePlayer.UpdateSkillIconsWind();
                 
                 Debug.Log("Wind Fragments: " + WindFragments);
                 Destroy(other.gameObject);
@@ -54,6 +56,7 @@ public class FragmentCollection : MonoBehaviour, IDataPersistence
             {
                 RockFragments++;
                 examplePlayer.currentEnergyEarth++;
+                examplePlayer.UpdateSkillIconsEarth();
                 
                 Debug.Log("Rock Fragments: " + RockFragments);
                 Destroy(other.gameObject);

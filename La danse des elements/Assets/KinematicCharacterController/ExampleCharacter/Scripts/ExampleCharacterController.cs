@@ -43,7 +43,21 @@ namespace KinematicCharacterController.Examples
     public class ExampleCharacterController : MonoBehaviour, ICharacterController, IDataPersistence
     {
         public KinematicCharacterMotor Motor;
+        [SerializeField] Animator fireanimator;
+        [SerializeField] Animator wateranimator;
+        [SerializeField] Animator earthanimator;
+        [SerializeField] Animator windanimator;
+        private void Update()
+        {
 
+            float speed = Motor.BaseVelocity.sqrMagnitude;
+            fireanimator.SetFloat("Speed", speed);
+            wateranimator.SetFloat("Speed", speed);
+            earthanimator.SetFloat("Speed", speed);
+            windanimator.SetFloat("Speed", speed);
+
+
+        }
         [Header("Stable Movement")]
         public float MaxStableMoveSpeed = 10f;
         public float StableMovementSharpness = 15f;
@@ -88,7 +102,7 @@ namespace KinematicCharacterController.Examples
 
         private Vector3 lastInnerNormal = Vector3.zero;
         private Vector3 lastOuterNormal = Vector3.zero;
-
+        
         private void Awake()
         {
             // Handle initial state
@@ -288,9 +302,10 @@ namespace KinematicCharacterController.Examples
         /// This is where you tell your character what its velocity should be right now. 
         /// This is the ONLY place where you can set the character's velocity
         /// </summary>
-       
+        
         public void UpdateVelocity(ref Vector3 currentVelocity, float deltaTime)
         {
+            
             switch (CurrentCharacterState)
             {
                 case CharacterState.Default:
@@ -298,6 +313,8 @@ namespace KinematicCharacterController.Examples
                         // Ground movement
                         if (Motor.GroundingStatus.IsStableOnGround)
                         {
+                            
+                            
                             float currentVelocityMagnitude = currentVelocity.magnitude;
 
                             Vector3 effectiveGroundNormal = Motor.GroundingStatus.GroundNormal;
@@ -407,6 +424,7 @@ namespace KinematicCharacterController.Examples
         /// </summary>
         public void AfterCharacterUpdate(float deltaTime)
         {
+            
             switch (CurrentCharacterState)
             {
                 case CharacterState.Default:

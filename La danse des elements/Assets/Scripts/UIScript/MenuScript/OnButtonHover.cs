@@ -36,6 +36,7 @@ public class OnButtonHover : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
     {
         // Code exécuté lorsque le pointeur entre dans la zone du bouton
         button.Select(); // Sélectionne le bouton
+
         //button.transform.localScale = initialScale * hoverScale;
     }
 

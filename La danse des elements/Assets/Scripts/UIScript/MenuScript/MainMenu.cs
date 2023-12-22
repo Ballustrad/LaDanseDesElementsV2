@@ -20,6 +20,12 @@ public class MainMenu : MonoBehaviour
     public Button primaryOptionsMenuButton;
     [Space(20)]
 
+    public AudioSource uiAudioSource; // Drag your AudioSource here in the Inspector
+    public AudioClip uiSound; // Drag your AudioClip here in the Inspector
+
+    public AudioSource musicAudioSource; // Drag your AudioSource here in the Inspector
+    public AudioClip musicSound; // Drag your AudioClip here in the Inspector
+
     [Header("Credits MENU")]
     public GameObject creditsMENU;
     public Button primaryCreditsMenuButton;
@@ -27,18 +33,24 @@ public class MainMenu : MonoBehaviour
     //MENU
     private void Start()
     {
+        musicAudioSource.clip = musicSound;
+        musicAudioSource.loop = true;
+        musicAudioSource.Play();
         primaryMainMenuButton.Select();
     }
 
     public void PlayGame()
     {
-        SceneManager.LoadScene("TrainingRoom");
+        uiAudioSource.PlayOneShot(uiSound);
+        SceneManager.LoadScene("MainGameplay");
     }
 
     public void OptionsMENU()
     {
         optionsMENU.SetActive(true);
         primaryOptionsMenuButton.Select();
+
+        uiAudioSource.PlayOneShot(uiSound);
 
         mainMENU.SetActive(false);
     }
@@ -47,11 +59,14 @@ public class MainMenu : MonoBehaviour
         creditsMENU.SetActive(true);
         primaryCreditsMenuButton.Select();
 
+        uiAudioSource.PlayOneShot(uiSound);
+
         mainMENU.SetActive(false);
     }
 
     public void QuitGame()
     {
+        uiAudioSource.PlayOneShot(uiSound);
         Application.Quit();
     }
 
@@ -59,6 +74,8 @@ public class MainMenu : MonoBehaviour
     public void CloseOptions()
     {
         optionsMENU.SetActive(false);
+
+        uiAudioSource.PlayOneShot(uiSound);
 
         optionsButton.Select();
         mainMENU.SetActive(true);
@@ -68,6 +85,8 @@ public class MainMenu : MonoBehaviour
     public void CloseCredits()
     {
         creditsMENU.SetActive(false);
+
+        uiAudioSource.PlayOneShot(uiSound);
 
         creditsButton.Select();
         mainMENU.SetActive(true);

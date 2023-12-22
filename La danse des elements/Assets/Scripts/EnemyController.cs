@@ -19,6 +19,10 @@ public class EnemyController : MonoBehaviour
     public GameObject projectilePrefab;
     public float shootingDistance = 10.0f;
     public float shootingCooldown = 2.0f;
+    [SerializeField] AudioSource audiosource;
+    [SerializeField] AudioClip attacksound;
+    
+    [SerializeField] AudioClip triggered;
 
     void Start()
     {
@@ -80,18 +84,31 @@ public class EnemyController : MonoBehaviour
         navMeshAgent.destination = patrolPoints[currentPatrolIndex].position;
         currentPatrolIndex = (currentPatrolIndex + 1) % patrolPoints.Length;
     }
-
+    private bool detected;
     void CheckForPlayer()
     {
         Collider[] hitColliders = Physics.OverlapSphere(transform.position, detectionRange, playerLayer);
-        if (hitColliders.Length > 0)
+        
+        if (hitColliders.Length > 0 && !detected)
         {
+            if (audiosource != null && triggered != null)
+            {
+                // Joue le son depuis l'AudioSource du soundManager
+                audiosource.PlayOneShot(triggered);
+            }
             player = hitColliders[0].transform;
+            detected = true;
             isPatrolling = false;
         }
+
     }
     private void Shoot()
     {
+        if (audiosource != null && attacksound != null)
+        {
+            // Joue le son depuis l'AudioSource du soundManager
+            audiosource.PlayOneShot(attacksound);
+        }
         // Instantiate the projectile and set its direction towards the player
         GameObject projectile = Instantiate(projectilePrefab, transform.position, Quaternion.identity);
         Vector3 direction = (player.position - transform.position) + new Vector3(0, 1, 0).normalized;
@@ -105,7 +122,7 @@ public class EnemyController : MonoBehaviour
     void ChasePlayer()
     {
         if (player == null) return;
-
+        
         navMeshAgent.destination = player.position;
         navMeshAgent.speed = chaseSpeed;
         navMeshAgent.isStopped = false;

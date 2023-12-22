@@ -12,6 +12,7 @@ public class EndLEver : MonoBehaviour
     [SerializeField] ExamplePlayer player;
     private void OnTriggerStay(Collider other)
     {
+        player.interactText.SetActive(true);
         if (other.CompareTag("Player") && Input.GetKey(KeyCode.X) && !liftStarted)
         {
             liftStarted = true;
